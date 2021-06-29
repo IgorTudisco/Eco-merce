@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "tb_usuario")
 @Component
 public class Usuario {
 
