@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
@@ -21,40 +22,40 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_usuario;
+	private Long id_usuario;
 
-	@NotEmpty
+	@NotEmpty(message = "nome não pode ser nulo e nem vazio")
 	@Size(min = 3, max = 100)
 	private String nome;
 
-	@NotEmpty
+	@NotEmpty(message = "email não pode ser nulo e nem vazio")
 	@Size(min = 4, max = 100)
 	private String email;
 
-	@NotEmpty
+	@NotEmpty(message = "senha não pode ser nulo e nem vazio")
 	@Size(min = 8, max = 45)
 	private String senha;
 
-	@NotEmpty
+	@NotEmpty(message = "endereco não pode ser nulo e nem vazio")
 	@Size(min = 10, max = 255)
 	private String endereco;
 
-	@NotEmpty
+	@NotEmpty(message = "cpf não pode ser nulo e nem vazio (11)")
 	@Size(min = 11, max = 11)
-	private String CPF;
+	private String cpf;
 
-	@NotEmpty
-	@Size(min = 3, max = 3)
+	@NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
+	@Size(min = 1, max = 1)
 	private int usuarioTipo;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 
-	public int getId_usuario() {
+	public Long getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(int id_usuario) {
+	public void setId_usuario(Long id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 
@@ -90,12 +91,12 @@ public class Usuario {
 		this.endereco = endereco;
 	}
 
-	public String getCPF() {
-		return CPF;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public int getUsuarioTipo() {
