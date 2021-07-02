@@ -17,38 +17,37 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "tb_voucher")
 @Component
-public class Voucher 
-{
+public class Voucher {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_voucher;
+	private Long id_voucher;
 
-	@NotEmpty
+	@NotEmpty(message = "empresaParceira não pode ser nulo e nem vazio")
 	@Size(min = 3, max = 100)
 	private String empresaParceira;
 
-	@NotEmpty
+	@NotEmpty(message = "desconto não pode ser nulo e nem vazio")
 	private Long desconto;
 
-	@NotEmpty
+	@NotEmpty(message = "descricaoVoucher não pode ser nulo e nem vazio")
 	@Size(min = 8, max = 255)
 	private String descricaoVoucher;
 
-	@NotEmpty
-	@Size(min = 10, max = 255)
+	@NotEmpty(message = "produto não pode ser nulo e nem vazio")
+	@Size(min = 3, max = 255)
 	private String produto;
 
-	@NotEmpty
-	private int id_usuario;
+	@NotEmpty(message = "id_usuario não pode ser nulo e nem vazio")
+	private Long id_usuario;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 
-	public int getId_voucher() {
+	public Long getId_voucher() {
 		return id_voucher;
 	}
 
-	public void setId_voucher(int id_voucher) {
+	public void setId_voucher(Long id_voucher) {
 		this.id_voucher = id_voucher;
 	}
 
@@ -84,11 +83,11 @@ public class Voucher
 		this.produto = produto;
 	}
 
-	public int getId_usuario() {
+	public Long getId_usuario() {
 		return id_usuario;
 	}
 
-	public void setId_usuario(int id_usuario) {
+	public void setId_usuario(Long id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 
@@ -99,5 +98,5 @@ public class Voucher
 	public void setData(Date data) {
 		this.data = data;
 	}
-	
+
 }
