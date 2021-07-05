@@ -1,11 +1,19 @@
 package Ecomerce.Ecomerce.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,6 +21,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_voucher")
@@ -37,8 +47,13 @@ public class Voucher {
 	@Size(min = 3, max = 255)
 	private String produto;
 
-	@NotEmpty(message = "id_usuario não pode ser nulo e nem vazio")
-	private Long id_usuario;
+	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties({"id_usuario","senha","vouchersEmpresa"})
+	private Usuario empresaCriadora;
+
+	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@JoinTable(name = "juncaoVU", joinColumns = @JoinColumn(name = "fk_voucher"), inverseJoinColumns = @JoinColumn(name = "fk_usuario"))
+	private List<Usuario> usuariosComVoucher = new ArrayList<>();
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
@@ -83,12 +98,20 @@ public class Voucher {
 		this.produto = produto;
 	}
 
-	public Long getId_usuario() {
-		return id_usuario;
+	public Usuario getEmpresaCriadora() {
+		return empresaCriadora;
 	}
 
-	public void setId_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setEmpresaCriadora(Usuario empresaCriadora) {
+		this.empresaCriadora = empresaCriadora;
+	}
+
+	public List<Usuario> getUsuariosComVoucher() {
+		return usuariosComVoucher;
+	}
+
+	public void setUsuariosComVoucher(List<Usuario> usuariosComVoucher) {
+		this.usuariosComVoucher = usuariosComVoucher;
 	}
 
 	public Date getData() {
