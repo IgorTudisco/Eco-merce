@@ -1,6 +1,7 @@
 package Ecomerce.Ecomerce.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Ecomerce.Ecomerce.model.Usuario;
 import Ecomerce.Ecomerce.repository.UsuarioRepository;
+import Ecomerce.Ecomerce.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
@@ -27,6 +29,9 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepository repositoryUsuario;
+
+	@Autowired
+	private UsuarioService serviceUsuario;
 
 	@GetMapping
 	public ResponseEntity<List<Usuario>> getAll() {
@@ -73,6 +78,23 @@ public class UsuarioController {
 	public void deleteById(@PathVariable Long id_usuario) {
 
 		repositoryUsuario.deleteById(id_usuario);
+
+	};
+
+	@PutMapping("/usuario/{id_usuario}/voucher/{id_voucher}")
+	public ResponseEntity<Usuario> batatinhas(@PathVariable Long id_usuario, @PathVariable Long id_voucher) {
+
+		Optional<Usuario> voucherCriado = serviceUsuario.juncao(id_usuario, id_voucher);
+
+		if (voucherCriado.isEmpty()) {
+
+			return ResponseEntity.badRequest().build();
+
+		} else {
+
+			return ResponseEntity.ok(voucherCriado.get());
+
+		}
 
 	};
 
