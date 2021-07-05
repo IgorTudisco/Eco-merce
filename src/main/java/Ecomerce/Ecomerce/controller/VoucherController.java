@@ -48,6 +48,11 @@ public class VoucherController {
 
 	};
 
+	@GetMapping("/empresaParceira/{empresaParceira}")
+	public ResponseEntity<List<Voucher>> getByEmpresaParceira(@PathVariable String empresaParceira) {
+		return ResponseEntity.ok(repositoryVoucher.findAllByEmpresaParceiraContainingIgnoreCase(empresaParceira));
+	};
+
 	@PostMapping
 	public ResponseEntity<Voucher> postVoucher(@RequestBody Voucher voucher) {
 

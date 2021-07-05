@@ -10,6 +10,8 @@ import Ecomerce.Ecomerce.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
+	public List<Usuario> findAllByEmail(String email);
+
 	public List<Usuario> findAllByEnderecoContainingIgnoreCase(String endereco);
 
 }

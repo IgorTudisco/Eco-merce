@@ -12,4 +12,5 @@ public interface VoucherRepository extends JpaRepository<Voucher, Long> {
 
 	public List<Voucher> findAllByDescricaoVoucherContainingIgnoreCase(String descricaoVoucher);
 
+	public List<Voucher> findAllByEmpresaParceiraContainingIgnoreCase(String empresaParceira);
 }

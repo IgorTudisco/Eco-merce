@@ -50,6 +50,11 @@ public class UsuarioController {
 
 	};
 
+	@GetMapping("/email/{email}")
+	public ResponseEntity<List<Usuario>> getByEmail(@PathVariable String email) {
+		return ResponseEntity.ok(repositoryUsuario.findAllByEmail(email));
+	};
+
 	@PostMapping
 	public ResponseEntity<Usuario> postUsuario(@RequestBody Usuario usuario) {
 
