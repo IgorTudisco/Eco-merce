@@ -52,28 +52,31 @@ public class Usuario {
 	@NotEmpty(message = "cpf não pode ser nulo e nem vazio (11)")
 	@Size(min = 11, max = 11)
 	private String cpf;
-	
-	private Float meusPontos = new Float(0);
 
-	//@NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
-	//@Size(min = 1, max = 1)
-	//private int usuarioTipo;
-	@NotNull(message = "Necessario COOPERATIVA, NORMAL ou EMPRESA")
+	private Long meusPontos;
+
+	// @NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
+	// @Size(min = 1, max = 1)
+	// private int usuarioTipo;
+	@NotNull(message = "Necessario COOPERATIVA, CLIENTE ou EMPRESA")
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
 
 	@OneToMany(mappedBy = "empresaCriadora")
 	// @JoinTable(name = "tb_juncao", joinColumns = @JoinColumn(name =
 	// "fk_usuario"), inverseJoinColumns = @JoinColumn(name = "fk_voucher"))
-	@JsonIgnoreProperties({"id_voucher","empresaCriadora"})
+	@JsonIgnoreProperties({ "id_voucher", "empresaCriadora" })
 	private List<Voucher> vouchersEmpresa = new ArrayList<>();
 
 	@ManyToMany(mappedBy = "usuariosComVoucher")
-	@JsonIgnoreProperties({"usuariosComVoucher"})
-	private List<Voucher> meusVauchers = new ArrayList<>();
+	@JsonIgnoreProperties({ "usuariosComVoucher" })
+	private List<Voucher> meusVouchers = new ArrayList<>();
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
+
+	public Usuario() {
+	};
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -123,44 +126,12 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	/*
-	 * public int getUsuarioTipo() { return usuarioTipo; }
-	 */
-
-	/*
-	 * public void setUsuarioTipo(int usuarioTipo) { this.usuarioTipo = usuarioTipo;
-	 * }
-	 */
-
-	public List<Voucher> getVouchersEmpresa() {
-		return vouchersEmpresa;
-	}
-
-	public void setVouchersEmpresa(List<Voucher> vouchersEmpresa) {
-		this.vouchersEmpresa = vouchersEmpresa;
-	}
-
-	public List<Voucher> getMeusVauchers() {
-		return meusVauchers;
-	}
-
-	public void setMeusVauchers(List<Voucher> meusVauchers) {
-		this.meusVauchers = meusVauchers;
-	}
-
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-
-	public Float getMeusPontos() {
+	public Long getMeusPontos() {
 		return meusPontos;
 	}
 
-	public void setMeusPontos(Float meusPontos) {
+	public void setMeusPontos(Long meusPontos) {
+
 		this.meusPontos = meusPontos;
 	}
 
@@ -171,6 +142,29 @@ public class Usuario {
 	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
 	}
-	
+
+	public List<Voucher> getVouchersEmpresa() {
+		return vouchersEmpresa;
+	}
+
+	public void setVouchersEmpresa(List<Voucher> vouchersEmpresa) {
+		this.vouchersEmpresa = vouchersEmpresa;
+	}
+
+	public List<Voucher> getMeusVouchers() {
+		return meusVouchers;
+	}
+
+	public void setMeusVouchers(List<Voucher> meusVouchers) {
+		this.meusVouchers = meusVouchers;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
 
 }

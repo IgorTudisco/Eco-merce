@@ -17,7 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -39,7 +38,7 @@ public class Voucher {
 	private String empresaParceira;
 
 	@NotNull(message = "Pontos não pode ser nulo")
-	private Float pontosNecessario;
+	private Long pontosNecessario;
 
 	@NotEmpty(message = "descricaoVoucher não pode ser nulo e nem vazio")
 	@Size(min = 8, max = 255)
@@ -50,12 +49,13 @@ public class Voucher {
 	private String produto;
 
 	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({ "id_usuario", "senha", "vouchersEmpresa" })
+	@JsonIgnoreProperties({ "id_usuario", "senha", "vouchersEmpresa", "meusVouchers", "cpf", "meusPontos", "tipo",
+			"data" })
 	private Usuario empresaCriadora;
 
 	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinTable(name = "juncaoVU", joinColumns = @JoinColumn(name = "fk_voucher"), inverseJoinColumns = @JoinColumn(name = "fk_usuario"))
-	@JsonIgnoreProperties({"meusVauchers"})
+	@JsonIgnoreProperties({ "meusVouchers", "vouchersEmpresa", "id_usuario", "senha", "cpf", "tipo" })
 	private List<Usuario> usuariosComVoucher = new ArrayList<>();
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -77,11 +77,11 @@ public class Voucher {
 		this.empresaParceira = empresaParceira;
 	}
 
-	public Float getPontosNecessario() {
+	public Long getPontosNecessario() {
 		return pontosNecessario;
 	}
 
-	public void setPontosNecessario(Float pontosNecessario) {
+	public void setPontosNecessario(Long pontosNecessario) {
 		this.pontosNecessario = pontosNecessario;
 	}
 

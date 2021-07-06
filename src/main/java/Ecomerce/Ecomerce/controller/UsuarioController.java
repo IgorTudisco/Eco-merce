@@ -64,6 +64,7 @@ public class UsuarioController {
 	@PostMapping
 	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
 
+		serviceUsuario.pontosCortesia(usuario);
 		return ResponseEntity.status(HttpStatus.CREATED).body(repositoryUsuario.save(usuario));
 
 	};
@@ -90,19 +91,12 @@ public class UsuarioController {
 				.orElse(ResponseEntity.badRequest().build());
 	}
 
-	@PutMapping("/normal/{id_normal}/cooperativa/{id_cooperativa}/valor/{float_valor}")
-	public ResponseEntity<Usuario> adcionarPontuacao(@PathVariable(value = "id_normal") Long idNormal,
+	@PutMapping("/cliente/{id_cliente}/cooperativa/{id_cooperativa}/valor/{long_valor}")
+	public ResponseEntity<Usuario> adcionarPontuacao(@PathVariable(value = "id_cliente") Long idCliente,
 			@PathVariable(value = "id_cooperativa") Long idCooperativa,
-			@PathVariable(value = "float_valor") Float valor) {
-		return serviceUsuario.adicionarPontos(idNormal, idCooperativa, valor)
+			@PathVariable(value = "long_valor") Long valor) {
+		return serviceUsuario.adicionarPontos(idCliente, idCooperativa, valor)
 				.map(usuarioPontuado -> ResponseEntity.ok(usuarioPontuado)).orElse(ResponseEntity.badRequest().build());
-	}
-	
-	@PutMapping("/normal/{id_normal}/voucher/{id_voucher}")
-	public ResponseEntity<Object> adquirirVoucher(
-			@PathVariable(value = "id_normal") Long idNormal,
-			@PathVariable(value = "id_voucher") Long idVoucher){
-		return serviceUsuario.adquirirVoucher(idNormal, idVoucher);
 	}
 
 	/*

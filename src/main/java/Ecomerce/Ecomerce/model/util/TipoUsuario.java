@@ -1,5 +1,5 @@
 package Ecomerce.Ecomerce.model.util;
 
 public enum TipoUsuario {
-	COOPERATIVA, NORMAL, EMPRESA
+	COOPERATIVA, CLIENTE, EMPRESA
 }

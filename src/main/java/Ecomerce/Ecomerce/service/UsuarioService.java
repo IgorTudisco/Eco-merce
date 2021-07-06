@@ -31,11 +31,25 @@ public class UsuarioService {
 		Optional<Usuario> usuario = repositoryUsuario.findById(idUsuario);
 
 		if (voucher.isPresent() && usuario.isPresent()) {
-			usuario.get().getMeusVauchers().add(voucher.get());
+			usuario.get().getMeusVouchers().add(voucher.get());
 			return Optional.ofNullable(repositoryUsuario.save(usuario.get()));
 		}
 		return Optional.empty();
 	}
+
+	/**
+	 * Metodo que dá uma cortesia ao cliente.
+	 * 
+	 * @param pontos
+	 * @since 1.0
+	 * @author Grupo
+	 */
+	public void pontosCortesia(Usuario pontos) {
+
+		long pontosValor = 10;
+		pontos.setMeusPontos(pontosValor);
+
+	};
 
 	/**
 	 * Metodo utilizado para Criar um Voucher
@@ -57,22 +71,22 @@ public class UsuarioService {
 	}
 
 	/**
-	 * Metodo para Adcionar pontos ao Usuario Normal
+	 * Metodo para Adcionar pontos ao Usuario Cliente
 	 * 
-	 * @param idNormal
+	 * @param idCliente
 	 * @param idCooperativa
 	 * @param pontuacaoDada
-	 * @return Optional com Usuario Normal
+	 * @return Optional com Usuario Cliente
 	 * @since 1.0
 	 * @author Grupo
 	 */
-	public Optional<Usuario> adicionarPontos(Long idNormal, Long idCooperativa, Float pontuacaoDada) {
-		Optional<Usuario> normal = repositoryUsuario.findById(idNormal);
+	public Optional<Usuario> adicionarPontos(Long idCliente, Long idCooperativa, Long pontuacaoDada) {
+		Optional<Usuario> cliente = repositoryUsuario.findById(idCliente);
 		Optional<Usuario> cooperativa = repositoryUsuario.findById(idCooperativa);
-		if (normal.isPresent() && cooperativa.isPresent()) {
-			Float valor = normal.get().getMeusPontos() + pontuacaoDada;
-			normal.get().setMeusPontos(valor);
-			return Optional.ofNullable(repositoryUsuario.save(normal.get()));
+		if (cliente.isPresent() && cooperativa.isPresent()) {
+			Long valor = cliente.get().getMeusPontos() + pontuacaoDada;
+			cliente.get().setMeusPontos(valor);
+			return Optional.ofNullable(repositoryUsuario.save(cliente.get()));
 		} else {
 			return Optional.empty();
 		}
@@ -81,22 +95,22 @@ public class UsuarioService {
 	/**
 	 * Metodo para adquirir Voucher
 	 * 
-	 * @param idNormal
+	 * @param idCliente
 	 * @param idVoucher
 	 * @return Response Entity 200 com Vouchers
 	 * @since 1.0
 	 * @author Grupo
 	 */
-	public ResponseEntity<Object> adquirirVoucher(Long idNormal, Long idVoucher) {
-		Optional<Usuario> normal = repositoryUsuario.findById(idNormal);
+	public ResponseEntity<Object> adquirirVoucher(Long idCliente, Long idVoucher) {
+		Optional<Usuario> cliente = repositoryUsuario.findById(idCliente);
 		Optional<Voucher> voucher = repositoryVoucher.findById(idVoucher);
 
-		if (normal.isPresent() && voucher.isPresent()) {
-			if (normal.get().getMeusPontos() >= voucher.get().getPontosNecessario()) {
-				Float valor = normal.get().getMeusPontos() - voucher.get().getPontosNecessario();
-				normal.get().setMeusPontos(valor);
-				Usuario novoNormal = repositoryUsuario.save(normal.get());
-				voucher.get().getUsuariosComVoucher().add(novoNormal);
+		if (cliente.isPresent() && voucher.isPresent()) {
+			if (cliente.get().getMeusPontos() >= voucher.get().getPontosNecessario()) {
+				Long valor = cliente.get().getMeusPontos() - voucher.get().getPontosNecessario();
+				cliente.get().setMeusPontos(valor);
+				Usuario novoCliente = repositoryUsuario.save(cliente.get());
+				voucher.get().getUsuariosComVoucher().add(novoCliente);
 				return ResponseEntity.ok(repositoryVoucher.save(voucher.get()));
 			} else {
 				return ResponseEntity.ok("Pontuação insuficiente");
