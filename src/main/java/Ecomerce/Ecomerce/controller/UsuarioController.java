@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Ecomerce.Ecomerce.model.Usuario;
+import Ecomerce.Ecomerce.model.Voucher;
 import Ecomerce.Ecomerce.repository.UsuarioRepository;
 import Ecomerce.Ecomerce.service.UsuarioService;
 
@@ -61,7 +62,7 @@ public class UsuarioController {
 	};
 
 	@PostMapping
-	public ResponseEntity<Usuario> postUsuario(@RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(repositoryUsuario.save(usuario));
 
@@ -81,21 +82,48 @@ public class UsuarioController {
 
 	};
 
-	@PutMapping("/usuario/{id_usuario}/voucher/{id_voucher}")
-	public ResponseEntity<Usuario> batatinhas(@PathVariable Long id_usuario, @PathVariable Long id_voucher) {
+	@PostMapping("/empresa/{id_empresa}/criar")
+	public ResponseEntity<Voucher> criarVoucher(@PathVariable(value = "id_empresa") Long idEmpresa,
+			@Valid @RequestBody Voucher novoVoucher) {
+		return serviceUsuario.criarVoucher(idEmpresa, novoVoucher)
+				.map(voucherCriado -> ResponseEntity.status(201).body(voucherCriado))
+				.orElse(ResponseEntity.badRequest().build());
+	}
 
-		Optional<Usuario> voucherCriado = serviceUsuario.juncao(id_usuario, id_voucher);
+	@PutMapping("/normal/{id_normal}/cooperativa/{id_cooperativa}/valor/{float_valor}")
+	public ResponseEntity<Usuario> adcionarPontuacao(@PathVariable(value = "id_normal") Long idNormal,
+			@PathVariable(value = "id_cooperativa") Long idCooperativa,
+			@PathVariable(value = "float_valor") Float valor) {
+		return serviceUsuario.adicionarPontos(idNormal, idCooperativa, valor)
+				.map(usuarioPontuado -> ResponseEntity.ok(usuarioPontuado)).orElse(ResponseEntity.badRequest().build());
+	}
+	
+	@PutMapping("/normal/{id_normal}/voucher/{id_voucher}")
+	public ResponseEntity<Object> adquirirVoucher(
+			@PathVariable(value = "id_normal") Long idNormal,
+			@PathVariable(value = "id_voucher") Long idVoucher){
+		return serviceUsuario.adquirirVoucher(idNormal, idVoucher);
+	}
 
-		if (voucherCriado.isEmpty()) {
-
-			return ResponseEntity.badRequest().build();
-
-		} else {
-
-			return ResponseEntity.ok(voucherCriado.get());
-
-		}
-
-	};
+	/*
+	 * @PutMapping("/usuario/{id_usuario}/voucher/{id_voucher}") public
+	 * ResponseEntity<Usuario> batatinhas(@PathVariable Long
+	 * id_usuario, @PathVariable Long id_voucher) {
+	 * 
+	 * Optional<Usuario> voucherCriado = serviceUsuario.juncao(id_usuario,
+	 * id_voucher);
+	 * 
+	 * if (voucherCriado.isEmpty()) {
+	 * 
+	 * return ResponseEntity.badRequest().build();
+	 * 
+	 * } else {
+	 * 
+	 * return ResponseEntity.ok(voucherCriado.get());
+	 * 
+	 * }
+	 * 
+	 * };
+	 */
 
 }

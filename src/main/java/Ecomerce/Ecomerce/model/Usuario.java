@@ -5,22 +5,24 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import Ecomerce.Ecomerce.model.util.TipoUsuario;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -50,10 +52,15 @@ public class Usuario {
 	@NotEmpty(message = "cpf não pode ser nulo e nem vazio (11)")
 	@Size(min = 11, max = 11)
 	private String cpf;
+	
+	private Float meusPontos = new Float(0);
 
-	@NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
-	@Size(min = 1, max = 1)
-	private int usuarioTipo;
+	//@NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
+	//@Size(min = 1, max = 1)
+	//private int usuarioTipo;
+	@NotNull(message = "Necessario COOPERATIVA, NORMAL ou EMPRESA")
+	@Enumerated(EnumType.STRING)
+	private TipoUsuario tipo;
 
 	@OneToMany(mappedBy = "empresaCriadora")
 	// @JoinTable(name = "tb_juncao", joinColumns = @JoinColumn(name =
@@ -62,6 +69,7 @@ public class Usuario {
 	private List<Voucher> vouchersEmpresa = new ArrayList<>();
 
 	@ManyToMany(mappedBy = "usuariosComVoucher")
+	@JsonIgnoreProperties({"usuariosComVoucher"})
 	private List<Voucher> meusVauchers = new ArrayList<>();
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -115,13 +123,14 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public int getUsuarioTipo() {
-		return usuarioTipo;
-	}
+	/*
+	 * public int getUsuarioTipo() { return usuarioTipo; }
+	 */
 
-	public void setUsuarioTipo(int usuarioTipo) {
-		this.usuarioTipo = usuarioTipo;
-	}
+	/*
+	 * public void setUsuarioTipo(int usuarioTipo) { this.usuarioTipo = usuarioTipo;
+	 * }
+	 */
 
 	public List<Voucher> getVouchersEmpresa() {
 		return vouchersEmpresa;
@@ -146,5 +155,22 @@ public class Usuario {
 	public void setData(Date data) {
 		this.data = data;
 	}
+
+	public Float getMeusPontos() {
+		return meusPontos;
+	}
+
+	public void setMeusPontos(Float meusPontos) {
+		this.meusPontos = meusPontos;
+	}
+
+	public TipoUsuario getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
+	}
+	
 
 }
