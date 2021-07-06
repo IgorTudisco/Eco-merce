@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Ecomerce.Ecomerce.model.Voucher;
 import Ecomerce.Ecomerce.repository.VoucherRepository;
+import Ecomerce.Ecomerce.service.UsuarioService;
 
 @RestController
 @RequestMapping("/voucher")
@@ -25,6 +26,9 @@ public class VoucherController {
 
 	@Autowired
 	private VoucherRepository repositoryVoucher;
+
+	@Autowired
+	private UsuarioService serviceUsuario;
 
 	@GetMapping
 	public ResponseEntity<List<Voucher>> getAll() {
@@ -73,5 +77,11 @@ public class VoucherController {
 		repositoryVoucher.deleteById(id_voucher);
 
 	};
+
+	@PutMapping("/cliente/{id_cliente}/voucher/{id_voucher}")
+	public ResponseEntity<Object> adquirirVoucher(@PathVariable(value = "id_cliente") Long idCliente,
+			@PathVariable(value = "id_voucher") Long idVoucher) {
+		return serviceUsuario.adquirirVoucher(idCliente, idVoucher);
+	}
 
 }

@@ -5,22 +5,24 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import Ecomerce.Ecomerce.model.util.TipoUsuario;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -51,21 +53,30 @@ public class Usuario {
 	@Size(min = 11, max = 11)
 	private String cpf;
 
-	@NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
-	@Size(min = 1, max = 1)
-	private int usuarioTipo;
+	private Long meusPontos;
+
+	// @NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
+	// @Size(min = 1, max = 1)
+	// private int usuarioTipo;
+	@NotNull(message = "Necessario COOPERATIVA, CLIENTE ou EMPRESA")
+	@Enumerated(EnumType.STRING)
+	private TipoUsuario tipo;
 
 	@OneToMany(mappedBy = "empresaCriadora")
 	// @JoinTable(name = "tb_juncao", joinColumns = @JoinColumn(name =
 	// "fk_usuario"), inverseJoinColumns = @JoinColumn(name = "fk_voucher"))
-	@JsonIgnoreProperties({"id_voucher","empresaCriadora"})
+	@JsonIgnoreProperties({ "id_voucher", "empresaCriadora" })
 	private List<Voucher> vouchersEmpresa = new ArrayList<>();
 
 	@ManyToMany(mappedBy = "usuariosComVoucher")
-	private List<Voucher> meusVauchers = new ArrayList<>();
+	@JsonIgnoreProperties({ "usuariosComVoucher" })
+	private List<Voucher> meusVouchers = new ArrayList<>();
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
+
+	public Usuario() {
+	};
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -115,12 +126,21 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public int getUsuarioTipo() {
-		return usuarioTipo;
+	public Long getMeusPontos() {
+		return meusPontos;
 	}
 
-	public void setUsuarioTipo(int usuarioTipo) {
-		this.usuarioTipo = usuarioTipo;
+	public void setMeusPontos(Long meusPontos) {
+
+		this.meusPontos = meusPontos;
+	}
+
+	public TipoUsuario getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoUsuario tipo) {
+		this.tipo = tipo;
 	}
 
 	public List<Voucher> getVouchersEmpresa() {
@@ -131,12 +151,12 @@ public class Usuario {
 		this.vouchersEmpresa = vouchersEmpresa;
 	}
 
-	public List<Voucher> getMeusVauchers() {
-		return meusVauchers;
+	public List<Voucher> getMeusVouchers() {
+		return meusVouchers;
 	}
 
-	public void setMeusVauchers(List<Voucher> meusVauchers) {
-		this.meusVauchers = meusVauchers;
+	public void setMeusVouchers(List<Voucher> meusVouchers) {
+		this.meusVouchers = meusVouchers;
 	}
 
 	public Date getData() {
