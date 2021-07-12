@@ -38,4 +38,5 @@ public class UsuarioLoginDTO {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
 }

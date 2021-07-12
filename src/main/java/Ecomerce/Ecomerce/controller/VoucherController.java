@@ -21,7 +21,7 @@ import Ecomerce.Ecomerce.service.UsuarioService;
 
 @RestController
 @RequestMapping("/voucher")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class VoucherController {
 
 	@Autowired
