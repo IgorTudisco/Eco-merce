@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "22235241-dfa2-4090-9ffd-8f63fddb7a9d",
+		"_postman_id": "5fb403ca-1709-4ce9-8f8c-ecfeaee59728",
 		"name": "Eco-merce",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,10 +12,16 @@
 					"name": "Post |  Usuario",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Grupo ZIKA DA BALADA\",\r\n    \"email\": \"tudis@gen.com\",\r\n    \"senha\": \"ZikaBee12345\",\r\n    \"endereco\": \"Rua bota do Judas 24 Bairro Mi\",\r\n    \"cpf\": \"12345678912\",\r\n    \"tipo\": \"CLIENTE\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"MICHELE CIMEGRIPE\",\r\n    \"email\": \"tudis@gen.com\",\r\n    \"senha\": \"ZikaBee12345\",\r\n    \"endereco\": \"Rua bota do Judas 24 Bairro Mi\",\r\n    \"cpf\": \"12345678912\",\r\n    \"tipo\": \"COOPERATIVA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -37,21 +43,15 @@
 				},
 				{
 					"name": "GetAll |  Usuario",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"type": "text"
 							}
-						},
+						],
 						"url": {
 							"raw": "localhost:8080/usuario",
 							"host": [
@@ -207,9 +207,15 @@
 					"name": "Add Pontuação | Usuario",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/usuario/cliente/6/cooperativa/2/valor/50",
+							"raw": "localhost:8080/usuario/cliente/1/cooperativa/3/valor/50",
 							"host": [
 								"localhost"
 							],
@@ -217,9 +223,9 @@
 							"path": [
 								"usuario",
 								"cliente",
-								"6",
+								"1",
 								"cooperativa",
-								"2",
+								"3",
 								"valor",
 								"50"
 							]
@@ -265,7 +271,13 @@
 					"name": "PostCriar| Voucher",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"empresaParceira\": \"Amigos dá Denise 34\",\r\n    \"pontosNecessario\": 50,\r\n    \"descricaoVoucher\": \"Vale batata com bacon\",\r\n    \"produto\": \"Batata e mandioca..........\"\r\n}",
@@ -276,7 +288,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/usuario/empresa/1/criar",
+							"raw": "localhost:8080/usuario/empresa/2/criar",
 							"host": [
 								"localhost"
 							],
@@ -284,7 +296,7 @@
 							"path": [
 								"usuario",
 								"empresa",
-								"1",
+								"2",
 								"criar"
 							]
 						}
@@ -436,9 +448,15 @@
 					"name": "Adquirir Voucher | Voucher",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/voucher/cliente/6/voucher/1",
+							"raw": "localhost:8080/voucher/cliente/1/voucher/1",
 							"host": [
 								"localhost"
 							],
@@ -446,7 +464,7 @@
 							"path": [
 								"voucher",
 								"cliente",
-								"6",
+								"1",
 								"voucher",
 								"1"
 							]
@@ -478,6 +496,67 @@
 								"voucher",
 								"id_delete",
 								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Metodos | Cadastrar e Logar",
+			"item": [
+				{
+					"name": "Autenticar Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Denise ZikaDaBalada\",\r\n    \"email\":\"denisehotdog@gmail.com\",\r\n    \"senha\":\"13465288\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios/cadastrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticar Logar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"denisehotdog@gmail.com\",\r\n    \"senha\":\"13465288\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios/logar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"logar"
 							]
 						}
 					},

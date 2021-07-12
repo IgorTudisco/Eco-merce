@@ -1,6 +1,7 @@
 package Ecomerce.Ecomerce.seguranca;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,8 @@ public class UserDetailsImplements implements UserDetails{
 	private String userEmail;
 	
 	private String password;
+	
+	private List<GrantedAuthority> autoridades;
 
 	public UserDetailsImplements(UsuarioCadastro usuarioCadastro) {
 		super();
@@ -27,7 +30,7 @@ public class UserDetailsImplements implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return autoridades;
 	}
 
 	@Override

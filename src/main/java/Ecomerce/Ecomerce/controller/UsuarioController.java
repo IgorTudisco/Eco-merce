@@ -1,7 +1,6 @@
 package Ecomerce.Ecomerce.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -25,7 +24,7 @@ import Ecomerce.Ecomerce.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
 	@Autowired
