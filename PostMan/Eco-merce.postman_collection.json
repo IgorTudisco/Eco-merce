@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5fb403ca-1709-4ce9-8f8c-ecfeaee59728",
+		"_postman_id": "de34f80e-7ed6-40f6-a7c1-d9cc1ce5eea3",
 		"name": "Eco-merce",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -507,7 +507,7 @@
 			"name": "Metodos | Cadastrar e Logar",
 			"item": [
 				{
-					"name": "Autenticar Cadastrar",
+					"name": "Autenticar | Cadastrar",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -535,7 +535,7 @@
 					"response": []
 				},
 				{
-					"name": "Autenticar Logar",
+					"name": "Autenticar | Logar",
 					"request": {
 						"method": "POST",
 						"header": [],

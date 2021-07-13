@@ -32,7 +32,7 @@ public class UsuarioCadastroController {
 	}
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<UsuarioCadastro> autentication(@Valid @RequestBody UsuarioCadastro usuarioCadastro) {
+	public ResponseEntity<Object> autentication(@Valid @RequestBody UsuarioCadastro usuarioCadastro) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(cadastroUsuarioService.cadastrarUsuario(usuarioCadastro));
 	}
 
