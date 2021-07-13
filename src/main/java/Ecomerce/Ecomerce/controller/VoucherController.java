@@ -2,6 +2,8 @@ package Ecomerce.Ecomerce.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,7 @@ public class VoucherController {
 	};
 
 	@GetMapping("/id/{id_voucher}")
-	public ResponseEntity<Voucher> getById(@PathVariable Long id_voucher) {
+	public ResponseEntity<Voucher> getById(@Valid @PathVariable Long id_voucher) {
 
 		return repositoryVoucher.findById(id_voucher).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
@@ -46,14 +48,14 @@ public class VoucherController {
 	};
 
 	@GetMapping("/descricao/{descricaoVoucher}")
-	public ResponseEntity<List<Voucher>> getByDescricao(@PathVariable String descricaoVoucher) {
+	public ResponseEntity<List<Voucher>> getByDescricao(@Valid @PathVariable String descricaoVoucher) {
 
 		return ResponseEntity.ok(repositoryVoucher.findAllByDescricaoVoucherContainingIgnoreCase(descricaoVoucher));
 
 	};
 
 	@GetMapping("/empresaParceira/{empresaParceira}")
-	public ResponseEntity<List<Voucher>> getByEmpresaParceira(@PathVariable String empresaParceira) {
+	public ResponseEntity<List<Voucher>> getByEmpresaParceira(@Valid @PathVariable String empresaParceira) {
 		return ResponseEntity.ok(repositoryVoucher.findAllByEmpresaParceiraContainingIgnoreCase(empresaParceira));
 	};
 
@@ -65,22 +67,22 @@ public class VoucherController {
 	};
 
 	@PutMapping
-	public ResponseEntity<Voucher> putVoucher(@RequestBody Voucher voucher) {
+	public ResponseEntity<Voucher> putVoucher(@Valid @RequestBody Voucher voucher) {
 
 		return ResponseEntity.status(HttpStatus.OK).body(repositoryVoucher.save(voucher));
 
 	};
 
 	@DeleteMapping("/id_delete/{id_voucher}")
-	public void deleteById(@PathVariable Long id_voucher) {
+	public void deleteById(@Valid @PathVariable Long id_voucher) {
 
 		repositoryVoucher.deleteById(id_voucher);
 
 	};
 
 	@PutMapping("/cliente/{id_cliente}/voucher/{id_voucher}")
-	public ResponseEntity<Object> adquirirVoucher(@PathVariable(value = "id_cliente") Long idCliente,
-			@PathVariable(value = "id_voucher") Long idVoucher) {
+	public ResponseEntity<Object> adquirirVoucher(@Valid @PathVariable(value = "id_cliente") Long idCliente,
+			@Valid @PathVariable(value = "id_voucher") Long idVoucher) {
 		return serviceUsuario.adquirirVoucher(idCliente, idVoucher);
 	}
 

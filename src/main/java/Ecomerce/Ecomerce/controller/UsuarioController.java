@@ -41,7 +41,7 @@ public class UsuarioController {
 	};
 
 	@GetMapping("/id/{id_usuario}")
-	public ResponseEntity<Usuario> getById(@PathVariable Long id_usuario) {
+	public ResponseEntity<Usuario> getById(@Valid @PathVariable Long id_usuario) {
 
 		return repositoryUsuario.findById(id_usuario).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
@@ -49,14 +49,14 @@ public class UsuarioController {
 	};
 
 	@GetMapping("/endereco/{endereco}")
-	public ResponseEntity<List<Usuario>> getByEndereco(@PathVariable String endereco) {
+	public ResponseEntity<List<Usuario>> getByEndereco(@Valid @PathVariable String endereco) {
 
 		return ResponseEntity.ok(repositoryUsuario.findAllByEnderecoContainingIgnoreCase(endereco));
 
 	};
 
 	@GetMapping("/email/{email}")
-	public ResponseEntity<List<Usuario>> getByEmail(@PathVariable String email) {
+	public ResponseEntity<List<Usuario>> getByEmail(@Valid @PathVariable String email) {
 		return ResponseEntity.ok(repositoryUsuario.findAllByEmail(email));
 	};
 
@@ -69,21 +69,21 @@ public class UsuarioController {
 	};
 
 	@PutMapping
-	public ResponseEntity<Usuario> putUsuario(@RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
 
 		return ResponseEntity.status(HttpStatus.OK).body(repositoryUsuario.save(usuario));
 
 	};
 
 	@DeleteMapping("/id_delete/{id_usuario}")
-	public void deleteById(@PathVariable Long id_usuario) {
+	public void deleteById(@Valid @PathVariable Long id_usuario) {
 
 		repositoryUsuario.deleteById(id_usuario);
 
 	};
 
 	@PostMapping("/empresa/{id_empresa}/criar")
-	public ResponseEntity<Voucher> criarVoucher(@PathVariable(value = "id_empresa") Long idEmpresa,
+	public ResponseEntity<Voucher> criarVoucher(@Valid @PathVariable(value = "id_empresa") Long idEmpresa,
 			@Valid @RequestBody Voucher novoVoucher) {
 		return serviceUsuario.criarVoucher(idEmpresa, novoVoucher)
 				.map(voucherCriado -> ResponseEntity.status(201).body(voucherCriado))
@@ -91,9 +91,9 @@ public class UsuarioController {
 	}
 
 	@PutMapping("/cliente/{id_cliente}/cooperativa/{id_cooperativa}/valor/{long_valor}")
-	public ResponseEntity<Usuario> adcionarPontuacao(@PathVariable(value = "id_cliente") Long idCliente,
-			@PathVariable(value = "id_cooperativa") Long idCooperativa,
-			@PathVariable(value = "long_valor") Long valor) {
+	public ResponseEntity<Usuario> adcionarPontuacao(@Valid @PathVariable(value = "id_cliente") Long idCliente,
+			@Valid @PathVariable(value = "id_cooperativa") Long idCooperativa,
+			@Valid @PathVariable(value = "long_valor") Long valor) {
 		return serviceUsuario.adicionarPontos(idCliente, idCooperativa, valor)
 				.map(usuarioPontuado -> ResponseEntity.ok(usuarioPontuado)).orElse(ResponseEntity.badRequest().build());
 	}
