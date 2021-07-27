@@ -8,18 +8,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import Ecomerce.Ecomerce.model.UsuarioCadastro;
-import Ecomerce.Ecomerce.repository.UsuarioCadastroRepository;
+import Ecomerce.Ecomerce.model.Usuario;
+import Ecomerce.Ecomerce.repository.UsuarioRepository;
 
 @Service
 public class UserDetailsServiceImplement implements UserDetailsService{
 
 	@Autowired
-	private UsuarioCadastroRepository cadastroUsuarioRepository;
+	private UsuarioRepository usuarioRepository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-		Optional<UsuarioCadastro> cadastro = cadastroUsuarioRepository.findByEmail(userEmail);
+		Optional<Usuario> cadastro = usuarioRepository.findByEmail(userEmail);
 		cadastro.orElseThrow(() -> new UsernameNotFoundException(userEmail + " not found."));
 		return cadastro.map(UserDetailsImplements::new).get();
 	}

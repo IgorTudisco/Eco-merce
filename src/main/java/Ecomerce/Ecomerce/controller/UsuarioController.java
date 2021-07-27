@@ -60,14 +60,19 @@ public class UsuarioController {
 		return ResponseEntity.ok(repositoryUsuario.findAllByEmail(email));
 	};
 
-	@PostMapping
-	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
+//	@PostMapping
+//	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
+//
+//		serviceUsuario.pontosCortesia(usuario);
+//		return ResponseEntity.status(HttpStatus.CREATED).body(repositoryUsuario.save(usuario));
+//
+//	};
 
-		serviceUsuario.pontosCortesia(usuario);
-		return ResponseEntity.status(HttpStatus.CREATED).body(repositoryUsuario.save(usuario));
-
-	};
-
+	/**
+	 * Rota de atualização de usuário
+	 * @param usuario
+	 * @return usuário atualizado.
+	 */
 	@PutMapping
 	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
 

@@ -1,13 +1,32 @@
 package Ecomerce.Ecomerce.dto;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 import Ecomerce.Ecomerce.model.util.TipoUsuario;
 
-public class UsuarioLoginDTO {
+public class UsuarioCadastroDTO {
 
+	@NotBlank
 	private String nome;
+
+	@NotBlank
+	@Email
 	private String email;
+	
+	@NotBlank
 	private String senha;
-	private String token;
+	
+	@NotBlank
+	private String endereco;
+	
+	@NotBlank
+	private String cpf;
+
+
+	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
 
 	public String getNome() {
@@ -34,12 +53,20 @@ public class UsuarioLoginDTO {
 		this.senha = senha;
 	}
 
-	public String getToken() {
-		return token;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public TipoUsuario getTipo() {

@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Ecomerce.Ecomerce.dto.UsuarioCadastroDTO;
 import Ecomerce.Ecomerce.dto.UsuarioLoginDTO;
-import Ecomerce.Ecomerce.model.UsuarioCadastro;
 import Ecomerce.Ecomerce.service.UsuarioCadastroService;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/usuarios")
-public class UsuarioCadastroController {
+public class UsuarioCadastroDTOController {
 
 	@Autowired
 	private UsuarioCadastroService cadastroUsuarioService;
@@ -32,8 +32,10 @@ public class UsuarioCadastroController {
 	}
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Object> autentication(@Valid @RequestBody UsuarioCadastro usuarioCadastro) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(cadastroUsuarioService.cadastrarUsuario(usuarioCadastro));
+	public ResponseEntity<Object> autentication(@Valid @RequestBody UsuarioCadastroDTO usuarioCadastro) {
+		return cadastroUsuarioService.cadastrarUsuario(usuarioCadastro)
+				.map(usuarioCadastrado -> ResponseEntity.status(HttpStatus.CREATED).body(usuarioCadastrado))
+				.orElse(ResponseEntity.status(HttpStatus.OK).body("Usuario Existente!"));
 	}
 
 }
