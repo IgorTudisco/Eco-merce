@@ -20,9 +20,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-@RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/")
 public class SwaggerConfig {
 	@Bean
 	public Docket api() {
