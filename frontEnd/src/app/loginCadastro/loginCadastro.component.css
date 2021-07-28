@@ -1,0 +1,13 @@
+#img-bg {
+  background-image: url(../../assets/img/logoR2.png);
+  min-height: 580px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.temporizador:hover {
+  color: rgb(250, 141, 141);
+  transition-duration: 1s;
+}
