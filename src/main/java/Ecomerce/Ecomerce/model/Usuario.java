@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import Ecomerce.Ecomerce.dto.UsuarioCadastroDTO;
 import Ecomerce.Ecomerce.model.util.TipoUsuario;
 
 @Entity
@@ -42,29 +43,24 @@ public class Usuario {
 	private String email;
 
 	@NotEmpty(message = "senha não pode ser nulo e nem vazio")
-	@Size(min = 8, max = 45)
+	@Size(min = 8)
 	private String senha;
 
 	@NotEmpty(message = "endereco não pode ser nulo e nem vazio")
 	@Size(min = 10, max = 255)
 	private String endereco;
 
-	@NotEmpty(message = "cpf não pode ser nulo e nem vazio (11)")
-	@Size(min = 11, max = 11)
+	@NotEmpty(message = "CPF/CNPJ não pode ser nulo e nem vazio (11)")
+	@Size(min = 11, max = 14)
 	private String cpf;
 
 	private Long meusPontos;
 
-	// @NotEmpty(message = "usuarioTipo não pode ser nulo e nem vazio (1,2,3)")
-	// @Size(min = 1, max = 1)
-	// private int usuarioTipo;
 	@NotNull(message = "Necessario COOPERATIVA, CLIENTE ou EMPRESA")
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
 
 	@OneToMany(mappedBy = "empresaCriadora")
-	// @JoinTable(name = "tb_juncao", joinColumns = @JoinColumn(name =
-	// "fk_usuario"), inverseJoinColumns = @JoinColumn(name = "fk_voucher"))
 	@JsonIgnoreProperties({ "id_voucher", "empresaCriadora" })
 	private List<Voucher> vouchersEmpresa = new ArrayList<>();
 
@@ -76,7 +72,18 @@ public class Usuario {
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 
 	public Usuario() {
-	};
+		super();
+	}
+
+	public Usuario(UsuarioCadastroDTO novoUsuario) {
+
+		this.nome = novoUsuario.getNome();
+		this.email = novoUsuario.getEmail();
+		this.senha = novoUsuario.getSenha();
+		this.endereco = novoUsuario.getEndereco();
+		this.cpf = novoUsuario.getCpf();
+		this.tipo = novoUsuario.getTipo();
+	}
 
 	public Long getId_usuario() {
 		return id_usuario;

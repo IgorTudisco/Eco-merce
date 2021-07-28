@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import Ecomerce.Ecomerce.model.UsuarioCadastro;
+import Ecomerce.Ecomerce.model.Usuario;
 
 public class UserDetailsImplements implements UserDetails{
 
@@ -18,9 +18,12 @@ public class UserDetailsImplements implements UserDetails{
 	
 	private List<GrantedAuthority> autoridades;
 
-	public UserDetailsImplements(UsuarioCadastro usuarioCadastro) {
+	public UserDetailsImplements(Usuario usuarioCadastro) {
 		super();
-		this.userEmail = usuarioCadastro.getEmail();
+		this.userEmail = usuarioCadastro.getNome();
+		this.password = usuarioCadastro.getSenha();
+		this.password = usuarioCadastro.getSenha();
+		this.password = usuarioCadastro.getSenha();
 		this.password = usuarioCadastro.getSenha();
 	}
 	

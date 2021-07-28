@@ -9,35 +9,48 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import Ecomerce.Ecomerce.dto.UsuarioLoginDTO;
-import Ecomerce.Ecomerce.model.UsuarioCadastro;
-import Ecomerce.Ecomerce.repository.UsuarioCadastroRepository;
+import Ecomerce.Ecomerce.dto.UsuarioCadastroDTO;
+import Ecomerce.Ecomerce.model.Usuario;
+import Ecomerce.Ecomerce.repository.UsuarioRepository;
 
 @Service
 public class UsuarioCadastroService {
 
 	@Autowired
-	private UsuarioCadastroRepository cadastroUsuarioRepository;
+	private UsuarioRepository usuarioRepository;
 
-	public Optional<Object> cadastrarUsuario(UsuarioCadastro novoUsuario) {
+	public Optional<Object> cadastrarUsuario(UsuarioCadastroDTO novoUsuarioCadastro) {
 
-		return cadastroUsuarioRepository.findByEmail(novoUsuario.getEmail()).map(usuarioExistente -> {
+		return usuarioRepository.findByEmail(novoUsuarioCadastro.getEmail()).map(usuarioExistente -> {
 			return Optional.empty();
 		}).orElseGet(() -> {
-
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-			String senhaCriptografada = encoder.encode(novoUsuario.getSenha());
-
+			Usuario novoUsuario = new Usuario(novoUsuarioCadastro);			
+			String senhaCriptografada = encoder.encode(novoUsuarioCadastro.getSenha());
 			novoUsuario.setSenha(senhaCriptografada);
+			
+			return Optional.ofNullable(usuarioRepository.save(novoUsuario));
+		});
 
-			return Optional.ofNullable(cadastroUsuarioRepository.save(novoUsuario));
-
-		}); 
+		/*
+		 * return usuarioRepository.findByEmail(usuario.getEmail()).map(usuarioExistente
+		 * -> { return Optional.empty(); }).orElseGet(() -> {
+		 * 
+		 * BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		 * 
+		 * String senhaCriptografada = encoder.encode(usuario.getSenha());
+		 * 
+		 * usuario.setSenha(senhaCriptografada);
+		 * 
+		 * return Optional.ofNullable(usuarioRepository.save(usuario));
+		 * 
+		 * });
+		 */
 	}
 
 	public Optional<UsuarioLoginDTO> logar(Optional<UsuarioLoginDTO> user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Optional<UsuarioCadastro> cadastro = cadastroUsuarioRepository.findByEmail(user.get().getEmail());
+		Optional<Usuario> cadastro = usuarioRepository.findByEmail(user.get().getEmail());
 
 		if (cadastro.isPresent()) {
 			if (encoder.matches(user.get().getSenha(), cadastro.get().getSenha())) {
@@ -48,11 +61,12 @@ public class UsuarioCadastroService {
 
 				user.get().setToken(authHeader);
 				user.get().setNome(cadastro.get().getNome());
+				user.get().setTipo(cadastro.get().getTipo());
 
 				return user;
 			}
 		}
-
-		return null;
+		
+		return Optional.empty(); // login errado. seViraFront().
 	}
 }
