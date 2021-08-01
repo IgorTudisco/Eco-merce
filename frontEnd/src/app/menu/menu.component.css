@@ -1,59 +1,64 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    /* background-color: #f0f2f5; */
-    background-color: rgba(108, 108, 226, 0.466);
-  }
-  
-  .navItem {
-    color: #f0f2f5 !important;
-    padding: 15px 15px 25px 15px !important;
-  }
-  
-  .estiloBotao {
-    color: red;
-    background-color: #58874b;
-    border: #58874b;
-  }
-  .estiloBotao:hover {
-    color: aqua;
-    background-color: #5d17df;
-    transition-duration: 1s;
-  }
-  
-  .buttonC {
-    padding: 0px 0px 0px 10px;
-  }
-  
-  .buttonL {
-    padding: 0px 10px 0px 5px;
-  }
+/* Os elementos então na ordem do html */
 
-  .butLogin {
-    background-color: #FFFBFB;
-    color: #58874b;
-    border: 1px solid #58874b;
-  }
-  .butLogin:hover {
-    background-color: #58874b;
-    color: #9556BF;
-    transition-duration: 0.5s;
-  }
-  
-  .ncc.ncol {
-    background-color: rgb(221, 133, 18) !important;
-  }
-  
-  .imagemT {
-    width: 80%;
-  }
-  
-  .carrouselImg {
-    max-width: 100%;
-    height: 300px;
-    border: 5px solid #58874b;
-  }
+/* Padding dos Navbar da nav bar */
+
+.NavPadding {
+  padding: 5px 90px 5px 90px;
+}
+/* Padding dos titulos da nav bar */
+
+.navItem {
+  color: #f0f2f5 !important;
+  padding: 5px 15px 5px 15px !important;
+  transition-duration: 0.7s;
+}
+
+.navItem:hover {
+  color: #abf85e !important;
+  transition-duration: 0.7s;
+}
+
+/* Botão login*/
+
+.buttonDivE {
+  padding: 0px 10px 0px 5px;
+}
+
+.buttonEntrar {
+  color: #7b8c56;
+  background-color: #fffbfb;
+  border: 1px solid #7b8c56;
+  transition-duration: 0.7s;
+  width: 130px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.buttonEntrar:hover {
+  color: #fffbfb;
+  background-color: #9556bf;
+  border: 1px solid #fffbfb;
+  transition-duration: 0.7s;
+}
+
+/* Botão Cadastrar */
+
+.buttonDivC {
+  padding: 0px 0px 0px 10px;
+}
+
+.buttonCadastrar {
+  color: #fffbfb;
+  background-color: #7b8c56;
+  border: 1px solid #58874b;
+  transition-duration: 0.7s;
+  width: 130px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.buttonCadastrar:hover {
+  background-color: #9556bf;
+  border: 1px solid #fffbfb;
+  transition-duration: 0.7s;
+}
