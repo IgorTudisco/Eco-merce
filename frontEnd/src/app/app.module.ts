@@ -8,6 +8,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { SobreNosComponent } from './sobreNos/sobreNos.component';
 import { ContatoComponent } from './contato/contato.component';
 import { LoginCadastroComponent } from './loginCadastro/loginCadastro.component';
+import { ParallaxComponent } from './parallax/parallax.component';
 
 @NgModule({
   declarations: [				
@@ -16,7 +17,8 @@ import { LoginCadastroComponent } from './loginCadastro/loginCadastro.component'
       RodapeComponent,
       SobreNosComponent,
       ContatoComponent,
-      LoginCadastroComponent
+      LoginCadastroComponent,
+      ParallaxComponent
    ],
   imports: [
     BrowserModule,

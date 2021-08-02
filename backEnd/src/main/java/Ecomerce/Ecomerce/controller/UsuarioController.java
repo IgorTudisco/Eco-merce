@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Ecomerce.Ecomerce.dto.UsuarioCadastroDTO;
 import Ecomerce.Ecomerce.model.Usuario;
 import Ecomerce.Ecomerce.model.Voucher;
 import Ecomerce.Ecomerce.repository.UsuarioRepository;
+import Ecomerce.Ecomerce.service.UsuarioCadastroService;
 import Ecomerce.Ecomerce.service.UsuarioService;
 
 @RestController
@@ -68,17 +70,31 @@ public class UsuarioController {
 //
 //	};
 
+//	/**
+//	 * Rota de atualização de usuário
+//	 * @param usuario
+//	 * @return usuário atualizado.
+//	 */
+//	@PutMapping
+//	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
+//		return ResponseEntity.status(HttpStatus.OK).body(repositoryUsuario.save(usuario));
+//
+//	};
+	
+	
+	
 	/**
-	 * Rota de atualização de usuário
+	 * Rota de atualização de usuário e cripto de senha
 	 * @param usuario
 	 * @return usuário atualizado.
 	 */
-	@PutMapping
-	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
-
-		return ResponseEntity.status(HttpStatus.OK).body(repositoryUsuario.save(usuario));
-
-	};
+	@PutMapping("/mudar")
+	public ResponseEntity<Object> autentication(@Valid @RequestBody Usuario usuarioCadastro) {
+		return ResponseEntity.status(HttpStatus.OK).body(serviceUsuario.mudarUsuario(usuarioCadastro));
+	}
+	
+	
+	
 
 	@DeleteMapping("/id_delete/{id_usuario}")
 	public void deleteById(@Valid @PathVariable Long id_usuario) {
