@@ -4,8 +4,10 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import Ecomerce.Ecomerce.dto.UsuarioCadastroDTO;
 import Ecomerce.Ecomerce.model.Usuario;
 import Ecomerce.Ecomerce.model.Voucher;
 import Ecomerce.Ecomerce.repository.UsuarioRepository;
@@ -118,5 +120,15 @@ public class UsuarioService {
 		} else {
 			return ResponseEntity.ok("Usuario ou Vaucher não existe");
 		}
+	}
+
+	public Optional<Object> mudarUsuario(Usuario mudarUsuario) {
+
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();		
+		String senhaCriptografada = encoder.encode(mudarUsuario.getSenha());
+		mudarUsuario.setSenha(senhaCriptografada);
+
+		return Optional.ofNullable(repositoryUsuario.save(mudarUsuario));
+
 	}
 }
