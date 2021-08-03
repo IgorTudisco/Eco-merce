@@ -1,3 +1,9 @@
+.temporizador:hover {
+  color: rgb(141, 201, 250);
+  transition-duration: 1s;
+}
+
+/*
 .container {
   max-width: 100% !important;
   background-color: white !important;
@@ -196,9 +202,11 @@ form.formCadastro {
 .right-panel .content {
   transform: translateX(800px);
 }
+*/
 
 /* Animação */
 
+/*
 .container.sign-up-mode:before {
   transform: translate(100%, -50%);
   right: 52%;
@@ -360,3 +368,4 @@ form.formCadastro {
     left: 50%;
   }
 }
+*/

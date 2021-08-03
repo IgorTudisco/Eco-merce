@@ -62,6 +62,8 @@ public class UsuarioCadastroService {
 				user.get().setToken(authHeader);
 				user.get().setNome(cadastro.get().getNome());
 				user.get().setTipo(cadastro.get().getTipo());
+				user.get().setId(cadastro.get().getId_usuario());
+				user.get().setEndereco(cadastro.get().getEndereco());
 
 				return user;
 			}

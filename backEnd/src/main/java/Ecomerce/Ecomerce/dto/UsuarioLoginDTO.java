@@ -9,6 +9,8 @@ public class UsuarioLoginDTO {
 	private String senha;
 	private String token;
 	private TipoUsuario tipo;
+	private Long id;
+	private String endereco;
 
 	public String getNome() {
 		return nome;
@@ -48,6 +50,22 @@ public class UsuarioLoginDTO {
 
 	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 }
