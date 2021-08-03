@@ -1,5 +1,5 @@
 .container {
-  width: 100% !important;
+  max-width: 100% !important;
   background-color: white !important;
   min-height: 100vh !important;
   overflow: hidden !important;
@@ -90,7 +90,7 @@ form.formCadastro {
 
 .btn {
   width: 150px;
-  background-color: #8FA65D;
+  background-color: #8fa65d;
   border: none;
   outline: none;
   height: 45px;
@@ -100,13 +100,14 @@ form.formCadastro {
   font-weight: 600;
   margin: 10px 0;
   cursor: pointer;
-  transition: 0.5s;
+  transition-duration: 1.5s;
 }
 
 .btn:hover {
-  background-color: #F0F2F5;
+  background-color: #f0f2f5;
   color: #594548;
   border: 2px solid #594548;
+  transition-duration: 1.5s;
 }
 
 .panels-container {
@@ -127,7 +128,7 @@ form.formCadastro {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #8FA65D 0%, #8FA65D 100%);
+  background-image: linear-gradient(-45deg, #8fa65d 0%, #8fa65d 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -183,10 +184,12 @@ form.formCadastro {
   height: 41px;
   font-weight: 600;
   font-size: 0.8rem;
+  transition-duration: 1.5s;
 }
 
 .btn.transparent:hover {
   border: 2px solid #594548;
+  transition-duration: 1.5s;
 }
 
 .right-panel .image,
