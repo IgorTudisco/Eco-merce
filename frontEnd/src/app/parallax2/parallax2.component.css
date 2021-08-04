@@ -21,6 +21,14 @@
 
 */
 
-.textCenter {
+.textCenter h3 {
   text-align: center;
+  color: #0f241d;
+  font-size: 50.0328px;
+}
+
+.textCenter p {
+  text-align: center;
+  color: #0f241d;
+  font-size: 25.0164px;
 }
