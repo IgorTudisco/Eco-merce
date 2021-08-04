@@ -13,6 +13,8 @@ import { LoginCadastroComponent } from './loginCadastro/loginCadastro.component'
 import { ParallaxComponent } from './parallax/parallax.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CarouselComponent } from './carousel/carousel.component';
+import { Parallax2Component } from './parallax2/parallax2.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     SobreNosComponent,
     ContatoComponent,
     LoginCadastroComponent,
-    ParallaxComponent
+    ParallaxComponent,
+    CarouselComponent,
+    Parallax2Component
    ],
   imports: [
     BrowserModule,
