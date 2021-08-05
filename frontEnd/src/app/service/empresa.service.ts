@@ -16,8 +16,8 @@ export class EmpresaService {
 
   constructor(private http:HttpClient) { }
 
-  postVoucher(id: number): Observable<Voucher>{
-    return this.http.post<Voucher>(`http://localhost:8080/usuario/empresa/${id}/criar`, this.token)
+  postVoucher(id: number, voucher:Voucher): Observable<Voucher>{
+    return this.http.post<Voucher>(`http://localhost:8080/usuario/empresa/${id}/criar`,voucher, this.token)
   }
 
   getAllVoucher(): Observable<Voucher[]>{
