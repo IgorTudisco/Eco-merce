@@ -34,11 +34,15 @@ const routes: Routes = [
  component: ContatoComponent
 },
 {
-  path: 'usuario-empresa/:idVoucher',
+  path: 'empresa',
   component: UsuarioEmpresaComponent
 },
 {
-  path: 'usuario-cliente/:idCliente',
+  path: 'cooperativa',
+  component: UsuarioEmpresaComponent
+},
+{
+  path: 'cliente',
   component: UsuarioEmpresaComponent
 }
 

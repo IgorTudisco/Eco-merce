@@ -18,6 +18,7 @@ export class UsuarioEmpresaComponent implements OnInit {
   listaVoucher: Voucher[]
   idVoucher: Voucher
   idCliente: Usuario
+  idEmpresa: Usuario
 
   constructor(
     private empresaService: EmpresaService,
@@ -35,10 +36,14 @@ export class UsuarioEmpresaComponent implements OnInit {
 
     this.idCliente = this.adctivateRoute.snapshot.params['idCliente']
 
+    this.idEmpresa = this.adctivateRoute.snapshot.params['idEmpresa']
+
     //this.criarVoucher(this.idVoucher, this.idCliente)
 
     this.findAllVoucher()
   }
+
+
 
   findAllVoucher(){
     this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
@@ -46,8 +51,16 @@ export class UsuarioEmpresaComponent implements OnInit {
     })
   }
 
-  criarVoucher(idV: number, idC: number){
-    this.voucher
+
+
+  criarVoucher(event: any){
+
+    let idE = environment.id
+
+    this.empresaService.postVoucher(idE , this.voucher).subscribe((resp: Voucher) => {
+      this.voucher = resp
+      alert('Voucher criado com sucesso!')
+    })
   }
 
 }
