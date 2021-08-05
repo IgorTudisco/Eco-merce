@@ -18,6 +18,8 @@ import { Parallax2Component } from './parallax2/parallax2.component';
 import { UsuarioEmpresaComponent } from './usuario-empresa/usuario-empresa.component';
 import { UuarioCooperativaComponent } from './uuario-cooperativa/uuario-cooperativa.component';
 import { UsuarioClienteComponent } from './usuario-cliente/usuario-cliente.component';
+import { VoucherComponent } from './voucher/voucher.component';
+import { UsuarioCooperativaComponent } from './usuario-cooperativa/usuario-cooperativa.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { UsuarioClienteComponent } from './usuario-cliente/usuario-cliente.compo
     Parallax2Component,
     UsuarioEmpresaComponent,
     UuarioCooperativaComponent,
-    UsuarioClienteComponent
+    UsuarioClienteComponent,
+    VoucherComponent,
+    UsuarioCooperativaComponent
    ],
   imports: [
     BrowserModule,
