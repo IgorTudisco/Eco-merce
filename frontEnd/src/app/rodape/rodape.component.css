@@ -37,3 +37,31 @@ ul.socialNetwork {
   .fa-linkedin-square:hover {
     color: #0072b1;
   }
+
+  .fs-48{
+    font-size: 48px;
+  }
+
+  .fs-24{
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24.0148px;
+    line-height: 31px;
+    color: #767676;
+  }
+
+  .iconeZap{
+    width: 90%;
+    
+  }
+
+  .zap{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+
+  .iconeCont{
+    width: 30%;
+  }
