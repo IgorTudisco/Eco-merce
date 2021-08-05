@@ -15,6 +15,9 @@ import { ParallaxComponent } from './parallax/parallax.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CarouselComponent } from './carousel/carousel.component';
 import { Parallax2Component } from './parallax2/parallax2.component';
+import { UsuarioEmpresaComponent } from './usuario-empresa/usuario-empresa.component';
+import { UuarioCooperativaComponent } from './uuario-cooperativa/uuario-cooperativa.component';
+import { UsuarioClienteComponent } from './usuario-cliente/usuario-cliente.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { Parallax2Component } from './parallax2/parallax2.component';
     LoginCadastroComponent,
     ParallaxComponent,
     CarouselComponent,
-    Parallax2Component
+    Parallax2Component,
+    UsuarioEmpresaComponent,
+    UuarioCooperativaComponent,
+    UsuarioClienteComponent
    ],
   imports: [
     BrowserModule,
