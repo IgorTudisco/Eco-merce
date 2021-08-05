@@ -39,19 +39,21 @@ export class LoginCadastroComponent implements OnInit {
       environment.token = this.usuarioLoginDTO.token
       environment.endereco = this.usuarioLoginDTO.endereco
       environment.tipo = this.usuarioLoginDTO.tipo
+      environment.empresaParceira = '';
 
       console.log(environment.email)
-      console.log( environment.nome)
+      console.log(environment.nome)
       console.log(environment.id)
-      console.log( environment.token)
-      console.log( environment.endereco)
+      console.log(environment.token)
+      console.log(environment.endereco)
       console.log(environment.tipo)
+      console.log(environment.empresaParceira)
       
-      if (environment.tipo == 'CLIENTE') {
+      if (environment.tipo == "CLIENTE") {
         this.router.navigate(['/cliente'])
-      } else if (environment.tipo == 'EMPRESA') {
+      } else if (environment.tipo == "EMPRESA") {
         this.router.navigate(['/empresa'])
-      } else if (environment.tipo == 'COOPERATIVA') {
+      } else if (environment.tipo == "COOPERATIVA") {
         this.router.navigate(['/cooperativa'])
       }
 

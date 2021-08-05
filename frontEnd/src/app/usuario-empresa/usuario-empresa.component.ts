@@ -32,15 +32,15 @@ export class UsuarioEmpresaComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
-    this.idVoucher = this.adctivateRoute.snapshot.params['idVoucher']
+   // this.idVoucher = this.adctivateRoute.snapshot.params['idVoucher']
 
-    this.idCliente = this.adctivateRoute.snapshot.params['idCliente']
+   // this.idCliente = this.adctivateRoute.snapshot.params['idCliente']
 
-    this.idEmpresa = this.adctivateRoute.snapshot.params['idEmpresa']
+   // this.idEmpresa = this.adctivateRoute.snapshot.params['idEmpresa']
 
     //this.criarVoucher(this.idVoucher, this.idCliente)
 
-    this.findAllVoucher()
+    // this.findAllVoucher()
   }
 
 
@@ -53,7 +53,7 @@ export class UsuarioEmpresaComponent implements OnInit {
 
 
 
-  criarVoucher(event: any){
+  criarVoucher(){
 
     let idE = environment.id
 
