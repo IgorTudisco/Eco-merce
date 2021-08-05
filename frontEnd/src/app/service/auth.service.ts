@@ -15,11 +15,11 @@ export class AuthService {
     ) { }
 
   entrar(usuarioLoginDTO: UsuarioLoginDTO): Observable<UsuarioLoginDTO>{
-    return this.http.post<UsuarioLoginDTO>('https://ecmomercebr.herokuapp.com/usuarios/logar', usuarioLoginDTO)
+    return this.http.post<UsuarioLoginDTO>('http://localhost:8080/usuarios/logar', usuarioLoginDTO)
   }
 
   cadastrar(usuarioCadastroDTO: UsuarioCadastroDTO): Observable<UsuarioCadastroDTO>{
-    return this.http.post<UsuarioCadastroDTO>('https://ecmomercebr.herokuapp.com/usuarios/cadastrar', usuarioCadastroDTO)
+    return this.http.post<UsuarioCadastroDTO>('http://localhost:8080/usuarios/cadastrar', usuarioCadastroDTO)
   }
 
   logado(){
