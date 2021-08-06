@@ -15,10 +15,6 @@ import { ParallaxComponent } from './parallax/parallax.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CarouselComponent } from './carousel/carousel.component';
 import { Parallax2Component } from './parallax2/parallax2.component';
-import { UsuarioEmpresaComponent } from './usuario-empresa/usuario-empresa.component';
-import { UsuarioClienteComponent } from './usuario-cliente/usuario-cliente.component';
-import { VoucherComponent } from './voucher/voucher.component';
-import { UsuarioCooperativaComponent } from './usuario-cooperativa/usuario-cooperativa.component';
 
 
 @NgModule({
