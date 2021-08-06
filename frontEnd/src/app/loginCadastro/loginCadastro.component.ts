@@ -30,6 +30,7 @@ export class LoginCadastroComponent implements OnInit {
   }
 
   entrar(){
+    console.log("login "+JSON.stringify(this.usuarioLoginDTO))
     this.authService.entrar(this.usuarioLoginDTO).subscribe((resp:UsuarioLoginDTO) =>{
       this.usuarioLoginDTO = resp
 
