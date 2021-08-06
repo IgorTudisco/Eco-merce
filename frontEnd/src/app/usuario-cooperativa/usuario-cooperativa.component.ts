@@ -11,20 +11,12 @@ import { CooperativaService } from '../service/cooperativa.service';
 export class UsuarioCooperativaComponent implements OnInit {
   cliente: Usuario;
 
-listaUsuario: Usuario[]
+  listaUsuario: Usuario[]
 
   constructor(private cooperativaService: CooperativaService) {}
 
   ngOnInit() {}
 
-  findByEndereco(descricao: string) {
-    this.cooperativaService
-      .getByEnderecoCliente(descricao)
-      .subscribe((resp: Usuario[]) => {
-        this.listaUsuario = resp
-
-        //environment.
-
-      })
-  }
+  
+ 
 }

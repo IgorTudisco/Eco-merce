@@ -1,4 +1,4 @@
-<!--cadastro
+cadastro
 <div class="container">
   <div class="row">
     <div class="col-6  mb-5 mt-5">
@@ -12,7 +12,7 @@
           <div class="form-group pt-3">
             <label class="pb-3" for="nome">Nome da empresa</label>
 
-          <!--  [(ngModel)]='usuario.email' pega o dado digitado pelo usuário e manda para a class
+            <!--  [(ngModel)]='usuario.email' pega o dado digitado pelo usuário e manda para a class -->
 
             <input [(ngModel)]='voucher.empresaParceira' class="form-control" type="text" name="nome" id="nome"
               placeholder="digite o seu nome">
@@ -40,17 +40,15 @@
             <button class="btn btn-danger temporizador mx-lg-3" type="submit" routerLink="/entrar">
               Cancelar
             </button>
-            <button class="btn btn-success temporizador mx-lg-3" type="submit" (click)='criarVoucher()'>
+            <button class="btn btn-success temporizador mx-lg-3" type="submit" (click)='criarVoucher($event)'>
               Cadastrar
             </button>
           </div>
 
           <hr class="mt-5 mb-5">
-        <!--/cadastro
+          <!--/cadastro -->
         </div>
       </div>
     </div>
   </div>
-</div>-->
-
-<h1>Oi Bea</h1>
+</div>

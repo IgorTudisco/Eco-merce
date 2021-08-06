@@ -53,7 +53,7 @@ export class UsuarioEmpresaComponent implements OnInit {
 
 
 
-  criarVoucher(){
+  criarVoucher(event: any){
 
     let idE = environment.id
 
