@@ -11,10 +11,11 @@ import { UsuarioLoginDTO } from '../model/UsuarioLoginDTO';
 export class AuthService {
 
   constructor(
-    private http: HttpClient
+    public http: HttpClient
     ) { }
 
   entrar(usuarioLoginDTO: UsuarioLoginDTO): Observable<UsuarioLoginDTO>{
+    this.logado()
     return this.http.post<UsuarioLoginDTO>('http://localhost:8080/usuarios/logar', usuarioLoginDTO)
   }
 

@@ -1,1 +1,54 @@
-<p>empresa works!</p>
+<!--cadastro-->
+<div class="container">
+  <div class="row">
+    <div class="col-6  mb-5 mt-5">
+
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-10">
+
+          <h1 class="text-center mb-3">Criar Voucher</h1>
+
+          <div class="form-group pt-3">
+            <label class="pb-3" for="nome">Nome da empresa</label>
+
+            <!--[(ngModel)]='usuario.email' pega o dado digitado pelo usuário e manda para a class-->
+
+            <input [(ngModel)]='voucher.empresaParceira' class="form-control" type="text" name="nome" id="nome"
+              placeholder="digite o seu nome">
+          </div>
+
+          <div class="form-group pt-3">
+            <label class="pb-3" for="usuario">Pontos necessários para obter o voucher</label>
+            <input [(ngModel)]='voucher.pontosNecessario' class="form-control" type="text" name="Pontos" id="Pontos"
+              placeholder="digite a pontuação">
+          </div>
+
+          <div class="form-group pt-3">
+            <label class="pb-3" for="endereco">Descrição Voucher</label>
+            <input [(ngModel)]='voucher.descricaoVoucher' class="form-control" type="text" name="descricao"
+              id="descricao" placeholder="digite a descricao">
+          </div>
+
+          <div class="form-group pt-3">
+            <label class="pb-3" for="cpf">Produto</label>
+            <input [(ngModel)]='voucher.produto' class="form-control" type="text" name="produto" id="produto"
+              placeholder="digite o produto">
+          </div>
+
+          <div class="d-flex justify-content-center py-3">
+            <button class="btn btn-danger temporizador mx-lg-3" type="submit" routerLink="/entrar">
+              Cancelar
+            </button>
+            <button class="btn btn-success temporizador mx-lg-3" type="submit" (click)='criarVoucher()'>
+              Cadastrar
+            </button>
+          </div>
+
+          <hr class="mt-5 mb-5">
+          <!--/cadastro-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

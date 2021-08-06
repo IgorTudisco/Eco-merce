@@ -10,13 +10,17 @@ import { Voucher } from '../model/Voucher';
 })
 export class EmpresaService {
 
+  
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient
+    ) { }
 
   postVoucher(id: number, voucher:Voucher): Observable<Voucher>{
+    
     return this.http.post<Voucher>(`http://localhost:8080/usuario/empresa/${id}/criar`,voucher, this.token)
   }
 
