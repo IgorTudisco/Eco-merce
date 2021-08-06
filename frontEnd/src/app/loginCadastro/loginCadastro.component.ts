@@ -29,7 +29,7 @@ export class LoginCadastroComponent implements OnInit {
     window.scroll(0,0)
   }
 
-  entrar(event:any){
+  entrar(){
     this.authService.entrar(this.usuarioLoginDTO).subscribe((resp:UsuarioLoginDTO) =>{
       this.usuarioLoginDTO = resp
 
