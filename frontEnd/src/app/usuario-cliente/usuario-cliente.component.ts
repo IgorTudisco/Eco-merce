@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Voucher } from '../model/Voucher';
+import { Router } from '@angular/router';
+import { Usuario } from '../model/Usuario';
+import { ClienteService } from '../service/cliente.service';
 
 @Component({
   selector: 'app-usuario-cliente',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioClienteComponent implements OnInit {
 
-  constructor() { }
+  cliente: Usuario = new Usuario()
+  listaVoucher: Voucher[]
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router,
+    private clienteService: ClienteService
+  ) { }
+
+  ngOnInit(){
+  }
+
+  findAllVoucher(){
+    this.clienteService.getAllVoucher().subscribe((resp: Voucher[]) => {
+      this.listaVoucher = resp
+    })
   }
 
 }

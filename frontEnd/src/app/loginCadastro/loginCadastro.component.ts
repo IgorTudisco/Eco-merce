@@ -16,9 +16,9 @@ export class LoginCadastroComponent implements OnInit {
 
   usuarioCadastrarDTO: UsuarioCadastroDTO = new UsuarioCadastroDTO()
 
-  confirmeSenha: string 
+  confirmeSenha: string
 
-  tipoUsuarioEscolha: string 
+  tipoUsuarioEscolha: string
 
   constructor(
     private authService: AuthService,
@@ -29,7 +29,7 @@ export class LoginCadastroComponent implements OnInit {
     window.scroll(0,0)
   }
 
-  entrar(){
+  entrar(event:any){
     this.authService.entrar(this.usuarioLoginDTO).subscribe((resp:UsuarioLoginDTO) =>{
       this.usuarioLoginDTO = resp
 
@@ -48,7 +48,7 @@ export class LoginCadastroComponent implements OnInit {
       console.log(environment.endereco)
       console.log(environment.tipo)
       console.log(environment.empresaParceira)
-      
+
       if (environment.tipo == "CLIENTE") {
         this.router.navigate(['/cliente'])
       } else if (environment.tipo == "EMPRESA") {
@@ -83,7 +83,7 @@ export class LoginCadastroComponent implements OnInit {
     this.usuarioCadastrarDTO.tipo = this.tipoUsuarioEscolha
 
     if (this.usuarioCadastrarDTO.senha != this.confirmeSenha) {
-      
+
       alert("As senhas estão diferentes.")
 
     } else {
