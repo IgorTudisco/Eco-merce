@@ -6,5 +6,11 @@ export const environment = {
   email: '',
   endereco: '',
   tipo:'',
-  empresaParceira: ''
+  cpf: 0,
+  produto: '',
+  empresaParceira: '',
+  pontosNecessario: 0,
+  descricaoVoucher: '',
+  empresaCriadora: '',
+  meusPontos: 0
 };

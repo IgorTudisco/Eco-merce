@@ -8,7 +8,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsuarioEmpresaComponent } from './usuario-empresa/usuario-empresa.component';
 import { UsuarioClienteComponent } from './usuario-cliente/usuario-cliente.component';
 import { UsuarioCooperativaComponent } from './usuario-cooperativa/usuario-cooperativa.component';
-
 const routes: Routes = [
 {
   path:'',
