@@ -5,9 +5,9 @@ import { MenuComponent } from './menu/menu.component';
 import { LoginCadastroComponent } from './loginCadastro/loginCadastro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UsuarioEmpresaComponent } from './usuario-empresa/usuario-empresa.component';
-import { UsuarioClienteComponent } from './usuario-cliente/usuario-cliente.component';
-import { UsuarioCooperativaComponent } from './usuario-cooperativa/usuario-cooperativa.component';
+import { EmpresaComponent } from './usuario/empresa/empresa.component';
+import { CooperativaComponent } from './usuario/cooperativa/cooperativa.component';
+import { ClienteComponent } from './usuario/cliente/cliente.component';
 const routes: Routes = [
 {
   path:'',
@@ -36,15 +36,15 @@ const routes: Routes = [
 },
 {
   path: 'empresa',
-  component: UsuarioEmpresaComponent
+  component: EmpresaComponent
 },
 {
   path: 'cooperativa',
-  component: UsuarioCooperativaComponent
+  component: CooperativaComponent
 },
 {
   path: 'cliente',
-  component: UsuarioClienteComponent
+  component: ClienteComponent
 }
 
 ];

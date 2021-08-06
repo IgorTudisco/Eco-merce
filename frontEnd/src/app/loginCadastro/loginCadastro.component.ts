@@ -39,7 +39,6 @@ export class LoginCadastroComponent implements OnInit {
       environment.token = this.usuarioLoginDTO.token
       environment.endereco = this.usuarioLoginDTO.endereco
       environment.tipo = this.usuarioLoginDTO.tipo
-      environment.empresaParceira = '';
 
       console.log(environment.email)
       console.log(environment.nome)
@@ -47,7 +46,6 @@ export class LoginCadastroComponent implements OnInit {
       console.log(environment.token)
       console.log(environment.endereco)
       console.log(environment.tipo)
-      console.log(environment.empresaParceira)
 
       if (environment.tipo == "CLIENTE") {
         this.router.navigate(['/cliente'])
