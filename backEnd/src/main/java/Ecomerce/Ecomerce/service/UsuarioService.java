@@ -1,6 +1,8 @@
 package Ecomerce.Ecomerce.service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -115,20 +117,45 @@ public class UsuarioService {
 				voucher.get().getUsuariosComVoucher().add(novoCliente);
 				return ResponseEntity.ok(repositoryVoucher.save(voucher.get()));
 			} else {
-				return ResponseEntity.ok("Pontuação insuficiente");
+				return ResponseEntity.badRequest().build();
 			}
 		} else {
-			return ResponseEntity.ok("Usuario ou Vaucher não existe");
+			return ResponseEntity.badRequest().build();
 		}
 	}
 
-	public Optional<Object> mudarUsuario(Usuario mudarUsuario) {
+	public Optional<?> mudarUsuario(Usuario mudarUsuario) {
 
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();		
-		String senhaCriptografada = encoder.encode(mudarUsuario.getSenha());
-		mudarUsuario.setSenha(senhaCriptografada);
+		return repositoryUsuario.findById(mudarUsuario.getId_usuario()).map(usuarioExistente -> {
+			Optional<Usuario> usuarioExistente2 = repositoryUsuario.findByEmail(mudarUsuario.getEmail());
 
-		return Optional.ofNullable(repositoryUsuario.save(mudarUsuario));
+			if (usuarioExistente2.isPresent()) {
+				return Optional.empty();
+			} else {
+				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+				String senhaCriptografada = encoder.encode(mudarUsuario.getSenha());
+
+				usuarioExistente.setCpf(mudarUsuario.getCpf());
+				usuarioExistente.setEmail(mudarUsuario.getEmail());
+				usuarioExistente.setNome(mudarUsuario.getNome());
+				usuarioExistente.setEndereco(mudarUsuario.getEndereco());
+				usuarioExistente.setTipo(mudarUsuario.getTipo());
+				usuarioExistente.setSenha(senhaCriptografada);
+
+				return Optional.ofNullable(repositoryUsuario.save(usuarioExistente));
+			}
+		}).orElseGet(() -> {
+			return Optional.empty();
+		});
+	}
+
+	public void removerVoucherUsuario(Long idUsuario) {
+		Optional<Usuario> cliente = repositoryUsuario.findById(idUsuario);
+
+		List<Voucher> vouchers = cliente.get().getMeusVouchers();
+		List<Voucher> result = vouchers.stream()
+				.filter(voucher -> voucher.getUsuariosComVoucher().remove(cliente.get())).collect(Collectors.toList());
+		repositoryVoucher.saveAll(result);
 
 	}
 }

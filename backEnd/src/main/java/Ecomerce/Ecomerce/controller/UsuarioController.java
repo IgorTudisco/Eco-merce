@@ -1,6 +1,7 @@
 package Ecomerce.Ecomerce.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -59,7 +60,17 @@ public class UsuarioController {
 
 	@GetMapping("/email/{email}")
 	public ResponseEntity<List<Usuario>> getByEmail(@Valid @PathVariable String email) {
-		return ResponseEntity.ok(repositoryUsuario.findAllByEmail(email));
+
+		Optional<Usuario> emailExistente = repositoryUsuario.findByEmail(email);
+
+		if (emailExistente.isEmpty()) {
+
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+
+		} else {
+			return ResponseEntity.ok(repositoryUsuario.findAllByEmail(email));
+		}
+
 	};
 
 //	@PostMapping
@@ -80,27 +91,34 @@ public class UsuarioController {
 //		return ResponseEntity.status(HttpStatus.OK).body(repositoryUsuario.save(usuario));
 //
 //	};
-	
-	
-	
+
 	/**
 	 * Rota de atualização de usuário e cripto de senha
+	 * 
 	 * @param usuario
 	 * @return usuário atualizado.
 	 */
 	@PutMapping("/mudar")
 	public ResponseEntity<Object> autentication(@Valid @RequestBody Usuario usuarioCadastro) {
-		return ResponseEntity.status(HttpStatus.OK).body(serviceUsuario.mudarUsuario(usuarioCadastro));
+
+		Optional<?> objeto = serviceUsuario.mudarUsuario(usuarioCadastro);
+
+		if (objeto.isEmpty()) {
+			return ResponseEntity.badRequest().build();
+		} else {
+			return ResponseEntity.status(HttpStatus.OK).body(objeto.get());
+		}
+
 	}
-	
-	
-	
+
+	@DeleteMapping("/delete/voucher/{id_usuario}")
+	public void removeVoucher(@Valid @PathVariable Long id_usuario) {
+		serviceUsuario.removerVoucherUsuario(id_usuario);
+	};
 
 	@DeleteMapping("/id_delete/{id_usuario}")
 	public void deleteById(@Valid @PathVariable Long id_usuario) {
-
 		repositoryUsuario.deleteById(id_usuario);
-
 	};
 
 	@PostMapping("/empresa/{id_empresa}/criar")

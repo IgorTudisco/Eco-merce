@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -60,11 +61,11 @@ public class Usuario {
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
 
-	@OneToMany(mappedBy = "empresaCriadora")
+	@OneToMany(mappedBy = "empresaCriadora", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "id_voucher", "empresaCriadora" })
 	private List<Voucher> vouchersEmpresa = new ArrayList<>();
 
-	@ManyToMany(mappedBy = "usuariosComVoucher")
+	@ManyToMany(mappedBy = "usuariosComVoucher", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "usuariosComVoucher" })
 	private List<Voucher> meusVouchers = new ArrayList<>();
 

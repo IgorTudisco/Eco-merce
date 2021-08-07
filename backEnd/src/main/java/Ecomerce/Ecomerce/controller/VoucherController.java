@@ -1,6 +1,7 @@
 package Ecomerce.Ecomerce.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Ecomerce.Ecomerce.model.Usuario;
 import Ecomerce.Ecomerce.model.Voucher;
+import Ecomerce.Ecomerce.repository.UsuarioRepository;
 import Ecomerce.Ecomerce.repository.VoucherRepository;
 import Ecomerce.Ecomerce.service.UsuarioService;
 
@@ -28,6 +31,9 @@ public class VoucherController {
 
 	@Autowired
 	private VoucherRepository repositoryVoucher;
+
+	@Autowired
+	private UsuarioRepository repositoryUsuario;
 
 	@Autowired
 	private UsuarioService serviceUsuario;
@@ -50,13 +56,34 @@ public class VoucherController {
 	@GetMapping("/descricao/{descricaoVoucher}")
 	public ResponseEntity<List<Voucher>> getByDescricao(@Valid @PathVariable String descricaoVoucher) {
 
-		return ResponseEntity.ok(repositoryVoucher.findAllByDescricaoVoucherContainingIgnoreCase(descricaoVoucher));
+		List<Voucher> lista = repositoryVoucher.findAllByDescricaoVoucherContainingIgnoreCase(descricaoVoucher);
+
+		if (lista.isEmpty()) {
+
+			return ResponseEntity.status(204).build();
+
+		} else {
+
+			return ResponseEntity.ok(lista);
+
+		}
 
 	};
 
 	@GetMapping("/empresaParceira/{empresaParceira}")
 	public ResponseEntity<List<Voucher>> getByEmpresaParceira(@Valid @PathVariable String empresaParceira) {
-		return ResponseEntity.ok(repositoryVoucher.findAllByEmpresaParceiraContainingIgnoreCase(empresaParceira));
+
+		List<Voucher> lista = repositoryVoucher.findAllByEmpresaParceiraContainingIgnoreCase(empresaParceira);
+
+		if (lista.isEmpty()) {
+
+			return ResponseEntity.status(204).build();
+
+		} else {
+
+			return ResponseEntity.ok(lista);
+
+		}
 	};
 
 	@PostMapping
@@ -69,8 +96,13 @@ public class VoucherController {
 	@PutMapping
 	public ResponseEntity<Voucher> putVoucher(@Valid @RequestBody Voucher voucher) {
 
-		return ResponseEntity.status(HttpStatus.OK).body(repositoryVoucher.save(voucher));
-
+		Optional<Usuario> objetoUsuario = repositoryUsuario.findById(voucher.getEmpresaCriadora().getId_usuario());
+		Optional<Voucher> objetoVoucher = repositoryVoucher.findById(voucher.getId_voucher());
+		if (objetoUsuario.isPresent() && objetoVoucher.isPresent()) {
+			return ResponseEntity.status(HttpStatus.OK).body(repositoryVoucher.save(voucher));
+		} else {
+			return ResponseEntity.status(400).build();
+		}
 	};
 
 	@DeleteMapping("/id_delete/{id_voucher}")
