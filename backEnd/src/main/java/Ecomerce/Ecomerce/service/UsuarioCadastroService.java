@@ -18,6 +18,9 @@ public class UsuarioCadastroService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 
 	public Optional<Object> cadastrarUsuario(UsuarioCadastroDTO novoUsuarioCadastro) {
 
@@ -28,6 +31,8 @@ public class UsuarioCadastroService {
 			Usuario novoUsuario = new Usuario(novoUsuarioCadastro);			
 			String senhaCriptografada = encoder.encode(novoUsuarioCadastro.getSenha());
 			novoUsuario.setSenha(senhaCriptografada);
+			
+			usuarioService.pontosCortesia(novoUsuario);
 			
 			return Optional.ofNullable(usuarioRepository.save(novoUsuario));
 		});

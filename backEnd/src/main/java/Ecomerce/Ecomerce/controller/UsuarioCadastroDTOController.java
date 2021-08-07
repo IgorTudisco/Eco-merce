@@ -35,7 +35,7 @@ public class UsuarioCadastroDTOController {
 	public ResponseEntity<Object> autentication(@Valid @RequestBody UsuarioCadastroDTO usuarioCadastro) {
 		return cadastroUsuarioService.cadastrarUsuario(usuarioCadastro)
 				.map(usuarioCadastrado -> ResponseEntity.status(HttpStatus.CREATED).body(usuarioCadastrado))
-				.orElse(ResponseEntity.status(HttpStatus.OK).body("Usuario Existente!"));
+				.orElse(ResponseEntity.badRequest().build());
 	}
 
 }

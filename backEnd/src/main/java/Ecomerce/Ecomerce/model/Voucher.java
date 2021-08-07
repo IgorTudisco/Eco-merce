@@ -49,7 +49,7 @@ public class Voucher {
 	private String produto;
 
 	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({ "id_usuario", "senha", "vouchersEmpresa", "meusVouchers", "cpf", "meusPontos", "tipo",
+	@JsonIgnoreProperties({ "senha", "vouchersEmpresa", "meusVouchers", "cpf", "meusPontos", "tipo",
 			"data" })
 	private Usuario empresaCriadora;
 
