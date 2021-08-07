@@ -22,25 +22,19 @@ export class DeleteCooperativaComponent implements OnInit {
 
   ngOnInit(){
     let id: number = this.route.snapshot.params["id"]
-    this.findByIdCooperativa(id)
   }
 
-  findByIdCooperativa(id: number) {
-    this.cooperativaService.getByidCooperativa(environment.id).subscribe((resp: Usuario) => {
-      this.cooperativa = resp
-    }, err => {
-      console.log(`Erro cod: ${err.status}`)
-    })
-  }
+    btnSim() {
+      this.cooperativaService.deleteByIdCooperativa(this.cooperativa.id).subscribe(() => {
+        
+       this.delOk = true
 
-  btnSim() {
-    this.cooperativaService.deleteByIdCooperativa(this.cooperativa.id).subscribe(() => {
-      this.delOk = true
-      this.router.navigate(['/home'])
-    }, err => {
-      console.log(err)
-    })
-  }
+       this.router.navigate(['/home'])
+      }, err => {
+       console.log(err)
+      })
+    }
+  
   btnNao() {
     this.router.navigate(['/cooperativa'])
   }

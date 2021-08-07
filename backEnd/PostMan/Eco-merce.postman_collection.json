@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "5fb403ca-1709-4ce9-8f8c-ecfeaee59728",
-		"name": "Eco-merce",
+		"_postman_id": "767e4567-1f9d-48ff-afe8-ab095bdff577",
+		"name": "Eco-merce Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -47,7 +47,63 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Batata Cooperativa\",\r\n  \"email\": \"lucao@hotmail.com\",\r\n  \"senha\": \"12345678\",\r\n  \"cpf\": \"12345678910\",\r\n  \"endereco\": \"Generation Brasil Zikas 24\",\r\n  \"tipo\": \"COOPERATIVA\" \r\n}",
+							"raw": "{\r\n  \"nome\": \"Bar do Boaz\",\r\n  \"email\": \"batatinha@hotmail.com\",\r\n  \"senha\": \"12345678\",\r\n  \"cpf\": \"12345678910\",\r\n  \"endereco\": \"Generation Brasil Zikas 24\",\r\n  \"tipo\": \"EMPRESA\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios/cadastrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticar Cadastrar Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"jesus\",\r\n  \"email\": \"jesus@hotmail.com\",\r\n  \"senha\": \"12345678\",\r\n  \"cpf\": \"12345678910\",\r\n  \"endereco\": \"Generation Brasil Zikas 24\",\r\n  \"tipo\": \"CLIENTE\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios/cadastrar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticar Cadastrar Copy 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Igor Tudisco\",\r\n  \"email\": \"tudis@hotmail.com\",\r\n  \"senha\": \"12345678\",\r\n  \"cpf\": \"12345678910\",\r\n  \"endereco\": \"Generation Brasil Zikas 24\",\r\n  \"tipo\": \"CLIENTE\" \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,7 +131,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"lucao@hotmail.com\",\r\n  \"senha\": \"12345678\"\r\n}",
+							"raw": "{\r\n  \"email\": \"jesus@hotmail.com\",\r\n  \"senha\": \"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,12 +164,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8080/usuario/cliente/1/cooperativa/3/valor/50",
+							"raw": "localhost:8080/usuario/cliente/4/cooperativa/4/valor/0",
 							"host": [
 								"localhost"
 							],
@@ -121,11 +177,11 @@
 							"path": [
 								"usuario",
 								"cliente",
-								"1",
+								"4",
 								"cooperativa",
-								"3",
+								"4",
 								"valor",
-								"50"
+								"0"
 							]
 						}
 					},
@@ -167,7 +223,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic amVzdXNAaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -178,7 +240,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/usuario/id/2",
+							"raw": "localhost:8080/usuario/id/5",
 							"host": [
 								"localhost"
 							],
@@ -186,7 +248,7 @@
 							"path": [
 								"usuario",
 								"id",
-								"2"
+								"5"
 							]
 						}
 					},
@@ -199,7 +261,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -210,7 +278,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/usuario/endereco/do",
+							"raw": "localhost:8080/usuario/endereco/",
 							"host": [
 								"localhost"
 							],
@@ -218,7 +286,31 @@
 							"path": [
 								"usuario",
 								"endereco",
-								"do"
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll |  Cliente",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
 							]
 						}
 					},
@@ -228,10 +320,16 @@
 					"name": "Put |  Cooperativa",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_usuario\": 1,\r\n        \"nome\": \"De canta pá nois\",\r\n        \"email\": \"Mi@gen.com\",\r\n        \"senha\": \"ZikaBee12345\",\r\n        \"endereco\": \"Rua bota do Judas 24 Bairro Mi dgfsgf\",\r\n        \"cpf\": \"12345678912\",\r\n        \"usuarioTipo\": 1\r\n}",
+							"raw": "{\r\n        \"id_usuario\": 10,\r\n        \"nome\": \"Michele\",\r\n        \"email\": \"Mi@gen.com\",\r\n        \"senha\": \"ZikaBee12345\",\r\n        \"endereco\": \"Rua bota do Judas 24 Bairro Mi\",\r\n        \"cpf\": \"12345678912\",\r\n        \"tipo\": \"COOPERATIVA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -261,7 +359,13 @@
 					"name": "DeleteById |  Cliente",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic amVzdXNAaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -272,7 +376,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/usuario/id_delete/2",
+							"raw": "localhost:8080/usuario/id_delete/16",
 							"host": [
 								"localhost"
 							],
@@ -280,7 +384,43 @@
 							"path": [
 								"usuario",
 								"id_delete",
-								"2"
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById |  Cliente remove voucher",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic amVzdXNAaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuario/delete/voucher/16",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"delete",
+								"voucher",
+								"16"
 							]
 						}
 					},
@@ -293,7 +433,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic Y2xpZW50ZUBob3RtYWlsLmNvbToxMjM0NTY3OA==",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -323,7 +469,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -334,7 +486,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/voucher/id/1",
+							"raw": "localhost:8080/voucher/id/3",
 							"host": [
 								"localhost"
 							],
@@ -342,7 +494,7 @@
 							"path": [
 								"voucher",
 								"id",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -355,7 +507,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -366,7 +524,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/voucher/descricao/o",
+							"raw": "localhost:8080/voucher/descricao/batata",
 							"host": [
 								"localhost"
 							],
@@ -374,7 +532,7 @@
 							"path": [
 								"voucher",
 								"descricao",
-								"o"
+								"batata"
 							]
 						}
 					},
@@ -384,7 +542,13 @@
 					"name": "GetEmpresaParceira | Voucher",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "localhost:8080/voucher/empresaParceira/Amigos dá Mi 34",
 							"host": [
@@ -407,12 +571,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"value": "Basic amVzdXNAaG90bWFpbC5jb206MTIzNDU2Nzg=",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8080/voucher/cliente/1/voucher/1",
+							"raw": "localhost:8080/voucher/cliente/7/voucher/4",
 							"host": [
 								"localhost"
 							],
@@ -420,9 +584,9 @@
 							"path": [
 								"voucher",
 								"cliente",
-								"1",
+								"7",
 								"voucher",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -432,10 +596,16 @@
 					"name": "Put | Cliente",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic Ym9hekBob3RtYWlsLmNvbToxMjM0NTY3ODk=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_usuario\": 1,\r\n        \"nome\": \"De canta pá nois\",\r\n        \"email\": \"Mi@gen.com\",\r\n        \"senha\": \"ZikaBee12345\",\r\n        \"endereco\": \"Rua bota do Judas 24 Bairro Mi dgfsgf\",\r\n        \"cpf\": \"12345678912\",\r\n        \"usuarioTipo\": 1\r\n}",
+							"raw": "{\r\n  \"id_usuario\": \"3\",\r\n  \"nome\": \"Denise Zé Pamonha\",\r\n  \"email\": \"jesus@hotmail.com\",\r\n  \"senha\": \"123456789\",\r\n  \"cpf\": \"12345678910\",\r\n  \"endereco\": \"Generation Brasil Zikas 24\",\r\n  \"tipo\": \"CLIENTE\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -497,13 +667,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Basic ZGVuaXNlaG90ZG9nQGdtYWlsLmNvbToxMzQ2NTI4OA==",
+								"value": "Basic amVzdXNAaG90bWFpbC5jb206MTIzNDU2Nzg=",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"empresaParceira\": \"Amigos dá Denise 34\",\r\n    \"pontosNecessario\": 50,\r\n    \"descricaoVoucher\": \"Vale batata com bacon\",\r\n    \"produto\": \"Batata e mandioca..........\"\r\n}",
+							"raw": "{\r\n    \"empresaParceira\": \"Bar Do Boaz\",\r\n    \"pontosNecessario\": 20,\r\n    \"descricaoVoucher\": \"Vale batata com bacon\",\r\n    \"produto\": \"Batata e mandioca..........\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -511,7 +681,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/usuario/empresa/2/criar",
+							"raw": "localhost:8080/usuario/empresa/14/criar",
 							"host": [
 								"localhost"
 							],
@@ -519,7 +689,7 @@
 							"path": [
 								"usuario",
 								"empresa",
-								"2",
+								"14",
 								"criar"
 							]
 						}
@@ -562,7 +732,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -592,7 +768,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -624,7 +806,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -635,7 +823,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/voucher/descricao/o",
+							"raw": "localhost:8080/voucher/descricao/batata",
 							"host": [
 								"localhost"
 							],
@@ -643,7 +831,7 @@
 							"path": [
 								"voucher",
 								"descricao",
-								"o"
+								"batata"
 							]
 						}
 					},
@@ -653,10 +841,16 @@
 					"name": "Put | Voucher",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_voucher\": 2,\r\n    \"empresaParceira\": \"Amigos dá Mi 34\",\r\n    \"desconto\": 50,\r\n    \"descricaoVoucher\": \"Restaurante do pure\",\r\n    \"produto\": \"Batata e mandioca....dfghsdfhg......\",\r\n    \"id_usuario\": 1\r\n}",
+							"raw": "{\r\n    \"id_voucher\": 14,\r\n    \"empresaParceira\": \"Amigos dá Bea 34\",\r\n    \"pontosNecessario\": 60,\r\n    \"descricaoVoucher\": \"Bar do Boaz\",\r\n    \"produto\": \"Batata e mandioca..........\",\r\n    \"empresaCriadora\": {\r\n        \"id_usuario\": 3\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -683,7 +877,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Basic ZGVuaXNlQGdtYWlsLmNvbToxMzQ2NTI5OQ==",
+								"value": "Basic Ym9hekBob3RtYWlsLmNvbToxMjM0NTY3ODk=",
 								"type": "text"
 							}
 						],
@@ -707,7 +901,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -718,7 +918,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/usuario/id/2",
+							"raw": "localhost:8080/usuario/id/3",
 							"host": [
 								"localhost"
 							],
@@ -726,7 +926,7 @@
 							"path": [
 								"usuario",
 								"id",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -736,9 +936,15 @@
 					"name": "findByEmail | Cliente",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/usuario/email/Mi@gen.com",
+							"raw": "localhost:8080/usuario/email/empresa@hotmail.com",
 							"host": [
 								"localhost"
 							],
@@ -746,7 +952,7 @@
 							"path": [
 								"usuario",
 								"email",
-								"Mi@gen.com"
+								"empresa@hotmail.com"
 							]
 						}
 					},
@@ -756,10 +962,16 @@
 					"name": "Put |  Empresa",
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic bHVjYW9AaG90bWFpbC5jb206MTIzNDU2Nzg=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_usuario\": 1,\r\n        \"nome\": \"De canta pá nois\",\r\n        \"email\": \"Mi@gen.com\",\r\n        \"senha\": \"ZikaBee12345\",\r\n        \"endereco\": \"Rua bota do Judas 24 Bairro Mi dgfsgf\",\r\n        \"cpf\": \"12345678912\",\r\n        \"usuarioTipo\": 1\r\n}",
+							"raw": "{\r\n        \"id_usuario\": 3,\r\n        \"nome\": \"De canta pARA nós\",\r\n        \"email\": \"Mi@gen.com\",\r\n        \"senha\": \"ZikaBee12345\",\r\n        \"endereco\": \"Rua bota do Judas 24 Bairro Mi dgfsgf\",\r\n        \"cpf\": \"12345678912\",\r\n        \"tipo\": \"EMPRESA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

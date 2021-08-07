@@ -33,18 +33,41 @@ export class DeleteClienteComponent implements OnInit {
   //   })
   // }
 
+  /*
+  "Ao cliclar em aceitar, seus vouchers serão excluídos, deseja mesmo prosseguir?"
+   */
+
+ 
+  // Abrir uma popup de delete e o mesmo vai direcionar para o delete-cliente. 
+
+  
   btnSim() {
+    this.clienteService.removerVoucher(this.cliente.id).subscribe(() => {      
+      this.delOk = true      
+      this.router.navigate(['/']) // -> direcionar para a pg de confirmar o delete.
+    }, err => {
+      console.log(err)
+    })
+  }
+
+  btnNao() {
+    this.router.navigate(['/cliente'])
+  }
+
+  btnSimConfirme() {
     this.clienteService.deleteById(this.cliente.id).subscribe(() => {
       this.delOk = true
       this.router.navigate(['/home'])
     }, err => {
       console.log(err)
     })
-  }
-  btnNao() {
-    this.router.navigate(['/cliente'])
+    
   }
 
-  
+  btnNaoConfirme() {
+
+    
+    this.router.navigate(['/cliente'])
+  }
 
 }

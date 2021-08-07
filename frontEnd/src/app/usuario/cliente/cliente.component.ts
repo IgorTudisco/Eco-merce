@@ -14,7 +14,9 @@ export class ClienteComponent implements OnInit {
 
   cliente: Usuario = new Usuario()
   listaVoucher: Voucher[]
-  voucher: Voucher = new Voucher()  
+  voucher: Voucher = new Voucher()
+  delOk: boolean = false
+  empresaComVoucher: Voucher
 
   constructor(
     private router: Router,
@@ -32,12 +34,27 @@ export class ClienteComponent implements OnInit {
   findAllVoucher(){
     this.clienteService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
-      console.log(JSON.stringify(this.listaVoucher))
+     //  console.log(JSON.stringify(this.listaVoucher))
     })
   }
 
+  findByIdVoucher(idVoucher: number){
+    this.clienteService.getByIdVoucher(idVoucher).subscribe((resp: Voucher) => {
+      this.voucher = resp
+     //  console.log(JSON.stringify(this.listaVoucher))
+    })
+  }
+
+  findBydescricaoVoucher(descricao: string){
+    this.clienteService.getByDescricaoVoucher(descricao).subscribe((resp: Voucher[]) => {
+      this.listaVoucher = resp
+     //  console.log(JSON.stringify(this.listaVoucher))
+    })
+  }
+
+
   findByIdCliente(id: number){
-    this.clienteService.getByidCliente(environment.id).subscribe((resp: Usuario) => {
+    this.clienteService.getByidEmpresa(environment.id).subscribe((resp: Usuario) => {
       this.cliente = resp
     }, err => {
       console.log(`Erro cod: ${err.status}`)
@@ -56,4 +73,13 @@ export class ClienteComponent implements OnInit {
       this.router.navigate(['/cliente'])
     })
   }
+
+  findEmpresaParceira(empresaParceira: string){
+    this.clienteService.getEmpresaParceiraVoucher(empresaParceira).subscribe((resp: Voucher) => {
+
+      this.empresaComVoucher = resp
+
+    })
+  }
+
 }
