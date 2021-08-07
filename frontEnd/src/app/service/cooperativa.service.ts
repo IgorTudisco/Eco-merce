@@ -26,4 +26,21 @@ export class CooperativaService {
 
   }
 
+  putAddPontuacao(id_cooperativa: number, id_cliente: number, pontos: number){
+    return this.http.put(`http://localhost:8080/usuario/cliente/${id_cliente}/cooperativa/${id_cooperativa}/valor/${pontos}`, this.token)
+  }
+
+  putCooperativa(cooperativa: Usuario){
+    return this.http.put('http://localhost:8080/usuario/mudar', cooperativa, this.token)
+  }
+
+  deleteByIdCooperativa(id: number){
+    return this.http.delete(`http://localhost:8080/usuario/id_delete/${id}`)
+  }
+
+  getByidCooperativa(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`http://localhost:8080/usuario/id/$
+  {id}`, this.token)
+  }
+
 }

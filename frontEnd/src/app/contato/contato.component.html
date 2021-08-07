@@ -1,42 +1,46 @@
-<div class="container">
-  <div class="row">
-    <div class="col-4">
-      <h3>
-        Entre em contato conosco
-      </h3>
-      <h4>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia unde accusantium !
-      </h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-8">
-      <div class="container">
+<div class="container py-5">
+  <div class="row d-flex justify-content-between">
+    <div class="col-md-6">
 
-        <div class="p-20">
-            <form>
-                <label for="nome">Nome:</label><br>
-                <input type="text" id="nome" onkeyup='validaNome()'>
-                <div id='txtNome'></div>
-                <br>
-                <label for="email">E-mail:</label><br>
-                <input type="email" id="email" onkeyup='validaEmail()'>
-                <div id='txtEmail'></div>
-                <br>
-                <label for="assunto">Assunto:</label><br>
-                <textarea name="assunto" id="assunto" cols="60" rows="10"></textarea>
-                <br>
-                <br>
-                <button  onclick="enviar()">Enviar</button>
-            </form>
-        </div>
+      <div>
 
-        <div class="p-20">
+        <h1 class="fs-48">
+          <p>Entre em contato</p>
+          <p>com a gente!</p>
+        </h1>
+        <br>
+        <h5 class="fs-24">
+          <p>Entre em contato com a Eco-merce,</p>
+          <p>queremos tirar suas dúvidas, ouvir suas</p>
+          <p>críticas e sugestões.</p>
+        </h5>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatem pariatur cumque quae dolore reiciendis rerum! Earum, doloremque quo! Distinctio similique unde dolorum numquam perferendis rem quis fugit? Aperiam, nesciunt.</p>
+        <button class="btn btn-success d-flex align-items-center justify-content-center zap">
+          <img class="iconeZap" src="https://i.imgur.com/0GoHSk3.png" alt="Icone Whatsapp"></button>
 
-        </div>
+      </div>
 
     </div>
+
+    <div class="col-md-4 p-3">
+
+      <div class="p-3 d-flex justify-content-start align-content-center">
+        <button class="btn"><img class="iconeCont" src="https://i.imgur.com/TUOGvpv.png" alt="Icone Telefone"></button>
+        <p>11 00000-0000</p>
+      </div>
+
+      <div class="p-3 d-flex justify-content-start align-content-center">
+        <button class="btn"><img class="iconeCont" src="https://i.imgur.com/pBVPFrA.png"
+            alt="Icone localizacao"></button>
+        <p>Rua Generation, 24</p>
+      </div>
+
+      <div class="p-3 d-flex justify-content-lg-start align-content-center">
+        <button class="btn"><img class="iconeCont" src="https://i.imgur.com/6f68kHM.png" alt="Icone e-mail"></button>
+        <p>contato@ecomerce.com</p>
+      </div>
+
+    </div>
+
   </div>
 </div>

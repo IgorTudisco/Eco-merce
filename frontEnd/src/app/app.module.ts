@@ -19,6 +19,10 @@ import { CooperativaComponent } from './usuario/cooperativa/cooperativa.componen
 import { ClienteComponent } from './usuario/cliente/cliente.component';
 import { EmpresaComponent } from './usuario/empresa/empresa.component';
 import { VoucherComponent } from './usuario/empresa/voucher/voucher.component';
+import { DeleteClienteComponent } from './delete/delete-cliente/delete-cliente.component';
+import { DeleteCooperativaComponent } from './delete/delete-cooperativa/delete-cooperativa.component';
+import { DeleteEmpresaComponent } from './delete/delete-empresa/delete-empresa.component';
+import { DeleteVoucherComponent } from './delete/delete-voucher/delete-voucher.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { VoucherComponent } from './usuario/empresa/voucher/voucher.component';
     CooperativaComponent,
     ClienteComponent,
     EmpresaComponent,
-    VoucherComponent
+    VoucherComponent,
+    DeleteClienteComponent,
+    DeleteCooperativaComponent,
+    DeleteEmpresaComponent,
+    DeleteVoucherComponent
    ],
   imports: [
     BrowserModule,

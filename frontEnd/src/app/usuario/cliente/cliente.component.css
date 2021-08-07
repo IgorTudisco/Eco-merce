@@ -21,16 +21,7 @@
   .buttonDivE {
     padding: 0px 10px 0px 5px;
   }
-  
-  .buttonConf {
-    background-color: #fffbfb;
-    border: 1px solid #9556bf;
-    transition-duration: 0.7s;
-    width: 130px;
-    height: 40px;
-    font-size: 20px;
-  }
-  
+    
   .buttonEntrar:hover {
     color: #fffbfb;
     background-color: #9556bf;
@@ -44,7 +35,7 @@
     padding: 0px 0px 0px 10px;
   }
   
-  .buttonSair {
+  .buttonIcon {
     color: #fffbfb;
     background-color: #9556bf;
     border-style: hidden;
@@ -53,22 +44,14 @@
     height: 40px;
     font-size: 20px;
   }
-  
-  .buttonCadastrar:hover {
-    background-color: #9556bf;
-    border: 1px solid #fffbfb;
-    transition-duration: 0.7s;
-  }
 
-  .iconeSair{
+  .icone{
       width: 30px;
       height: 30px;
   }
-
-  .iconeConf{
-    width: 30px;
-    height: 30px;
-  }
-
+ 
   /* CSS Nav Bar */
 
+  /*Cliente*/
+
+  

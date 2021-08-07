@@ -1,7 +1,6 @@
 <!-- Nav Bar -->
 
-<div class="container d-flex">
-  <div class="row">
+<div class="container d-flex p-5 justify-content-between">
     <div class="col-12">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top NavPadding" style="background-color: #9556BF">
         <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png" style="width: 40px"
@@ -12,32 +11,16 @@
         </button>
 
         <div class="collapse navbar-collapse  d-flex justify-content-between" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto active ">
-            <li class="nav-item ">
-              <a class="nav-link navItem" href="#">Home</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link navItem " href="#">Quem somos</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link navItem " href="#">Serviços</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link  navItem" href="#">Parceiros</a>
-            </li>
-          </ul>
           <form class="form-inline d-flex align-items-center">
             <div class="buttonDivE">
-              <button class="buttonSair d-flex align-items-center justify-content-center"
-                type="submit"> <img class="
-                " src="https://i.imgur.com/CnpkYJn.png" alt="Icone Configuracao">
-                Configuração
-              </button>
+              <button class="buttonIcon d-flex align-items-center justify-content-center" type="submit"
+                data-bs-toggle="modal" data-bs-target="#config"><img class="icone" src="https://i.imgur.com/CnpkYJn.png"
+                  alt="Icone Configuracao">Configuração</button>
             </div>
 
             <div class="buttonDivC">
-              <button class="buttonSair d-flex align-items-center justify-content-center"
-                type="submit"> <img class="iconeSair" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair">
+              <button [routerLink]="['/home']" class="buttonIcon d-flex align-items-center justify-content-center" type="submit"><img
+                  class="icone" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair">
                 Sair
               </button>
             </div>
@@ -45,47 +28,180 @@
         </div>
       </nav>
     </div>
-  </div>
 </div>
 
-<!-- Nav Bar -->
+<!--Cliente-->
+
+<div class="container-fluid">
+
+  <div class="row bg-secondary">
+
+    <div class="cow-12 fontText">
+
+      <h1 class="fs-54 text-center"> Cliente </h1>
+      <h5 class="fs-18 text-center">Veja seus vouchers:</h5>
+
+      <div class="row d-flex justify-content-lg-center mt-4 mb-5">
+        <div class="col-md-3">
+          <!--
+            Para manter mais organizado, vamos usar o form-group, e assim ainda
+            ajudar o bootstrap a encontrar ele de forma melhor
+          -->
+          <div class="form-group">
+            <input type="text" class="form-control mb-2" id="descricao" placeholder="Pesquise por vouchers">
+
+            <div class="d-flex justify-content-lg-center ">
+              <button class="btn btn-light botaoCadastrar" (click)='findAllVoucher()'>Pesquisar</button>
+            </div>
+
+            <div class="d-flex justify-content-lg-center ">
+              <button class="btn btn-light botaoCadastrar" data-bs-toggle="modal" data-bs-target="#coleta">Agendar coleta</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
 
 
+  </div>
 
-<!-- <div class="container">
+</div>
 
+
+<div class="container">
   <div class="row mt-5">
-    <div class="col-md-12">
-      <h2 class="text-center">Vouchers</h2>
+    <div class="col-md-12 d-flex justify-content-center">
+      <h2>Todos os vouchers</h2>
     </div>
   </div>
 
   <div class="row mt-3 mb-5 d-flex justify-content-center">
+
     <div class="col-md-6">
 
-      <table class="table table-hover">
+      <!--Table-->
+      <table class="table table-striped table-hover my-5">
         <thead>
+          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
           <tr>
-            <th scope="col">Pontos necessários</th>
-            <th scope="col">Empresa</th>
-            <th scope="col" class="text-right">Descrição</th>
-
+            <th scope="col" class="text-lg-center">Pontos necessários</th>
+            <th scope="col" class="text-lg-center">Descrições</th>
+            <th scope="col" class="text-lg-center">Empresa</th>
           </tr>
         </thead>
-
-        <tbody>
-          <tr *ngFor='let voucher of listaVoucher'>
-            <th>{{voucher.pontosNecessario}}</th>
-            <td>{{voucher.empresaParceira}}</td>
-            <td>{{voucher.descricaoVoucher}}</td>
-            <td class="d-flex justify-content-end">
-              <button class="btn btn-info mr-3">Pegar</button>
+        <tbody class="my-5">
+          <tr *ngFor="let voucher of listaVoucher">
+            <th scope="row" class="text-lg-center">{{voucher.pontosNecessario}}</th>
+            <td class="text-lg-center">{{voucher.descricaoVoucher}}</td>
+            <td class="text-lg-center">{{voucher.empresaCriadora.nome}}</td>
+            <td class="d-flex justify-content-center">
+              <!--
+                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
+                 a nossa rota e pegar o id no item que está nessa linha.
+              -->
+              <button class="btn btn-info mx-2" > Resgatar </button>
             </td>
           </tr>
         </tbody>
       </table>
+      <!--/Table-->
 
     </div>
+
   </div>
 
-</div> -->
+</div>
+
+<!-- Nav Bar -->
+
+<!--Modal Config-->
+<div class="modal fade " id="config" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
+        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!--Corpo do modal-->
+
+      <div class="modal-body">
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Nome</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Nome" [(ngModel)]='cliente.nome'>
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">E-mail</label>
+          <input type="text" class="form-control" id="titulo" placeholder="E-mail" [(ngModel)]='cliente.email'>
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Senha atual</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Senha atual">
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Nova senha</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Nova senha">
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Endereço</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Endereço">
+        </div>
+
+      </div>
+      <!--/Corpo do modal-->
+
+      <div class="modal-footer">
+        <button [routerLink]="['/deleteCliente', cliente.id]" type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Deletar</button>
+        <button (click)="alterarCliente()" type="button" class="btn btn-success my-2">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Modal Config-->
+
+<!--Modal Agendamento-->
+<div class="modal fade " id="coleta" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
+        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!--Corpo do modal-->
+
+      <div class="modal-body">
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Endereço</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Logradouro, nº - Bairro - Cep - Complemento">
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">O que será retirado?</label>
+          <input type="text" class="form-control" id="titulo"
+            placeholder="Descreva o tipo de resíduo. Ex: Plástico, alumínio">
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Descreva</label>
+          <textarea class="form-control" name="texto" id="texto" rows="3" placeholder="Descreva a embalagem que se encontra os resíduos e a quantidade aproximadamente."></textarea>
+        </div>
+
+      </div>
+      <!--/Corpo do modal-->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success my-2">Agendar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Modal Config-->
