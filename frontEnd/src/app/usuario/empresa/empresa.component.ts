@@ -14,8 +14,10 @@ import { environment } from 'src/environments/environment.prod';
 export class EmpresaComponent implements OnInit {
 
  voucher: Voucher = new Voucher()
- listVoucher: Voucher[]
+ listaVoucher: Voucher[]
  empresa: Usuario = new Usuario()
+ listaCliente: Usuario[]
+ cliente: Usuario = new Usuario()
 
   constructor(
     private empresaService: EmpresaService,
@@ -60,5 +62,53 @@ export class EmpresaComponent implements OnInit {
 
     })
   }
+
+  findAllVoucher(){
+    this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
+      this.listaVoucher = resp
+     // console.log(JSON.stringify(this.listaVoucher))
+    })
+  }
   
+  findByIdVoucher(idVoucher: number){
+    this.empresaService.getByIdVoucher(idVoucher).subscribe((resp: Voucher) => {
+
+      this.voucher = resp
+
+    })
+  }
+
+  findDescricao(descricao: string){
+    this.empresaService.getByDescricao(descricao).subscribe((resp: Voucher[]) => {
+
+      this.listaVoucher = resp
+
+    })
+  }
+
+  findAllCliente(){
+    this.empresaService.getAllCliente().subscribe((resp: Usuario[]) => {
+
+      this.listaCliente = resp
+
+    })
+  }
+
+  findByIdCliente(idCliente: number){
+    this.empresaService.getByIdCliente(idCliente).subscribe((resp: Usuario) => {
+
+      this.cliente = resp
+
+    })
+  }
+
+  findByEmailCliente(emailCliente: string){
+    this.empresaService.getByEmail(emailCliente).subscribe((resp: Usuario) => {
+
+      this.cliente = resp
+
+    })
+  }
+
+
 }
