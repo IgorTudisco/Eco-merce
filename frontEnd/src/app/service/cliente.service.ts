@@ -15,37 +15,37 @@ export class ClienteService {
   }
 
   getAllVoucher(): Observable<Voucher[]> {
-    return this.http.get<Voucher[]>(`http://localhost:8080/voucher`,this.token
+    return this.http.get<Voucher[]>(`https://ecomerceappbr.herokuapp.com/voucher`,this.token
     )
   }
 
   getByIdVoucher(id: number): Observable<Voucher> {
-    return this.http.get<Voucher>(`http://localhost:8080/voucher/id/${id}`,this.token
+    return this.http.get<Voucher>(`https://ecomerceappbr.herokuapp.com/voucher/id/${id}`,this.token
     )
   }
 
   getByDescricaoVoucher(descricao: string): Observable<Voucher[]> {
-    return this.http.get<Voucher[]>(`http://localhost:8080/voucher/descricao/${descricao}`,this.token
+    return this.http.get<Voucher[]>(`https://ecomerceappbr.herokuapp.com/voucher/descricao/${descricao}`,this.token
     )
   }
 
   getEmpresaParceiraVoucher(empresa: string): Observable<Voucher> {
-    return this.http.get<Voucher>(`http://localhost:8080/empresaParceira/${empresa}`, this.token)
+    return this.http.get<Voucher>(`https://ecomerceappbr.herokuapp.com/empresaParceira/${empresa}`, this.token)
   }
 
   getByidCliente(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`http://localhost:8080/usuario/id/${id}`, this.token)
+    return this.http.get<Usuario>(`https://ecomerceappbr.herokuapp.com/usuario/id/${id}`, this.token)
   }
 
   putVoucher(id_cliente: number, id_voucher: number): Observable<Voucher>{
-    return this.http.put<Voucher>(`localhost:8080/voucher/cliente/${id_cliente}/voucher/${id_voucher}`, this.token)
+    return this.http.put<Voucher>(`https://ecomerceappbr.herokuapp.com/voucher/cliente/${id_cliente}/voucher/${id_voucher}`, this.token)
   }
 
   putCliente(cliente: Usuario): Observable<Usuario>{
-    return this.http.put<Usuario>('http://localhost:8080/usuario/mudar', cliente, this.token)
+    return this.http.put<Usuario>('https://ecomerceappbr.herokuapp.com/usuario/mudar', cliente, this.token)
   }
 
   deleteById(id: number){
-    return this.http.delete(`http://localhost:8080/usuario/id_delete/${id}`)
+    return this.http.delete(`https://ecomerceappbr.herokuapp.com/usuario/id_delete/${id}`)
   }
 }

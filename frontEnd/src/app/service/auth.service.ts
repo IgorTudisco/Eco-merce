@@ -16,11 +16,13 @@ export class AuthService {
 
   entrar(usuarioLoginDTO: UsuarioLoginDTO): Observable<UsuarioLoginDTO>{
     this.logado()
-    return this.http.post<UsuarioLoginDTO>('http://localhost:8080/usuarios/logar', usuarioLoginDTO)
+    return this.http.post<UsuarioLoginDTO>('https://ecomerceappbr.herokuapp.com/usuarios/logar', usuarioLoginDTO)
   }
 
+  // https://ecomerceappbr.herokuapp.com/ -> rota master.
+
   cadastrar(usuarioCadastroDTO: UsuarioCadastroDTO): Observable<UsuarioCadastroDTO>{
-    return this.http.post<UsuarioCadastroDTO>('http://localhost:8080/usuarios/cadastrar', usuarioCadastroDTO)
+    return this.http.post<UsuarioCadastroDTO>('https://ecomerceappbr.herokuapp.com/usuarios/cadastrar', usuarioCadastroDTO)
   }
 
   logado(){

@@ -21,15 +21,15 @@ export class EmpresaService {
 
   postVoucher(id: number, voucher:Voucher): Observable<Voucher>{
     
-    return this.http.post<Voucher>(`http://localhost:8080/usuario/empresa/${id}/criar`,voucher, this.token)
+    return this.http.post<Voucher>(`https://ecomerceappbr.herokuapp.com/usuario/empresa/${id}/criar`,voucher, this.token)
   }
 
   getAllVoucher(): Observable<Voucher[]>{
-    return this.http.get<Voucher[]>('http://localhost:8080/voucher', this.token)
+    return this.http.get<Voucher[]>('https://ecomerceappbr.herokuapp.com/voucher', this.token)
   }
 
   getByIdVoucher(idVoucher: Voucher, idCliente: Usuario): Observable<Voucher[]>{
-    return this.http.get<Voucher[]>(`http://localhost:8080/voucher/${idVoucher}/${idCliente}`, this.token)
+    return this.http.get<Voucher[]>(`https://ecomerceappbr.herokuapp.com/voucher/${idVoucher}/${idCliente}`, this.token)
   }
 
 }
