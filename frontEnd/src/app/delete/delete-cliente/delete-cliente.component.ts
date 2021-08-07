@@ -22,21 +22,21 @@ export class DeleteClienteComponent implements OnInit {
 
   ngOnInit(){
     let id: number = this.route.snapshot.params["id"]
-    this.findByIdCliente(id)
+    // this.findByIdCliente(id)
   }
 
-  findByIdCliente(id: number) {
-    this.clienteService.getByidCliente(environment.id).subscribe((resp: Usuario) => {
-      this.cliente = resp
-    }, err => {
-      console.log(`Erro cod: ${err.status}`)
-    })
-  }
+  // findByIdCliente(id: number) {
+  //   this.clienteService.getByidCliente(environment.id).subscribe((resp: Usuario) => {
+  //     this.cliente = resp
+  //   }, err => {
+  //     console.log(`Erro cod: ${err.status}`)
+  //   })
+  // }
 
   btnSim() {
     this.clienteService.deleteById(this.cliente.id).subscribe(() => {
       this.delOk = true
-      this.router.navigate(['/loginCadastro'])
+      this.router.navigate(['/home'])
     }, err => {
       console.log(err)
     })
@@ -44,5 +44,7 @@ export class DeleteClienteComponent implements OnInit {
   btnNao() {
     this.router.navigate(['/cliente'])
   }
+
+  
 
 }

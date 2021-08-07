@@ -48,4 +48,9 @@ export class ClienteService {
   deleteById(id: number){
     return this.http.delete(`https://ecomerceappbr.herokuapp.com/usuario/id_delete/${id}`)
   }
+
+  removerVoucher(id: number){
+    return this.http.delete(`https://ecomerceappbr.herokuapp.com/usuario/delete/voucher/${id}`)
+  }
+    
 }

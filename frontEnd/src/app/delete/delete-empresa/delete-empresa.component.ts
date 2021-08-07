@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from 'src/app/model/Usuario';
+import { EmpresaService } from 'src/app/service/empresa.service';
 
 @Component({
   selector: 'app-delete-empresa',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteEmpresaComponent implements OnInit {
 
-  constructor() { }
+  empresa: Usuario = new Usuario()
+  delOk: boolean = false
 
-  ngOnInit(): void {
+  constructor(
+
+    private router: Router,
+    private empresaService: EmpresaService,
+    private route: ActivatedRoute
+
+  ) { }
+
+  ngOnInit() {
+    let id: number = this.route.snapshot.params["id"]
+  }
+
+  btnSim() {
+    this.empresaService.deleteByIdEmpresa(this.empresa.id).subscribe(() => {
+      this.delOk = true
+      this.router.navigate(['/home'])
+    }, err => {
+      console.log(err)
+    })
+  }
+  btnNao() {
+    this.router.navigate(['/empresa'])
   }
 
 }
