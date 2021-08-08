@@ -1,1 +1,54 @@
-<h1>Isso é um Coperativa</h1>
+<div class="tab-content mt-5" id="nav-tabContent">
+
+    <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Digite um endereço para pesquisar"
+                        [(ngModel)]='endereco' (keyup)='findByEnderecoCliente(endereco)'>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-columns p-4">
+            <div class="card text-center" *ngFor='let cliente of listaCliente'>
+                <div class="card-body">
+                    <h5 class="card-title m-0">{{cliente.nome}}</h5>
+                    <p class="card-text"><small class="text-muted"> Endereço: {{cliente.endereco}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-outline-success my-2" data-bs-toggle="modal" data-bs-target="#postos">Adicionar 
+    pontuação</button>
+
+<div class="modal fade " id="postos" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
+                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--Corpo do modal-->
+
+            <div class="modal-body">
+
+                <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                    <label class="mb-1" for="titulo">Quantidade de pontos</label>
+                    <input type="text" class="form-control" id="titulo">
+                </div>
+
+            </div>
+            <!--/Corpo do modal-->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success my-2">Atribuir</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Modal Config-->

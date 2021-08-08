@@ -30,6 +30,24 @@
     </div>
 </div>
 
+<div class="row d-flex justify-content-center mt-5 mb-5">
+  <div class="col-md-4">
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Digite a descrição do voucher"
+              [(ngModel)]='descricao' (keyup)='findBydescricaoVoucher(descricao)'>
+      </div>
+  </div>
+</div>
+<div class="card-columns">
+  <div class="card text-center" *ngFor='let voucher of listaVoucher'>
+      <div class="card-body">
+          <h5 class="card-title m-0">{{voucher.empresaParceira}}</h5>
+          <small class="text-muted"> Pontos necessarios: {{voucher.pontosNecessario}}</small>
+          <small class="text-muted"> Descrição: {{voucher.descricaoVoucher}}</small>
+      </div>
+  </div>
+</div>
+
 <!--Cliente-->
 
 <div class="container-fluid">

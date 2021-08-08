@@ -11,14 +11,13 @@ import { Voucher } from '../model/Voucher';
 })
 export class EmpresaService {
 
+  tok = environment.token
   
   token = {
-    headers: new HttpHeaders().set('Authorization', environment.token)
+    headers: new HttpHeaders().set('Authorization', this.tok)
   }
 
-  constructor(
-    private http:HttpClient
-    ) { }
+  constructor(private http:HttpClient) { }
 
   postVoucher(id: number, voucher:Voucher): Observable<Voucher>{ // ok
     
@@ -42,7 +41,7 @@ export class EmpresaService {
   }
 
   getAllVoucher(): Observable<Voucher[]>{ // ok
-    return this.http.get<Voucher[]>('https://ecomerceappbr.herokuapp.com/voucher', this.token)
+    return this.http.get<Voucher[]>(`https://ecomerceappbr.herokuapp.com/voucher`, this.token)
   }
 
   getByIdVoucher(idVoucher: number): Observable<Voucher>{ // ok

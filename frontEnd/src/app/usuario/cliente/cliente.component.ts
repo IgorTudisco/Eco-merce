@@ -17,6 +17,7 @@ export class ClienteComponent implements OnInit {
   voucher: Voucher = new Voucher()
   delOk: boolean = false
   empresaComVoucher: Voucher
+  descricao: string
 
   constructor(
     private router: Router,

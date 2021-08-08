@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { UsuarioCadastroDTO } from '../model/UsuarioCadastroDTO';
 import { UsuarioLoginDTO } from '../model/UsuarioLoginDTO';
@@ -22,11 +22,13 @@ export class LoginCadastroComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router, 
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
+   // let id = this.route.snapshot.params[environment.id]
   }
 
   entrar(){

@@ -12,6 +12,8 @@ export class CooperativaComponent implements OnInit {
 
   cliente: Usuario
   cooperativa: Usuario = new Usuario()
+  endereco: string
+  listaCliente: Usuario[] 
 
   constructor(
     private router: Router,
@@ -31,9 +33,9 @@ export class CooperativaComponent implements OnInit {
   }
 
   findByEnderecoCliente(endereco: string){
-    this.cooperativaService.getByEnderecoCliente(endereco).subscribe((resp: Usuario) => {
+    this.cooperativaService.getByEnderecoCliente(endereco).subscribe((resp: Usuario[]) => {
 
-      this.cliente = resp
+      this.listaCliente = resp
 
     })
   }

@@ -37,7 +37,7 @@
           </div>
 
           <div class="d-flex justify-content-center py-3">
-            <button class="btn btn-danger temporizador mx-lg-3" type="submit" routerLink="/entrar">
+            <button class="btn btn-danger temporizador mx-lg-3" type="submit" routerLink="/cliente">
               Cancelar
             </button>
             <button class="btn btn-success temporizador mx-lg-3" type="submit" (click)='criarVoucher()'>
@@ -52,3 +52,129 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12 d-flex justify-content-center">
+      <h2>Todos os seus vouchers</h2>
+    </div>
+  </div>
+
+  <div class="row mt-3 mb-5 d-flex justify-content-center">
+
+    <div class="col-md-6">
+
+      <!--Table-->
+      <table class="table table-striped table-hover my-5">
+        <thead>
+          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
+          <tr>
+            <th scope="col" class="text-lg-center">Pontos necessários</th>
+            <th scope="col" class="text-lg-center">Descrições</th>
+            <th scope="col" class="text-lg-center">Descrições</th>
+          </tr>
+        </thead>
+        <tbody class="my-5">
+          <tr *ngFor="let voucher of listaVoucher">
+            <th scope="row" class="text-lg-center">{{voucher.pontosNecessario}}</th>
+            <td class="text-lg-center">{{voucher.descricaoVoucher}}</td>
+            <td class="text-lg-center">{{voucher.empresaCriadora.nome}}</td>
+            <td class="d-flex justify-content-center">
+              <!--
+                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
+                 a nossa rota e pegar o id no item que está nessa linha.
+              -->
+              <button class="btn btn-info mx-2"> Atualizar </button>
+              <button class="btn btn-info mx-2"> Apagar </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--/Table-->
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12 d-flex justify-content-center">
+      <h2>Todos os seus Cliente</h2>
+    </div>
+  </div>
+
+  <div class="row mt-3 mb-5 d-flex justify-content-center">
+
+    <div class="col-md-6">
+
+      <!--Table-->
+      <table class="table table-striped table-hover my-5">
+        <thead>
+          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
+          <tr>
+            <th scope="col" class="text-lg-center">Nome</th>
+            <th scope="col" class="text-lg-center">email</th>
+          </tr>
+        </thead>
+        <tbody class="my-5">
+          <tr *ngFor="let cliente of listaCliente">
+            <th scope="row" class="text-lg-center">{{cliente.nome}}</th>
+            <td class="text-lg-center">{{cliente.email}}</td>
+            <td class="d-flex justify-content-center">
+              <!--
+                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
+                 a nossa rota e pegar o id no item que está nessa linha.
+              -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--/Table-->
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="modal fade " id="config" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
+        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!--Corpo do modal-->
+
+      <div class="modal-body">
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Nome</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Nome" [(ngModel)]='cliente.nome'>
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">E-mail</label>
+          <input type="text" class="form-control" id="titulo" placeholder="E-mail" [(ngModel)]='cliente.email'>
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Senha atual</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Senha atual">
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Nova senha</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Nova senha">
+        </div>
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <label class="mb-1" for="titulo">Endereço</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Endereço">
+        </div>
+
+      </div>
+      <!--/Corpo do modal-->
