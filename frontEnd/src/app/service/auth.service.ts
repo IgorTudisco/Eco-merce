@@ -10,6 +10,8 @@ import { UsuarioLoginDTO } from '../model/UsuarioLoginDTO';
 })
 export class AuthService {
 
+  tokenValido: string = environment.token
+
   constructor(
     public http: HttpClient
     ) { }
@@ -28,10 +30,11 @@ export class AuthService {
   logado(){
     let ok: boolean = false
 
-    if(environment.token != ''){
+    if(this.tokenValido != ''){
       ok = true
     }
 
+    console.log(this.tokenValido)
     return ok
   }
 }
