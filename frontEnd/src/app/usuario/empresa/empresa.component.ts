@@ -48,6 +48,7 @@ export class EmpresaComponent implements OnInit {
 
     this.findByIdVoucher()
     this.findAllVoucher()
+    this.findAllCliente()
   }
 
   /*validaSenha(senha: string){
@@ -110,6 +111,7 @@ export class EmpresaComponent implements OnInit {
     this.empresaService.getAllCliente().subscribe((resp: Usuario[]) => {
 
       this.listaCliente = resp
+      console.log(JSON.stringify(this.listaCliente))
 
     })
   }
