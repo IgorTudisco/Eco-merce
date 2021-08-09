@@ -47,6 +47,7 @@ export class EmpresaComponent implements OnInit {
      }
 
     this.findByIdVoucher()
+    this.findAllVoucher()
   }
 
   /*validaSenha(senha: string){
@@ -85,7 +86,7 @@ export class EmpresaComponent implements OnInit {
   findAllVoucher(){
     this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
-     // console.log(JSON.stringify(this.listaVoucher))
+     console.log(JSON.stringify(this.listaVoucher))
     })
   }
   

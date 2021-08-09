@@ -41,6 +41,7 @@ export class EmpresaService {
   }
 
   getAllVoucher(): Observable<Voucher[]>{ // ok
+    console.log(this.tok)
     return this.http.get<Voucher[]>(`https://ecomerceappbr.herokuapp.com/voucher`, this.token)
   }
 
