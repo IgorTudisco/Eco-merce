@@ -1,7 +1,7 @@
 import { Usuario } from "./Usuario"
 
 export class Voucher{
-  public id: number
+  public id_voucher: number
   public empresaParceira: string
   public pontosNecessario: number
   public descricaoVoucher: string

@@ -19,6 +19,7 @@ export class ClienteComponent implements OnInit {
   empresaComVoucher: Voucher
   descricao: string
   idCliente: number = environment.id
+  idVoucher: number
 
   constructor(
     private router: Router,
@@ -27,10 +28,7 @@ export class ClienteComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    this.findAllVoucher()
-    let id_voucher: number = this.route.snapshot.params[this.idCliente]
-    this.adquirirVoucher(this.idCliente, id_voucher)
-    this.findByIdCliente(id_voucher)
+    this.findAllVoucher()    
   }
 
   findAllVoucher(){
@@ -63,8 +61,8 @@ export class ClienteComponent implements OnInit {
     })
   }
 
-  adquirirVoucher(id_cliente: number, id_voucher: number){
-    this.clienteService.putVoucher(id_cliente, id_voucher).subscribe(() => {
+  adquirirVoucher(){
+    this.clienteService.putPegarVoucher(this.idCliente, this.idVoucher).subscribe(() => {
       alert('Voucher adquirido!')
     })
   }

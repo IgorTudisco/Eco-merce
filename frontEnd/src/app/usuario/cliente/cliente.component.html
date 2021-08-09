@@ -30,6 +30,8 @@
   </div>
 </div>
 
+
+
 <div class="row d-flex justify-content-center mt-5 mb-5">
   <div class="col-md-4">
     <div class="form-group">
@@ -57,6 +59,8 @@
     <div class="cow-12 fontText">
 
       <h1 class="fs-54 text-center"> Cliente </h1>
+      <h3 class="fs-18 text-center">Seus pontos: </h3>
+      <h4 class="fs-18 text-center">{{cliente.meusPontos}}</h4>
       <h5 class="fs-18 text-center">Veja seus vouchers:</h5>
 
       <div class="row d-flex justify-content-lg-center mt-4 mb-5">
@@ -105,6 +109,7 @@
         <thead>
           <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
           <tr>
+            <th scope="col" class="text-lg-center">Nº do Voucher</th>
             <th scope="col" class="text-lg-center">Pontos necessários</th>
             <th scope="col" class="text-lg-center">Descrições</th>
             <th scope="col" class="text-lg-center">Empresa</th>
@@ -112,7 +117,8 @@
         </thead>
         <tbody class="my-5">
           <tr *ngFor="let voucher of listaVoucher">
-            <th scope="row" class="text-lg-center">{{voucher.pontosNecessario}}</th>
+            <td scope="row" class="text-lg-center">{{voucher.id_voucher}}</td>
+            <td scope="row" class="text-lg-center">{{voucher.pontosNecessario}}</td>
             <td class="text-lg-center">{{voucher.descricaoVoucher}}</td>
             <td class="text-lg-center">{{voucher.empresaCriadora.nome}}</td>
             <td class="d-flex justify-content-center">
@@ -120,7 +126,7 @@
                 Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
                  a nossa rota e pegar o id no item que está nessa linha.
               -->
-              <button class="btn btn-info mx-2"> Resgatar </button>
+              <button class="btn btn-info mx-2" data-bs-toggle="modal" data-bs-target="#resgatar"> Resgatar </button>
             </td>
           </tr>
         </tbody>
@@ -132,7 +138,41 @@
   </div>
 
 </div>
+<!-- modal -->
+<div class="modal fade " id="resgatar" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true"
+  name="modelAddPonto">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content ">
+      <div class="modal-header">
 
+        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!--Corpo do modal-->
+
+      <div class="modal-body">
+
+        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+          <div>
+            <label class="mb-1" for="titulo" [(ngModel)]='idVoucher'>Digite o Nº do
+              Voucher</label>
+            <input type="text" class="form-control" id="titulo">
+          </div>
+        </div>
+
+      </div>
+      <!--/Corpo do modal-->
+
+      <!-- (keyup)='addPonto(IdCliente, pontosCliente)'-->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success my-2" name="modelAddPonto" (click)="adquirirVoucher()"
+          routerLink="['/cliente']">Atribuir</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Modal Config -->
 <!-- Nav Bar -->
 
 <!--Modal Config-->
