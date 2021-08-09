@@ -1,7 +1,7 @@
 import { Voucher } from "./Voucher"
 
 export class Usuario{
-  public id: number
+  public id_usuario: number
   public nome: string
   public email: string
   public senha: string
@@ -11,5 +11,5 @@ export class Usuario{
   public tipo: string
   public data: Date
   public vouchersEmpresa: Voucher[]
-  public meusVouchersCliente: Voucher[]
+  public meusVouchers: Voucher[]
 }

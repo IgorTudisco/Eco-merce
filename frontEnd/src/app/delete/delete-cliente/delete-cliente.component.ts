@@ -42,7 +42,7 @@ export class DeleteClienteComponent implements OnInit {
 
   
   btnSim() {
-    this.clienteService.removerVoucher(this.cliente.id).subscribe(() => {      
+    this.clienteService.removerVoucher(this.cliente.id_usuario).subscribe(() => {      
       this.delOk = true      
       this.router.navigate(['/']) // -> direcionar para a pg de confirmar o delete.
     }, err => {
@@ -55,7 +55,7 @@ export class DeleteClienteComponent implements OnInit {
   }
 
   btnSimConfirme() {
-    this.clienteService.deleteById(this.cliente.id).subscribe(() => {
+    this.clienteService.deleteById(this.cliente.id_usuario).subscribe(() => {
       this.delOk = true
       this.router.navigate(['/home'])
     }, err => {

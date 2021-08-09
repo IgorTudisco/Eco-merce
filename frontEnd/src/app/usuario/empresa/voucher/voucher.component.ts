@@ -46,7 +46,7 @@ export class VoucherComponent implements OnInit {
   }
 
   atualizarVoucher() {
-    this.empresa.id = this.idEmpresa
+    this.empresa.id_usuario = this.idEmpresa
     this.voucher.empresaCriadora = this.empresa
 
       this.empresaService.putVoucher(this.voucher).subscribe((resp: Voucher) => {
