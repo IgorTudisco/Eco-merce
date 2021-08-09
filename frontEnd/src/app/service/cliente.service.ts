@@ -38,7 +38,7 @@ export class ClienteService {
     return this.http.get<Usuario>(`https://ecomerceappbr.herokuapp.com/usuario/id/${id}`, this.token)
   }
 
-  putVoucher(id_cliente: number, id_voucher: number): Observable<Voucher> { // ok
+  putPegarVoucher(id_cliente: number, id_voucher: number): Observable<Voucher> { // ok
     return this.http.put<Voucher>(`https://ecomerceappbr.herokuapp.com/voucher/cliente/${id_cliente}/voucher/${id_voucher}`, this.token)
   }
 
