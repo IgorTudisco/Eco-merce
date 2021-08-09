@@ -9,34 +9,35 @@ import { Usuario } from '../model/Usuario';
 })
 export class CooperativaService {
 
-  tok = environment.token
 
+  tok = environment.token
+  
   token = {
-    headers: new HttpHeaders().set('Authorization', "Basic Y29vcGVyYXRpdmFAaG90bWFpbC5jb206MTIzNDU2Nzg=")
+    headers: new HttpHeaders().set('Authorization', this.tok)
   }
 
   constructor(private http: HttpClient) { }
 
   getByIdCliente(id: number): Observable<Usuario> { // ok
-    return this.http.get<Usuario>(`https://ecomerceappbr.herokuapp.com/usuario/id/${id}`, this.token)
+    return this.http.get<Usuario>(`localhost:8080/usuario/id/${id}`, this.token)
 
   }
 
   getByEnderecoCliente(endereco: string): Observable<Usuario[]> { // OK
-    return this.http.get<Usuario[]>(`https://ecomerceappbr.herokuapp.com/usuario/endereco/${endereco}`, this.token)
+    return this.http.get<Usuario[]>(`localhost:8080/usuario/endereco/${endereco}`, this.token)
 
   }
 
   putAddPontuacao() { // ok
-    return this.http.put(`https://ecomerceappbr.herokuapp.com/usuario/cliente/9/cooperativa/2/valor/100`, this.token)
+    return this.http.put(`localhost:8080/usuario/cliente/9/cooperativa/2/valor/100`, this.token)
   }
 
   putMudarCooperativa(usuario: Usuario): Observable<Usuario> { // ok
-    return this.http.put<Usuario>(`https://ecomerceappbr.herokuapp.com/usuario/mudar`, usuario, this.token)
+    return this.http.put<Usuario>(`localhost:8080/usuario/mudar`, usuario, this.token)
   }
 
   deleteByIdCooperativa(id: number) { // ok
-    return this.http.delete(`https://ecomerceappbr.herokuapp.com/usuario/id_delete/${id}`)
+    return this.http.delete(`localhost:8080/usuario/id_delete/${id}`, this.token)
   }
 
 }
