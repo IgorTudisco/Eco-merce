@@ -99,6 +99,8 @@
 
 </div>
 
+<!-------------------------------------------------------------------------------------------->
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-md-12 d-flex justify-content-center">
@@ -120,9 +122,9 @@
           </tr>
         </thead>
         <tbody class="my-5">
-          <tr *ngFor="let cliente of listaCliente">
-            <th scope="row" class="text-lg-center">{{cliente.nome}}</th>
-            <td class="text-lg-center">{{cliente.email}}</td>
+          <tr *ngFor='let item of listaCliente'>
+            <th scope="row" class="text-lg-center">{{item.nome}}</th>
+            <td class="text-lg-center">{{item.email}}</td>
             <td class="d-flex justify-content-center">
               <!--
                 Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
