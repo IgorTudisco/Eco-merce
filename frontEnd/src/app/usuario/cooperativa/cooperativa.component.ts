@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
 import { CooperativaService } from 'src/app/service/cooperativa.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-cooperativa',
@@ -14,6 +15,7 @@ export class CooperativaComponent implements OnInit {
   cooperativa: Usuario = new Usuario()
   endereco: string
   listaCliente: Usuario[] 
+  idCoop: number = environment.id
 
   constructor(
     private router: Router,

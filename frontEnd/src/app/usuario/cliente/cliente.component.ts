@@ -18,6 +18,7 @@ export class ClienteComponent implements OnInit {
   delOk: boolean = false
   empresaComVoucher: Voucher
   descricao: string
+  idCliente: number = environment.id
 
   constructor(
     private router: Router,
@@ -27,8 +28,8 @@ export class ClienteComponent implements OnInit {
 
   ngOnInit(){
     this.findAllVoucher()
-    let id_voucher: number = this.route.snapshot.params["id"]
-    this.adquirirVoucher(environment.id, id_voucher)
+    let id_voucher: number = this.route.snapshot.params[this.idCliente]
+    this.adquirirVoucher(this.idCliente, id_voucher)
     this.findByIdCliente(id_voucher)
   }
 
@@ -55,7 +56,7 @@ export class ClienteComponent implements OnInit {
 
 
   findByIdCliente(id: number){
-    this.clienteService.getByidEmpresa(environment.id).subscribe((resp: Usuario) => {
+    this.clienteService.getByidEmpresa(id).subscribe((resp: Usuario) => {
       this.cliente = resp
     }, err => {
       console.log(`Erro cod: ${err.status}`)

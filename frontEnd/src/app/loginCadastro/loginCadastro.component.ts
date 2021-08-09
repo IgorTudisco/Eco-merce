@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { Usuario } from '../model/Usuario';
 import { UsuarioCadastroDTO } from '../model/UsuarioCadastroDTO';
 import { UsuarioLoginDTO } from '../model/UsuarioLoginDTO';
 import { AuthService } from '../service/auth.service';
@@ -15,6 +16,8 @@ export class LoginCadastroComponent implements OnInit {
   usuarioLoginDTO: UsuarioLoginDTO = new UsuarioLoginDTO()
 
   usuarioCadastrarDTO: UsuarioCadastroDTO = new UsuarioCadastroDTO()
+
+  usuario: Usuario = new Usuario()
 
   confirmeSenha: string
 
@@ -54,6 +57,7 @@ export class LoginCadastroComponent implements OnInit {
         this.router.navigate(['/cliente'])
       } else if (environment.tipo == "EMPRESA") {
         this.router.navigate(['/empresa'])
+        console.log(JSON.stringify(this.usuario.vouchersEmpresa))
       } else if (environment.tipo == "COOPERATIVA") {
         this.router.navigate(['/cooperativa'])
       }

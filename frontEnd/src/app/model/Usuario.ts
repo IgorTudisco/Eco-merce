@@ -11,5 +11,5 @@ export class Usuario{
   public tipo: string
   public data: Date
   public vouchersEmpresa: Voucher[]
-  public meusVouchers: Voucher[]
+  public meusVouchersCliente: Voucher[]
 }

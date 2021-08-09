@@ -19,13 +19,13 @@ export class EmpresaComponent implements OnInit {
  listaCliente: Usuario[]
  cliente: Usuario = new Usuario()
  id_empresa = environment.id
- //senhaConfirm = environment.
  novaEmpresa: Usuario = new Usuario()
  nomeConfirm = environment.nome
  idConfirm = environment.id
  enderecoConfirm = environment.id
  cpgConfirm = environment.cpf
  tipoConfirm = environment.tipo
+ idVoucher = environment.id
 
   constructor(
     private empresaService: EmpresaService,
@@ -46,7 +46,7 @@ export class EmpresaComponent implements OnInit {
  
      }
 
-     this.findAllVoucher()
+    this.findByIdVoucher()
   }
 
   /*validaSenha(senha: string){
@@ -89,8 +89,8 @@ export class EmpresaComponent implements OnInit {
     })
   }
   
-  findByIdVoucher(idVoucher: number){
-    this.empresaService.getByIdVoucher(idVoucher).subscribe((resp: Voucher) => {
+  findByIdVoucher(){
+    this.empresaService.getByIdVoucher(this.idVoucher).subscribe((resp: Voucher) => {
 
       this.voucher = resp
 
@@ -128,6 +128,5 @@ export class EmpresaComponent implements OnInit {
 
     })
   }
-
 
 }

@@ -75,7 +75,7 @@
           </tr>
         </thead>
         <tbody class="my-5">
-          <tr *ngFor="let voucher of listaVoucher">
+          <tr *ngFor='let item of listaVoucher'>
             <th scope="row" class="text-lg-center">{{voucher.pontosNecessario}}</th>
             <td class="text-lg-center">{{voucher.descricaoVoucher}}</td>
             <td class="text-lg-center">{{voucher.empresaCriadora.nome}}</td>
@@ -84,7 +84,8 @@
                 Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
                  a nossa rota e pegar o id no item que está nessa linha.
               -->
-              <button class="btn btn-info mx-2"> Atualizar </button>
+
+              <button class="btn btn-info mx-2" [routerLink]="['/empresa']"> Atualizar </button>
               <button class="btn btn-info mx-2"> Apagar </button>
             </td>
           </tr>
@@ -177,4 +178,8 @@
         </div>
 
       </div>
-      <!--/Corpo do modal-->
+    </div>
+  </div>
+</div>
+
+<!--/Corpo do modal-->
