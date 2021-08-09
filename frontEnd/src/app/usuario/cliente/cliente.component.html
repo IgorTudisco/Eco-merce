@@ -1,50 +1,50 @@
 <!-- Nav Bar -->
 
 <div class="container d-flex p-5 justify-content-between">
-    <div class="col-12">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top NavPadding" style="background-color: #9556BF">
-        <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png" style="width: 40px"
-            alt="Logo Eco-merce" /></a>
-        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon "></span>
-        </button>
+  <div class="col-12">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top NavPadding" style="background-color: #9556BF">
+      <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png" style="width: 40px"
+          alt="Logo Eco-merce" /></a>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+      </button>
 
-        <div class="collapse navbar-collapse  d-flex justify-content-between" id="navbarSupportedContent">
-          <form class="form-inline d-flex align-items-center">
-            <div class="buttonDivE">
-              <button class="buttonIcon d-flex align-items-center justify-content-center" type="submit"
-                data-bs-toggle="modal" data-bs-target="#config"><img class="icone" src="https://i.imgur.com/CnpkYJn.png"
-                  alt="Icone Configuracao">Configuração</button>
-            </div>
+      <div class="collapse navbar-collapse  d-flex justify-content-between" id="navbarSupportedContent">
+        <form class="form-inline d-flex align-items-center">
+          <div class="buttonDivE">
+            <button class="buttonIcon d-flex align-items-center justify-content-center" type="submit"
+              data-bs-toggle="modal" data-bs-target="#config"><img class="icone" src="https://i.imgur.com/CnpkYJn.png"
+                alt="Icone Configuracao">Configuração</button>
+          </div>
 
-            <div class="buttonDivC">
-              <button [routerLink]="['/home']" class="buttonIcon d-flex align-items-center justify-content-center" type="submit"><img
-                  class="icone" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair">
-                Sair
-              </button>
-            </div>
-          </form>
-        </div>
-      </nav>
-    </div>
+          <div class="buttonDivC">
+            <button [routerLink]="['/home']" class="buttonIcon d-flex align-items-center justify-content-center"
+              type="submit"><img class="icone" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair">
+              Sair
+            </button>
+          </div>
+        </form>
+      </div>
+    </nav>
+  </div>
 </div>
 
 <div class="row d-flex justify-content-center mt-5 mb-5">
   <div class="col-md-4">
-      <div class="form-group">
-          <input type="text" class="form-control" placeholder="Digite a descrição do voucher"
-              [(ngModel)]='descricao' (keyup)='findBydescricaoVoucher(descricao)'>
-      </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Digite a descrição do voucher" [(ngModel)]='descricao'
+        (keyup)='findBydescricaoVoucher(descricao)'>
+    </div>
   </div>
 </div>
 <div class="card-columns">
   <div class="card text-center" *ngFor='let voucher of listaVoucher'>
-      <div class="card-body">
-          <h5 class="card-title m-0">{{voucher.empresaParceira}}</h5>
-          <small class="text-muted"> Pontos necessarios: {{voucher.pontosNecessario}}</small>
-          <small class="text-muted"> Descrição: {{voucher.descricaoVoucher}}</small>
-      </div>
+    <div class="card-body">
+      <h5 class="card-title m-0">{{voucher.empresaParceira}}</h5>
+      <small class="text-muted"> Pontos necessarios: {{voucher.pontosNecessario}}</small>
+      <small class="text-muted"> Descrição: {{voucher.descricaoVoucher}}</small>
+    </div>
   </div>
 </div>
 
@@ -73,7 +73,8 @@
             </div>
 
             <div class="d-flex justify-content-lg-center ">
-              <button class="btn btn-light botaoCadastrar" data-bs-toggle="modal" data-bs-target="#coleta">Agendar coleta</button>
+              <button class="btn btn-light botaoCadastrar" data-bs-toggle="modal" data-bs-target="#coleta">Agendar
+                coleta</button>
             </div>
 
           </div>
@@ -119,7 +120,7 @@
                 Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
                  a nossa rota e pegar o id no item que está nessa linha.
               -->
-              <button class="btn btn-info mx-2" > Resgatar </button>
+              <button class="btn btn-info mx-2"> Resgatar </button>
             </td>
           </tr>
         </tbody>
@@ -176,7 +177,8 @@
       <!--/Corpo do modal-->
 
       <div class="modal-footer">
-        <button [routerLink]="['/deleteCliente', cliente.id]" type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Deletar</button>
+        <button [routerLink]="['/deleteCliente', cliente.id_usuario]" type="button" class="btn btn-danger my-2"
+          data-bs-dismiss="modal">Deletar</button>
         <button (click)="alterarCliente()" type="button" class="btn btn-success my-2">Salvar</button>
       </div>
     </div>
@@ -210,7 +212,8 @@
 
         <div class="form-group">
           <label for="texto">Descreva</label>
-          <textarea class="form-control" name="texto" id="texto" rows="3" placeholder="Descreva a embalagem que se encontra os resíduos e a quantidade aproximadamente."></textarea>
+          <textarea class="form-control" name="texto" id="texto" rows="3"
+            placeholder="Descreva a embalagem que se encontra os resíduos e a quantidade aproximadamente."></textarea>
         </div>
 
       </div>

@@ -16,6 +16,8 @@ export class CooperativaComponent implements OnInit {
   endereco: string
   listaCliente: Usuario[] 
   idCoop: number = environment.id
+  IdCliente: number
+  pontosCliente: number
 
   constructor(
     private router: Router,
@@ -24,6 +26,9 @@ export class CooperativaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+   
+
+
   }
 
   findByIdCliente(idCliente: number){
@@ -38,13 +43,13 @@ export class CooperativaComponent implements OnInit {
     this.cooperativaService.getByEnderecoCliente(endereco).subscribe((resp: Usuario[]) => {
 
       this.listaCliente = resp
-
+      console.log(JSON.stringify(this.listaCliente))
     })
   }
 
-  addPonto(id_cooperativa: number, id_cliente: number, pontos: number) {
+  addPonto() {
 
-    this.cooperativaService.putAddPontuacao(id_cooperativa, id_cliente, pontos).subscribe(() => {
+    this.cooperativaService.putAddPontuacao().subscribe(() => {
 
       alert('Pontos adicionados com sucesso!')
 
@@ -56,7 +61,7 @@ export class CooperativaComponent implements OnInit {
       
     this.cooperativaService.putMudarCooperativa(empresa).subscribe((resp: Usuario) =>{
 
-      this.cliente=resp
+      this.cooperativa=resp
       alert('Dados atualizados com sucesso!')
 
       this.router.navigate(['/cooperativa'])

@@ -12,7 +12,7 @@ export class CooperativaService {
   tok = environment.token
 
   token = {
-    headers: new HttpHeaders().set('Authorization', this.tok)
+    headers: new HttpHeaders().set('Authorization', "Basic Y29vcGVyYXRpdmFAaG90bWFpbC5jb206MTIzNDU2Nzg=")
   }
 
   constructor(private http: HttpClient) { }
@@ -27,8 +27,8 @@ export class CooperativaService {
 
   }
 
-  putAddPontuacao(id_cooperativa: number, id_cliente: number, pontos: number) { // ok
-    return this.http.put(`https://ecomerceappbr.herokuapp.com/usuario/cliente/${id_cliente}/cooperativa/${id_cooperativa}/valor/${pontos}`, this.token)
+  putAddPontuacao() { // ok
+    return this.http.put(`https://ecomerceappbr.herokuapp.com/usuario/cliente/9/cooperativa/2/valor/100`, this.token)
   }
 
   putMudarCooperativa(usuario: Usuario): Observable<Usuario> { // ok

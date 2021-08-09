@@ -25,7 +25,7 @@ export class DeleteCooperativaComponent implements OnInit {
   }
 
     btnSim() {
-      this.cooperativaService.deleteByIdCooperativa(this.cooperativa.id).subscribe(() => {
+      this.cooperativaService.deleteByIdCooperativa(this.cooperativa.id_usuario).subscribe(() => {
         
        this.delOk = true
 

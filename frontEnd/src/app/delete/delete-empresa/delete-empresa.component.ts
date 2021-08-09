@@ -26,7 +26,7 @@ export class DeleteEmpresaComponent implements OnInit {
   }
 
   btnSim() {
-    this.empresaService.deleteByIdEmpresa(this.empresa.id).subscribe(() => {
+    this.empresaService.deleteByIdEmpresa(this.empresa.id_usuario).subscribe(() => {
       this.delOk = true
       this.router.navigate(['/home'])
     }, err => {
