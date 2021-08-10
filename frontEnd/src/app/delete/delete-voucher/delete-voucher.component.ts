@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Voucher } from 'src/app/model/Voucher';
 import { EmpresaService } from 'src/app/service/empresa.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -10,29 +11,34 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class DeleteVoucherComponent implements OnInit {
 
+  voucher: Voucher = new Voucher()  
+  id: number
+
   constructor(
-    private empresaService: EmpresaService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private empresaService: EmpresaService
   ) { }
 
   ngOnInit() {
-      // Verificando o token
-    
-      if(environment.token == ''){
+    // Verificando o token
 
-        // alert('Sua seção expirou, faça o login novamente.')
-   
-         this.router.navigate(['/empresa'])
-   
-      }
+    if (environment.token == '') {
+
+      // alert('Sua seção expirou, faça o login novamente.')
+
+      this.router.navigate(['/empresa'])
+
+    }
+    this.id = this.route.snapshot.params['id']
   }
 
-  btnSim(idVoucher: number) {
+  btnSim() {
 
-    this.empresaService.deleteByIdVoucher(idVoucher).subscribe(() => {
+    this.empresaService.deleteByIdVoucher(this.id).subscribe(() => {
 
       alert('Voucher deletado com sucesso!')
-      
+
       this.router.navigate(['/empresa'])
 
     })
@@ -45,5 +51,5 @@ export class DeleteVoucherComponent implements OnInit {
 
   }
 
-  
+
 }
