@@ -33,12 +33,14 @@
 
                     <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
                         <div>
-                            <label class="mb-1" for="titulo" [(ngModel)]='IdCliente'>Digite o Nº do
+                            <label class="mb-1" for="titulo1">Digite o Nº do
                                 Cliente</label>
-                            <input type="text" class="form-control" id="titulo">
-                            <label class="mb-1" for="titulo" [(ngModel)]='pontosCliente'>Quantidade de
+                            <input (input)="idClienteJoel($event)" type="text" class="form-control" id="titulo1"
+                                name="titulo1">
+                            <label class="mb-1" for="titulo2">Quantidade de
                                 pontos</label>
-                            <input type="text" class="form-control" id="titulo">
+                            <input (input)="idPontosGui($event)" type="text" class="form-control" id="titulo2"
+                                name="titulo2">
                         </div>
                     </div>
 
@@ -49,7 +51,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success my-2" name="modelAddPonto" (click)="addPonto()"
-                        routerLink="['/cooperativa']">Atribuir</button>
+                        routerLink="['/cooperativa']" data-bs-dismiss="modal">Atribuir</button>
                 </div>
             </div>
         </div>

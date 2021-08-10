@@ -154,9 +154,9 @@
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <div>
-            <label class="mb-1" for="titulo" [(ngModel)]='idVoucher'>Digite o Nº do
+            <label class="mb-1" for="titulo" name="titulo">Digite o Nº do
               Voucher</label>
-            <input type="text" class="form-control" id="titulo">
+            <input (input)="idNumeroVoucher($event)" type="text" class="form-control" id="titulo" name="titulo">
           </div>
         </div>
 
@@ -166,8 +166,8 @@
       <!-- (keyup)='addPonto(IdCliente, pontosCliente)'-->
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-success my-2" name="modelAddPonto" (click)="adquirirVoucher()"
-          routerLink="['/cliente']">Atribuir</button>
+        <button type="button" class="btn btn-success my-2" name="modelAddPonto" data-bs-dismiss="modal"
+          (click)="adquirirVoucher()" routerLink="['/cliente']">Atribuir</button>
       </div>
     </div>
   </div>
@@ -266,3 +266,54 @@
   </div>
 </div>
 <!--/Modal Config-->
+
+
+<!-- Meus Vouchers -->
+
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12 d-flex justify-content-center">
+      <h2>Meus Vouchers</h2>
+    </div>
+  </div>
+
+  <div class="row mt-3 mb-5 d-flex justify-content-center">
+
+    <div class="col-md-6">
+
+      <!--Table-->
+      <table class="table table-striped table-hover my-5">
+        <thead>
+          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
+          <tr>
+            <th scope="col" class="text-lg-center">Nº do Voucher</th>
+            <th scope="col" class="text-lg-center">Pontos necessários</th>
+            <th scope="col" class="text-lg-center">Descrições</th>
+            <th scope="col" class="text-lg-center">Empresa</th>
+          </tr>
+        </thead>
+        <tbody class="my-5">
+          <tr>
+            <!--*ngFor="let voucher of voucher.meusVouchers"-->
+
+            <td scope="row" class="text-lg-center">{{voucher.id_voucher}}</td>
+            <td scope="row" class="text-lg-center">{{voucher.pontosNecessario}}</td>
+            <td class="text-lg-center">{{voucher.descricaoVoucher}}</td>
+            <td class="text-lg-center">{{voucher.empresaCriadora.nome}}</td>
+            <td class="d-flex justify-content-center"></td>
+
+            <!--
+                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
+                 a nossa rota e pegar o id no item que está nessa linha.
+              -->
+
+
+          </tr>
+        </tbody>
+      </table>
+      <!--/Table-->
+
+    </div>
+
+  </div>

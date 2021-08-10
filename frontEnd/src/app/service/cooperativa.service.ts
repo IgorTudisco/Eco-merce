@@ -30,9 +30,8 @@ export class CooperativaService {
 
   }
 
-  putAddPontuacao() { // ok
-    return this.http.put(`
-    https://backgrupoigor.herokuapp.com/usuario/cliente/3/cooperativa/1/valor/100`, this.token)
+  putAddPontuacao(idCliente: number, idCooperativa: number, valor: number) { // ok
+    return this.http.put(`https://backgrupoigor.herokuapp.com/usuario/cliente/${idCliente}/cooperativa/${idCooperativa}/valor/${valor}`, this.token)
   }
 
   putMudarCooperativa(usuario: Usuario): Observable<Usuario> { // ok
