@@ -19,8 +19,8 @@ export class ClienteComponent implements OnInit {
   empresaComVoucher: Voucher
   descricao: string
   idCliente: number = environment.id
-  idVoucher: number
-  listaMeusVoucher: Voucher[] 
+  idVoucher: number  
+ 
 
   constructor(
     private router: Router,
@@ -63,9 +63,10 @@ export class ClienteComponent implements OnInit {
     })
   }
 
-  adquirirVoucher(){
+  adquirirVoucher(){   
+
     this.clienteService.putPegarVoucher(this.idCliente, this.idVoucher).subscribe(() => {
-      console.log(JSON.stringify(this.idVoucher))
+    //  console.log(JSON.stringify(this.idVoucher))
       alert('Voucher adquirido!')
     })
   }

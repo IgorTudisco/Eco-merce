@@ -35,7 +35,7 @@ export class LoginCadastroComponent implements OnInit {
   }
 
   entrar(){
-    console.log("login "+JSON.stringify(this.usuarioLoginDTO))
+   // console.log("login "+JSON.stringify(this.usuarioLoginDTO))
     this.authService.entrar(this.usuarioLoginDTO).subscribe((resp:UsuarioLoginDTO) =>{
       this.usuarioLoginDTO = resp
 
@@ -46,18 +46,18 @@ export class LoginCadastroComponent implements OnInit {
       environment.endereco = this.usuarioLoginDTO.endereco
       environment.tipo = this.usuarioLoginDTO.tipo
 
-      console.log(environment.email)
-      console.log(environment.nome)
-      console.log(environment.id)
-      console.log(environment.token)
-      console.log(environment.endereco)
-      console.log(environment.tipo)
+     // console.log(environment.email)
+     // console.log(environment.nome)
+     // console.log(environment.id)
+     // console.log(environment.token)
+     // console.log(environment.endereco)
+     // console.log(environment.tipo)
 
       if (environment.tipo == "CLIENTE") {
         this.router.navigate(['/cliente'])
       } else if (environment.tipo == "EMPRESA") {
         this.router.navigate(['/empresa'])
-        console.log(JSON.stringify(this.usuario.vouchersEmpresa))
+       // console.log(JSON.stringify(this.usuario.vouchersEmpresa))
       } else if (environment.tipo == "COOPERATIVA") {
         this.router.navigate(['/cooperativa'])
       }

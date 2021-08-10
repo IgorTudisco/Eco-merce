@@ -26,6 +26,7 @@ export class EmpresaComponent implements OnInit {
  cpgConfirm = environment.cpf
  tipoConfirm = environment.tipo
  idVoucher = environment.id
+ nomeEmpresa =  environment.nome 
 
   constructor(
     private empresaService: EmpresaService,
@@ -57,13 +58,15 @@ export class EmpresaComponent implements OnInit {
     }
   }*/
 
-  criarVoucher(){
-    console.log(this.id_empresa)
-    console.log(JSON.stringify(this.voucher))
+  criarVoucher(){ // ok
+  
+    this.voucher.empresaParceira = this.nomeEmpresa
+  //  console.log(this.id_empresa)
+   // console.log(JSON.stringify(this.voucher))
     this.empresaService.postVoucher(this.id_empresa,this.voucher).subscribe((resp: Voucher) =>{
       
       this.voucher = resp
-      console.log(JSON.stringify(this.voucher))
+   //   console.log(JSON.stringify(this.voucher))
       alert('Voucher criado!')
 
       this.voucher = new Voucher()
@@ -84,10 +87,10 @@ export class EmpresaComponent implements OnInit {
     })
   }
 
-  findAllVoucher(){
+  findAllVoucher(){ // ok
     this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
-     console.log(JSON.stringify(this.listaVoucher))
+   //  console.log(JSON.stringify(this.listaVoucher))
     })
   }
   
@@ -111,7 +114,7 @@ export class EmpresaComponent implements OnInit {
     this.empresaService.getAllCliente().subscribe((resp: Usuario[]) => {
 
       this.listaCliente = resp
-      console.log(JSON.stringify(this.listaCliente))
+    //  console.log(JSON.stringify(this.listaCliente))
 
     })
   }
@@ -120,6 +123,8 @@ export class EmpresaComponent implements OnInit {
     this.empresaService.getByIdCliente(idCliente).subscribe((resp: Usuario) => {
 
       this.cliente = resp
+
+    //  console.log(JSON.stringify(this.voucher.empresaParceira == this.empresa.nome))
 
     })
   }

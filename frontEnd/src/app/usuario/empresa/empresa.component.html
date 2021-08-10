@@ -9,14 +9,14 @@
 
           <h1 class="text-center mb-3">Criar Voucher</h1>
 
-          <div class="form-group pt-3">
+          <!--    <div class="form-group pt-3">
             <label class="pb-3" for="nome">Nome da empresa</label>
 
-            <!--[(ngModel)]='usuario.email' pega o dado digitado pelo usuário e manda para a class-->
+           [(ngModel)]='usuario.email' pega o dado digitado pelo usuário e manda para a class
 
             <input [(ngModel)]='voucher.empresaParceira' class="form-control" type="text" name="nome" id="nome"
               placeholder="digite o seu nome">
-          </div>
+        </div>-->
 
           <div class="form-group pt-3">
             <label class="pb-3" for="usuario">Pontos necessários para obter o voucher</label>
@@ -74,21 +74,26 @@
             <th scope="col" class="text-lg-center">Descrições</th>
           </tr>
         </thead>
-        <tbody class="my-5">
-          <tr *ngFor='let item of listaVoucher'>
-            <th scope="row" class="text-lg-center">{{item.pontosNecessario}}</th>
-            <td class="text-lg-center">{{item.descricaoVoucher}}</td>
-            <td class="text-lg-center">{{item.empresaCriadora.nome}}</td>
-            <td class="d-flex justify-content-center">
-              <!--
+        <tbody *ngFor='let item of listaVoucher' class="my-5">
+
+          <div *ngIf="voucher.empresaParceira == nomeEmpresa">
+            <tr>
+
+              <th scope="row" class="text-lg-center">{{item.pontosNecessario}}</th>
+              <td class="text-lg-center">{{item.descricaoVoucher}}</td>
+              <td class="text-lg-center">{{item.empresaCriadora.nome}}</td>
+              <td class="d-flex justify-content-center">
+                <!--
                 Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
                  a nossa rota e pegar o id no item que está nessa linha.
               -->
 
-              <button class="btn btn-info mx-2" [routerLink]="['/empresa']"> Atualizar </button>
-              <button class="btn btn-info mx-2"> Apagar </button>
-            </td>
-          </tr>
+                <button class="btn btn-info mx-2" [routerLink]="['/empresa']"> Atualizar </button>
+                <button class="btn btn-info mx-2"> Apagar </button>
+              </td>
+
+            </tr>
+          </div>
         </tbody>
       </table>
       <!--/Table-->
