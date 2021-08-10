@@ -50,6 +50,8 @@ export class EmpresaComponent implements OnInit {
     this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
+
+    this.voucher.usuariosComVoucher
   }
 
   /*validaSenha(senha: string){

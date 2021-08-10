@@ -293,15 +293,15 @@
             <th scope="col" class="text-lg-center">Empresa</th>
           </tr>
         </thead>
-        <tbody class="my-5" *ngFor='let item of listaVoucher'>
+        <tbody class="my-5" *ngFor='let item of listaMeusVoucher'>
 
-          <tr *ngIf="item.empresaCriadora.id_usuario == 3">
+          <tr>
             <!--*ngFor="let voucher of voucher.meusVouchers"-->
 
-            <td scope="row" class="text-lg-center">{{item.id_voucher}}</td>
-            <td scope="row" class="text-lg-center">{{item.pontosNecessario}}</td>
-            <td class="text-lg-center">{{item.descricaoVoucher}}</td>
-            <td class="text-lg-center">{{item.empresaCriadora.nome}}</td>
+            <td scope="row" class="text-lg-center">{{id_voucher}}</td>
+            <td scope="row" class="text-lg-center">{{pontosNecessario}}</td>
+            <td class="text-lg-center">{{descricaoVoucher}}</td>
+            <td class="text-lg-center">{{empresaParceira}}</td>
             <td class="d-flex justify-content-center"></td>
 
             <!--

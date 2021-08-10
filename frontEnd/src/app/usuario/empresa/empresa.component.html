@@ -126,11 +126,11 @@
             <th scope="col" class="text-lg-center">email</th>
           </tr>
         </thead>
-        <tbody class="my-5">
-          <tr *ngFor='let item of listaCliente'>
+        <tbody class="my-5" *ngfor='let item of voucher.usuariosComVoucher'>
+          <tr *ngIf="item.voucher.empresaParceira == empresa.nome">
             <!-- <div *ngIf="item.meusVouchersCliente != null"> -->
-            <th scope="row" class="text-lg-center">{{item.nome}}</th>
-            <td class="text-lg-center">{{item.email}}</td>
+            <th scope="row" class="text-lg-center">{{item.usuariosComVoucher.nome}}</th>
+            <td class="text-lg-center">{{item.usuariosComVoucher.email}}</td>
             <td class="d-flex justify-content-center">
             </td>
             <!-- </div> -->

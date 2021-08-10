@@ -18,10 +18,16 @@ export class ClienteComponent implements OnInit {
   delOk: boolean = false
   empresaComVoucher: Voucher
   descricao: string
-  idCliente: number = environment.id
-  idVoucher: number  
- 
+  idCliente: number  
+  idVoucher: number
+  listaMeusVoucher: Usuario[]
+  empresaParceira: string
+  id_voucher: number
+  descricaoVoucher: string
+  produto: string
+  pontosNecessario: number
 
+  
   constructor(
     private router: Router,
     private clienteService: ClienteService,
@@ -29,7 +35,9 @@ export class ClienteComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    this.findAllVoucher()    
+    this.idCliente = environment.id
+    this.findAllVoucher()   
+
   }
 
   findAllVoucher(){
@@ -37,6 +45,19 @@ export class ClienteComponent implements OnInit {
       this.listaVoucher = resp
 
      //  console.log(JSON.stringify(this.listaVoucher))
+
+      this.cliente.meusVouchers.filter((x) => {
+
+        this.id_voucher = x.id_voucher
+        this.empresaParceira = x.empresaParceira
+        this.descricaoVoucher = x.descricaoVoucher
+        this.produto = x.produto
+        this.pontosNecessario = x.pontosNecessario
+        this.listaMeusVoucher = x.usuariosComVoucher
+
+
+      })
+
     })
   }
 
@@ -92,5 +113,7 @@ export class ClienteComponent implements OnInit {
     this.idVoucher = event.target.value
 
   }
+
+  
 
 }
