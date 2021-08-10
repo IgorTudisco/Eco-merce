@@ -12,6 +12,7 @@ import { Voucher } from './model/Voucher';
 import { DeleteClienteComponent } from './delete/delete-cliente/delete-cliente.component';
 import { DeleteCooperativaComponent } from './delete/delete-cooperativa/delete-cooperativa.component';
 import { DeleteEmpresaComponent } from './delete/delete-empresa/delete-empresa.component';
+import { VoucherDetailsComponent } from './voucher-details/voucher-details.component';
 const routes: Routes = [
 {
   path:'',
@@ -69,6 +70,10 @@ const routes: Routes = [
 {
   path: 'deleteEmpresa/:id',
   component: DeleteEmpresaComponent
+},
+
+{path: 'voucher-details/:id',
+  component: VoucherDetailsComponent
 }
 
 

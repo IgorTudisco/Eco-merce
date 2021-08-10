@@ -23,6 +23,7 @@ import { DeleteClienteComponent } from './delete/delete-cliente/delete-cliente.c
 import { DeleteCooperativaComponent } from './delete/delete-cooperativa/delete-cooperativa.component';
 import { DeleteEmpresaComponent } from './delete/delete-empresa/delete-empresa.component';
 import { DeleteVoucherComponent } from './delete/delete-voucher/delete-voucher.component';
+import { VoucherDetailsComponent } from './voucher-details/voucher-details.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DeleteVoucherComponent } from './delete/delete-voucher/delete-voucher.c
     DeleteClienteComponent,
     DeleteCooperativaComponent,
     DeleteEmpresaComponent,
-    DeleteVoucherComponent
+    DeleteVoucherComponent,
+    VoucherDetailsComponent
    ],
   imports: [
     BrowserModule,

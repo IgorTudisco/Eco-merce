@@ -27,6 +27,8 @@ export class EmpresaComponent implements OnInit {
  tipoConfirm = environment.tipo
  idVoucher = environment.id
  nomeEmpresa =  environment.nome 
+ descricao: string
+ email: string
 
   constructor(
     private empresaService: EmpresaService,
