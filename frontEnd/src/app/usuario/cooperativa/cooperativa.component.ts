@@ -16,8 +16,9 @@ export class CooperativaComponent implements OnInit {
   endereco: string
   listaCliente: Usuario[] 
   idCoop: number = environment.id
-  IdCliente: number
+  idCliente: number 
   pontosCliente: number
+//  clienteJoel: Usuario = new Usuario()
 
   constructor(
     private router: Router,
@@ -48,9 +49,12 @@ export class CooperativaComponent implements OnInit {
   }
 
   addPonto() {
-
-    this.cooperativaService.putAddPontuacao().subscribe(() => {
-
+    console.log(JSON.stringify(this.idCliente))
+    console.log(JSON.stringify(this.idCoop))
+    //console.log(JSON.stringify(this.pontosCliente))
+   // this.clienteJoel.id_usuario = this.idCliente
+     this.cooperativaService.putAddPontuacao(this.idCliente, this.idCoop, this.pontosCliente).subscribe(() => {
+     
       alert('Pontos adicionados com sucesso!')
 
     })
@@ -67,6 +71,19 @@ export class CooperativaComponent implements OnInit {
       this.router.navigate(['/cooperativa'])
 
     })
+  }
+
+
+  idClienteJoel(event: any){
+
+    this.idCliente = event.target.value
+
+  }
+
+  idPontosGui(event: any){
+
+    this.pontosCliente = event.target.value
+
   }
 
 }

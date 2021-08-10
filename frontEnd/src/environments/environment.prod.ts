@@ -12,5 +12,7 @@ export const environment = {
   pontosNecessario: 0,
   descricaoVoucher: '',
   empresaCriadora: '',
-  meusPontos: 0
+  meusPontos: 0,
+  meusVouchers: []
+
 };

@@ -20,6 +20,7 @@ export class ClienteComponent implements OnInit {
   descricao: string
   idCliente: number = environment.id
   idVoucher: number
+  listaMeusVoucher: Voucher[] 
 
   constructor(
     private router: Router,
@@ -34,6 +35,7 @@ export class ClienteComponent implements OnInit {
   findAllVoucher(){
     this.clienteService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
+
      //  console.log(JSON.stringify(this.listaVoucher))
     })
   }
@@ -63,6 +65,7 @@ export class ClienteComponent implements OnInit {
 
   adquirirVoucher(){
     this.clienteService.putPegarVoucher(this.idCliente, this.idVoucher).subscribe(() => {
+      console.log(JSON.stringify(this.idVoucher))
       alert('Voucher adquirido!')
     })
   }
@@ -80,6 +83,13 @@ export class ClienteComponent implements OnInit {
       this.empresaComVoucher = resp
 
     })
+  }
+
+  
+  idNumeroVoucher(event: any){
+
+    this.idVoucher = event.target.value
+
   }
 
 }
