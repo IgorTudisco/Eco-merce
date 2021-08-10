@@ -47,8 +47,6 @@
                 </div>
                 <!--/Corpo do modal-->
 
-                <!-- (keyup)='addPonto(IdCliente, pontosCliente)'-->
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success my-2" name="modelAddPonto" (click)="addPonto()"
                         routerLink="['/cooperativa']" data-bs-dismiss="modal">Atribuir</button>
@@ -56,53 +54,61 @@
             </div>
         </div>
     </div>
-    <!--/Modal Config -->
 
+    <!-- Atualizar coop -->
 
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#config">Atualizar a Coop</button>
 
-    <!-- <div class="tab-content mt-5" id="nav-tabContent">
-
-    <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-    </div>
-</div>
-
-<div class="row d-flex justify-content-center mt-5 mb-5">
-    <div class="col-md-4">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Digite um endereço para pesquisar"
-                [(ngModel)]='endereco' (keyup)='findByEnderecoCliente(endereco)'>
-        </div>
-    </div>
-</div>
-<div>
-
-</div>
-
-
-<div class="modal fade " id="pontos" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
-                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <!--Corpo do modal-->
-
-    <!-- <div class="modal-body">
-
-                <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-                    <label class="mb-1" for="titulo">Quantidade de pontos</label>
-                    <input type="text" class="form-control" id="titulo">
+    <div class="modal fade " id="config" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-            </div> -->
-    <!--/Corpo do modal-->
+                <!--Corpo do modal-->
 
-    <!-- <div class="modal-footer">
-                <button type="button" class="btn btn-success my-2">Atribuir</button>
+                <div class="modal-body">
+
+                    <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                        <label class="mb-1" for="titulo">Nome</label>
+                        <input [(ngModel)]='cooperativa.nome' type="text" class="form-control" id="nome" name="nome"
+                            placeholder="Nome">
+                    </div>
+
+                    <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                        <label class="mb-1" for="titulo">E-mail</label>
+                        <input [(ngModel)]='cooperativa.email' type="text" class="form-control" id="email" name="email"
+                            placeholder="E-mail">
+                    </div>
+
+                    <label for="senha">Senha</label>
+                    <input (input)='AtualizaCoopSenha($event)' class="form-control" type="password" name="senha"
+                        id="senha" placeholder="Sua senha">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmSenha">Confirmar Senha</label>
+                    <input [(ngModel)]='cooperativa.senha' class="form-control" type="password" name="confirmSenha"
+                        id="confirmSenha" placeholder="Confirme sua senha">
+
+                    <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+                        <label class="mb-1" for="titulo">Endereço</label>
+                        <input [(ngModel)]='cooperativa.endereco' type="text" class="form-control" id="endereco"
+                            name="endereco" placeholder="Endereço">
+                    </div>
+
+                </div>
+                <!--/Corpo do modal-->
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger my-2" [routerLink]="['/home']"
+                        data-bs-dismiss="modal">Deletar</button>
+                    <button type="button" class="btn btn-success my-2" [routerLink]="['/home']"
+                        routerLinkActive="router-link-active" (click)="atualizarCooperativa()">Salvar</button>
+                </div>
             </div>
         </div>
     </div>
-</div> -->
-    <!--/Modal Config -->
+    <!--/Modal Config-->

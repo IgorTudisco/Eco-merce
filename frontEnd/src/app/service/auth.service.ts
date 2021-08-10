@@ -34,7 +34,7 @@ export class AuthService {
       ok = true
     }
 
-    console.log(this.tokenValido)
+   // console.log(this.tokenValido)
     return ok
   }
 }

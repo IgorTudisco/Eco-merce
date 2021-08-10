@@ -18,6 +18,12 @@ export class CooperativaComponent implements OnInit {
   idCoop: number = environment.id
   idCliente: number 
   pontosCliente: number
+  coopSenha: string // o usuário coop digita a senha.
+  idCooperativa =  environment.id
+  cpfCooperativa = environment.cpf
+  tipoCooperativa = environment.tipo
+
+
 //  clienteJoel: Usuario = new Usuario()
 
   constructor(
@@ -44,13 +50,13 @@ export class CooperativaComponent implements OnInit {
     this.cooperativaService.getByEnderecoCliente(endereco).subscribe((resp: Usuario[]) => {
 
       this.listaCliente = resp
-      console.log(JSON.stringify(this.listaCliente))
+   //   console.log(JSON.stringify(this.listaCliente))
     })
   }
 
   addPonto() {
-    console.log(JSON.stringify(this.idCliente))
-    console.log(JSON.stringify(this.idCoop))
+   // console.log(JSON.stringify(this.idCliente))
+  //  console.log(JSON.stringify(this.idCoop))
     //console.log(JSON.stringify(this.pontosCliente))
    // this.clienteJoel.id_usuario = this.idCliente
      this.cooperativaService.putAddPontuacao(this.idCliente, this.idCoop, this.pontosCliente).subscribe(() => {
@@ -61,19 +67,6 @@ export class CooperativaComponent implements OnInit {
 
   }
 
-  atualizarEmpresa(empresa: Usuario){
-      
-    this.cooperativaService.putMudarCooperativa(empresa).subscribe((resp: Usuario) =>{
-
-      this.cooperativa=resp
-      alert('Dados atualizados com sucesso!')
-
-      this.router.navigate(['/cooperativa'])
-
-    })
-  }
-
-
   idClienteJoel(event: any){
 
     this.idCliente = event.target.value
@@ -83,6 +76,44 @@ export class CooperativaComponent implements OnInit {
   idPontosGui(event: any){
 
     this.pontosCliente = event.target.value
+
+  }
+
+  
+  atualizarCooperativa(){
+
+    console.log(this.coopSenha)
+
+    if(this.coopSenha != this.cooperativa.senha){
+        
+      alert('A senhas estão incorretas.')
+
+    } else {
+
+      this.cooperativa.id_usuario = this.idCooperativa
+      this.cooperativa.cpf = this.cpfCooperativa
+      this.cooperativa.tipo = this.tipoCooperativa
+
+      this.cooperativaService.putMudarCooperativa(this.cooperativa).subscribe((resp: Usuario) =>{
+  
+        this.cooperativa=resp
+
+        alert('Usuário atualizado com sucesso, faça o login novamente.')
+         
+        // environment.token = ''
+        // environment.nome = ''
+        // environment.id = 0
+
+        this.router.navigate(['/home'])
+  
+      })
+    }
+
+  }
+
+  AtualizaCoopSenha(event: any){
+
+    this.coopSenha = event.target.value
 
   }
 
