@@ -22,58 +22,58 @@ export class EmpresaService {
   postVoucher(id: number, voucher:Voucher): Observable<Voucher>{ // ok
     
     return this.http.post<Voucher>(`
-    https://backgrupoigor.herokuapp.com/usuario/empresa/${id}/criar`,voucher, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/empresa/${id}/criar`,voucher, this.token)
   }
 
   deleteByIdEmpresa(idEmpresa: number): Observable<Usuario>{ // ok 
     return this.http.delete<Usuario>(`
-    https://backgrupoigor.herokuapp.com/usuario/id_delete/${idEmpresa}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/id_delete/${idEmpresa}`, this.token)
   }
 
   deleteByIdVoucher(idVoucher: number): Observable<Voucher>{ // ok
     return this.http.delete<Voucher>(`
-    https://backgrupoigor.herokuapp.com/voucher/id_delete/${idVoucher}`, this.token)
+    https://ecomerceappbr.herokuapp.com/voucher/id_delete/${idVoucher}`, this.token)
   }
 
   putVoucher(voucher: Voucher): Observable<Voucher>{ // ok
     return this.http.put<Voucher>(`
-    https://backgrupoigor.herokuapp.com/voucher/`,voucher, this.token)
+    https://ecomerceappbr.herokuapp.com/voucher/`,voucher, this.token)
   }
 
   putMudarEmpresa(usuario: Usuario): Observable<Usuario>{ // ok 
     return this.http.put<Usuario>(`
-    https://backgrupoigor.herokuapp.com/usuario/mudar`,usuario, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/mudar`,usuario, this.token)
   }
 
   getAllVoucher(): Observable<Voucher[]>{ // ok
   //  console.log(this.tok)
     return this.http.get<Voucher[]>(`
-    https://backgrupoigor.herokuapp.com/voucher`, this.token)
+    https://ecomerceappbr.herokuapp.com/voucher`, this.token)
   }
 
   getByIdVoucher(idVoucher: number): Observable<Voucher>{ // ok
     return this.http.get<Voucher>(`
-    https://backgrupoigor.herokuapp.com/voucher/id/${idVoucher}`, this.token)
+    https://ecomerceappbr.herokuapp.com/voucher/id/${idVoucher}`, this.token)
   }
 
   getByDescricao(descricao: string): Observable<Voucher[]>{ // ok
     return this.http.get<Voucher[]>(`
-    https://backgrupoigor.herokuapp.com/voucher/descricao/${descricao}`, this.token)
+    https://ecomerceappbr.herokuapp.com/voucher/descricao/${descricao}`, this.token)
   }
 
   getAllCliente():Observable<Usuario[]>{ // ok
     return this.http.get<Usuario[]>(`
-    https://backgrupoigor.herokuapp.com/usuario`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario`, this.token)
   }
 
   getByIdCliente(idCliente: number): Observable<Usuario>{ // ok
     return this.http.get<Usuario>(`
-    https://backgrupoigor.herokuapp.com/usuario/id/${idCliente}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/id/${idCliente}`, this.token)
   }
 
   getByEmail(email: string): Observable<Usuario>{ // ok
     return this.http.get<Usuario>(`
-    https://backgrupoigor.herokuapp.com/usuario/email/${email}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/email/${email}`, this.token)
   }
 
 }

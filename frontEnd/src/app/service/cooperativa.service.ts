@@ -20,28 +20,28 @@ export class CooperativaService {
 
   getByIdCliente(id: number): Observable<Usuario> { // ok
     return this.http.get<Usuario>(`
-    https://backgrupoigor.herokuapp.com/usuario/id/${id}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/id/${id}`, this.token)
 
   }
 
   getByEnderecoCliente(endereco: string): Observable<Usuario[]> { // OK
     return this.http.get<Usuario[]>(`
-    https://backgrupoigor.herokuapp.com/usuario/endereco/${endereco}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/endereco/${endereco}`, this.token)
 
   }
 
   putAddPontuacao(idCliente: number, idCooperativa: number, valor: number) { // ok
-    return this.http.put(`https://backgrupoigor.herokuapp.com/usuario/cliente/${idCliente}/cooperativa/${idCooperativa}/valor/${valor}`, this.token)
+    return this.http.put(`https://ecomerceappbr.herokuapp.com/usuario/cliente/${idCliente}/cooperativa/${idCooperativa}/valor/${valor}`, this.token)
   }
 
   putMudarCooperativa(usuario: Usuario): Observable<Usuario> { // ok
     return this.http.put<Usuario>(`
-    https://backgrupoigor.herokuapp.com/usuario/mudar`, usuario, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/mudar`, usuario, this.token)
   }
 
   deleteByIdCooperativa(id: number) { // ok
     return this.http.delete(`
-    https://backgrupoigor.herokuapp.com/usuario/id_delete/${id}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/id_delete/${id}`, this.token)
   }
 
 }
