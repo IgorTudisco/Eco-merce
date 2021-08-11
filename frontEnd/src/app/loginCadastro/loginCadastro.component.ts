@@ -5,6 +5,7 @@ import { Usuario } from '../model/Usuario';
 import { UsuarioCadastroDTO } from '../model/UsuarioCadastroDTO';
 import { UsuarioLoginDTO } from '../model/UsuarioLoginDTO';
 import { AuthService } from '../service/auth.service';
+import { UtilsService } from '../service/utils.service';
 
 @Component({
   selector: 'app-loginCadastro',
@@ -26,7 +27,8 @@ export class LoginCadastroComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private utilsService: UtilsService
   ) { }
 
   ngOnInit() {
@@ -42,6 +44,7 @@ export class LoginCadastroComponent implements OnInit {
       environment.email = this.usuarioLoginDTO.email
       environment.nome = this.usuarioLoginDTO.nome
       environment.id = this.usuarioLoginDTO.id
+      this.utilsService.setLocalStorage('id', this.usuarioLoginDTO.id)
       environment.token = this.usuarioLoginDTO.token
       environment.endereco = this.usuarioLoginDTO.endereco
       environment.tipo = this.usuarioLoginDTO.tipo

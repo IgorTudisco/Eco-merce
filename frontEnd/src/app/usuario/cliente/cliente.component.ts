@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
 import { Voucher } from 'src/app/model/Voucher';
 import { ClienteService } from 'src/app/service/cliente.service';
+import { UtilsService } from 'src/app/service/utils.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -31,11 +32,13 @@ export class ClienteComponent implements OnInit {
   constructor(
     private router: Router,
     private clienteService: ClienteService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private utilsService: UtilsService
   ) { }
 
   ngOnInit(){
-    this.idCliente = environment.id
+
+    this.utilsService.getLocalStorage('id')
     this.findAllVoucher()   
 
   }
@@ -44,19 +47,7 @@ export class ClienteComponent implements OnInit {
     this.clienteService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
 
-     //  console.log(JSON.stringify(this.listaVoucher))
-
-      this.cliente.meusVouchers.filter((x) => {
-
-        this.id_voucher = x.id_voucher
-        this.empresaParceira = x.empresaParceira
-        this.descricaoVoucher = x.descricaoVoucher
-        this.produto = x.produto
-        this.pontosNecessario = x.pontosNecessario
-        this.listaMeusVoucher = x.usuariosComVoucher
-
-
-      })
+     //  console.log(JSON.stringify(this.listaVoucher))    
 
     })
   }
@@ -84,11 +75,12 @@ export class ClienteComponent implements OnInit {
     })
   }
 
-  adquirirVoucher(){   
-
+  adquirirVoucher(){  
     this.clienteService.putPegarVoucher(this.idCliente, this.idVoucher).subscribe(() => {
+     
     //  console.log(JSON.stringify(this.idVoucher))
       alert('Voucher adquirido!')
+      this.findAllVoucher()
     })
   }
 
