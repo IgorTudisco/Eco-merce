@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
 import { CooperativaService } from 'src/app/service/cooperativa.service';
+import { UtilsService } from 'src/app/service/utils.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -19,7 +20,7 @@ export class CooperativaComponent implements OnInit {
   idCliente: number 
   pontosCliente: number
   coopSenha: string // o usuário coop digita a senha.
-  idCooperativa =  environment.id
+  idCooperativa: number
   cpfCooperativa = environment.cpf
   tipoCooperativa = environment.tipo
 
@@ -29,13 +30,12 @@ export class CooperativaComponent implements OnInit {
   constructor(
     private router: Router,
     private cooperativaService: CooperativaService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private utilsService: UtilsService
   ) { }
 
   ngOnInit() {
-   
-
-
+    this.idCooperativa = this.utilsService.getLocalStorage('idCooperativa')
   }
 
   findByIdCliente(idCliente: number){

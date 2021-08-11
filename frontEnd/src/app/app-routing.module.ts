@@ -82,8 +82,6 @@ const routes: Routes = [
   component: VoucherDetailsComponent
 }
 
-
-
 ];
 
 @NgModule({

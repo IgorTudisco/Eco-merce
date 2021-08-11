@@ -32,13 +32,13 @@
         </div>
       </div>-->
 
-      <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center">
 
-        <div class="col-10">
+          <div class="col-10">
 
-          <h1 class="text-center mb-3">Criar Voucher</h1>
+            <h1 class="text-center mb-3">Criar Voucher</h1>
 
-          <!--    <div class="form-group pt-3">
+            <!--    <div class="form-group pt-3">
             <label class="pb-3" for="nome">Nome da empresa</label>
 
            [(ngModel)]='usuario.email' pega o dado digitado pelo usuário e manda para a class
@@ -47,183 +47,189 @@
               placeholder="digite o seu nome">
         </div>-->
 
-          <div class="form-group pt-3">
-            <label class="pb-3" for="usuario">Pontos necessários para obter o voucher</label>
-            <input [(ngModel)]='voucher.pontosNecessario' class="form-control" type="text" name="Pontos" id="Pontos"
-              placeholder="digite a pontuação">
-          </div>
+            <div class="form-group pt-3">
+              <label class="pb-3" for="usuario">Pontos necessários para obter o voucher</label>
+              <input [(ngModel)]='voucher.pontosNecessario' class="form-control" type="text" name="Pontos" id="Pontos"
+                placeholder="digite a pontuação">
+            </div>
 
-          <div class="form-group pt-3">
-            <label class="pb-3" for="endereco">Descrição Voucher</label>
-            <input [(ngModel)]='voucher.descricaoVoucher' class="form-control" type="text" name="descricao"
-              id="descricao" placeholder="digite a descricao">
-          </div>
+            <div class="form-group pt-3">
+              <label class="pb-3" for="endereco">Descrição Voucher</label>
+              <input [(ngModel)]='voucher.descricaoVoucher' class="form-control" type="text" name="descricao"
+                id="descricao" placeholder="digite a descricao">
+            </div>
 
-          <div class="form-group pt-3">
-            <label class="pb-3" for="cpf">Produto</label>
-            <input [(ngModel)]='voucher.produto' class="form-control" type="text" name="produto" id="produto"
-              placeholder="digite o produto">
-          </div>
+            <div class="form-group pt-3">
+              <label class="pb-3" for="cpf">Produto</label>
+              <input [(ngModel)]='voucher.produto' class="form-control" type="text" name="produto" id="produto"
+                placeholder="digite o produto">
+            </div>
 
-          <div class="d-flex justify-content-center py-3">
-            <button class="btn btn-danger temporizador mx-lg-3" type="submit" routerLink="/cliente">
-              Cancelar
-            </button>
-            <button class="btn btn-success temporizador mx-lg-3" type="submit" (click)='criarVoucher()'>
-              Cadastrar
-            </button>
-          </div>
+            <div class="d-flex justify-content-center py-3">
+              <button class="btn btn-danger temporizador mx-lg-3" type="submit" routerLink="/cliente">
+                Cancelar
+              </button>
+              <button class="btn btn-success temporizador mx-lg-3" type="submit" (click)='criarVoucher()'>
+                Cadastrar
+              </button>
+            </div>
 
-          <hr class="mt-5 mb-5">
-          <!--/cadastro-->
+            <hr class="mt-5 mb-5">
+            <!--/cadastro-->
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-12 d-flex justify-content-center">
-      <h2>Todos os seus vouchers</h2>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-12 d-flex justify-content-center">
+        <h2>Todos os seus vouchers</h2>
+      </div>
     </div>
+
+    <div class="row mt-3 mb-5 d-flex justify-content-center">
+
+      <div class="col-md-6">
+
+        <!--Table-->
+        <table class="table table-striped table-hover my-5">
+          <thead>
+            <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
+            <tr>
+              <th scope="col" class="text-lg-center">Pontos necessários</th>
+              <th scope="col" class="text-lg-center">Descrições</th>
+              <th scope="col" class="text-lg-center">Descrições</th>
+            </tr>
+          </thead>
+          <tbody class="my-5">
+            <ng-container *ngFor='let item of listaVoucher'>
+
+              <div *ngIf="voucher.empresaParceira == nomeEmpresa">
+                <tr>
+
+                  <th scope="row" class="text-lg-center">{{item.pontosNecessario}}</th>
+                  <td class="text-lg-center">{{item.descricaoVoucher}}</td>
+                  <td class="text-lg-center">{{item.empresaCriadora.nome}}</td>
+                  <td class="d-flex justify-content-center">
+
+
+
+                    <!--
+                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
+                 a nossa rota e pegar o id no item que está nessa linha.
+              -->
+                    <button class="btn btn-info mr-3" [routerLink]="['/voucher-details', voucher.id_voucher]">ver
+                      voucher</button>
+                    <button class="btn btn-info mx-2" [routerLink]="['/empresa']"> Atualizar </button>
+                    <button class="btn btn-info mx-2" [routerLink]="['/deleteVoucher', voucher.id_voucher]"> Apagar
+                    </button>
+                  </td>
+
+                </tr>
+              </div>
+            </ng-container>
+          </tbody>
+        </table>
+        <!--/Table-->
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="row mt-3 mb-5 d-flex justify-content-center">
+  <!-------------------------------------------------------------------------------------------->
 
-    <div class="col-md-6">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-12 d-flex justify-content-center">
+        <h2>Todos os seus Cliente</h2>
+      </div>
+    </div>
 
-      <!--Table-->
-      <table class="table table-striped table-hover my-5">
-        <thead>
-          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
-          <tr>
-            <th scope="col" class="text-lg-center">Pontos necessários</th>
-            <th scope="col" class="text-lg-center">Descrições</th>
-            <th scope="col" class="text-lg-center">Descrições</th>
-          </tr>
-        </thead>
-        <tbody *ngFor='let item of listaVoucher' class="my-5">
+    <div class="row mt-3 mb-5 d-flex justify-content-center">
 
-          <div *ngIf="voucher.empresaParceira == nomeEmpresa">
+      <div class="col-md-6">
+
+        <!--Table-->
+        <table class="table table-striped table-hover my-5">
+          <thead>
+            <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
             <tr>
-
-              <th scope="row" class="text-lg-center">{{item.pontosNecessario}}</th>
-              <td class="text-lg-center">{{item.descricaoVoucher}}</td>
-              <td class="text-lg-center">{{item.empresaCriadora.nome}}</td>
-              <td class="d-flex justify-content-center">
-
-
+              <th scope="col" class="text-lg-center">Nome</th>
+              <th scope="col" class="text-lg-center">email</th>
+            </tr>
+          </thead>
+          <tbody class="my-5">
+            <ng-container *ngFor='let item of voucher.usuariosComVoucher'>
+              <tr>
+                <!--*ngIf="item.voucher.empresaParceira == empresa.nome"-->
+                <!-- <div *ngIf="item.meusVouchersCliente != null"> -->
+                <th scope="row" class="text-lg-center">{{item.nome}}</th>
+                <td class="text-lg-center">{{item.email}}</td>
+                <td class="d-flex justify-content-center">
+                </td>
+                <!-- </div> -->
 
                 <!--
                 Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
                  a nossa rota e pegar o id no item que está nessa linha.
               -->
-                <button class="btn btn-info mr-3" [routerLink]="['/voucher-details', voucher.id_voucher]">ver
-                  voucher</button>
-                <button class="btn btn-info mx-2" [routerLink]="['/empresa']"> Atualizar </button>
-                <button class="btn btn-info mx-2" [routerLink]="['/deleteVoucher', voucher.id_voucher]"> Apagar </button>
-              </td>
 
-            </tr>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        <!--/Table-->
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal fade " id="config" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
+          <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!--Corpo do modal-->
+
+        <div class="modal-body">
+
+          <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+            <label class="mb-1" for="titulo1">Nome</label>
+            <input type="text" class="form-control" id="titulo1" placeholder="Nome" [(ngModel)]='cliente.nome'>
           </div>
-        </tbody>
-      </table>
-      <!--/Table-->
 
-    </div>
+          <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+            <label class="mb-1" for="titulo2">E-mail</label>
+            <input type="text" class="form-control" id="titulo2" placeholder="E-mail" [(ngModel)]='cliente.email'>
+          </div>
 
-  </div>
+          <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+            <label class="mb-1" for="titulo3">Senha atual</label>
+            <input type="text" class="form-control" id="titulo3" placeholder="Senha atual">
+          </div>
 
-</div>
+          <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+            <label class="mb-1" for="titulo4">Nova senha</label>
+            <input type="text" class="form-control" id="titulo4" placeholder="Nova senha">
+          </div>
 
-<!-------------------------------------------------------------------------------------------->
+          <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+            <label class="mb-1" for="titulo5">Endereço</label>
+            <input type="text" class="form-control" id="titulo5" placeholder="Endereço">
+          </div>
 
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-12 d-flex justify-content-center">
-      <h2>Todos os seus Cliente</h2>
-    </div>
-  </div>
-
-  <div class="row mt-3 mb-5 d-flex justify-content-center">
-
-    <div class="col-md-6">
-
-      <!--Table-->
-      <table class="table table-striped table-hover my-5">
-        <thead>
-          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
-          <tr>
-            <th scope="col" class="text-lg-center">Nome</th>
-            <th scope="col" class="text-lg-center">email</th>
-          </tr>
-        </thead>
-        <tbody class="my-5" *ngfor='let item of voucher.usuariosComVoucher'>
-          <tr *ngIf="item.voucher.empresaParceira == empresa.nome">
-            <!-- <div *ngIf="item.meusVouchersCliente != null"> -->
-            <th scope="row" class="text-lg-center">{{item.usuariosComVoucher.nome}}</th>
-            <td class="text-lg-center">{{item.usuariosComVoucher.email}}</td>
-            <td class="d-flex justify-content-center">
-            </td>
-            <!-- </div> -->
-
-            <!--
-                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
-                 a nossa rota e pegar o id no item que está nessa linha.
-              -->
-
-          </tr>
-        </tbody>
-      </table>
-      <!--/Table-->
-
-    </div>
-
-  </div>
-
-</div>
-
-<div class="modal fade " id="config" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content ">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
-        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <!--Corpo do modal-->
-
-      <div class="modal-body">
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo1">Nome</label>
-          <input type="text" class="form-control" id="titulo1" placeholder="Nome" [(ngModel)]='cliente.nome'>
         </div>
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo2">E-mail</label>
-          <input type="text" class="form-control" id="titulo2" placeholder="E-mail" [(ngModel)]='cliente.email'>
-        </div>
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo3">Senha atual</label>
-          <input type="text" class="form-control" id="titulo3" placeholder="Senha atual">
-        </div>
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo4">Nova senha</label>
-          <input type="text" class="form-control" id="titulo4" placeholder="Nova senha">
-        </div>
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo5">Endereço</label>
-          <input type="text" class="form-control" id="titulo5" placeholder="Endereço">
-        </div>
-
       </div>
     </div>
   </div>
-</div>
 
-<!--/Corpo do modal-->
+  <!--/Corpo do modal-->

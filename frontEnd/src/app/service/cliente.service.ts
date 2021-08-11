@@ -45,7 +45,7 @@ https://backgrupoigor.herokuapp.com/voucher/id/${id}`, this.token)
 
   putPegarVoucher(id_cliente: number, id_voucher: number): Observable<Voucher> { // ok
     return this.http.put<Voucher>(`
-    https://backgrupoigor.herokuapp.com/voucher/cliente/${id_cliente}/voucher/${id_voucher}`, this.token)
+    https://backgrupoigor.herokuapp.com/voucher/cliente/${id_cliente}/voucher/${id_voucher}`, null)
   }
 
   putCliente(cliente: Usuario): Observable<Usuario> { 

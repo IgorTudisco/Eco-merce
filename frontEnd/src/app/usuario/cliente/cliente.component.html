@@ -158,7 +158,7 @@
           <div>
             <label class="mb-1" for="titulo" name="titulo">Digite o Nº do
               Voucher</label>
-            <input (input)="idNumeroVoucher($event)" type="text" class="form-control" id="titulo" name="titulo">
+            <input (input)="idNumeroVoucher($event)" type="text" class="form-control" id="voucher" name="titulo">
           </div>
         </div>
 
@@ -169,7 +169,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-success my-2" name="modelAddPonto" data-bs-dismiss="modal"
-          (click)="adquirirVoucher()" routerLink="['/cliente']">Atribuir</button>
+          (click)="adquirirVoucher()">Atribuir</button>
       </div>
     </div>
   </div>
@@ -192,27 +192,27 @@
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <label class="mb-1" for="titulo">Nome</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Nome" [(ngModel)]='cliente.nome'>
+          <input type="text" class="form-control" id="nome" placeholder="Nome" [(ngModel)]='cliente.nome'>
         </div>
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <label class="mb-1" for="titulo">E-mail</label>
-          <input type="text" class="form-control" id="titulo" placeholder="E-mail" [(ngModel)]='cliente.email'>
+          <input type="text" class="form-control" id="email" placeholder="E-mail" [(ngModel)]='cliente.email'>
         </div>
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <label class="mb-1" for="titulo">Senha atual</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Senha atual">
+          <input type="text" class="form-control" id="senha" placeholder="Senha atual">
         </div>
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <label class="mb-1" for="titulo">Nova senha</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Nova senha">
+          <input type="text" class="form-control" id="novaSenha" placeholder="Nova senha">
         </div>
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <label class="mb-1" for="titulo">Endereço</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Endereço">
+          <input type="text" class="form-control" id="endereco" placeholder="Endereço">
         </div>
 
       </div>
@@ -243,12 +243,13 @@
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <label class="mb-1" for="titulo">Endereço</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Logradouro, nº - Bairro - Cep - Complemento">
+          <input type="text" class="form-control" id="logradouro"
+            placeholder="Logradouro, nº - Bairro - Cep - Complemento">
         </div>
 
         <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
           <label class="mb-1" for="titulo">O que será retirado?</label>
-          <input type="text" class="form-control" id="titulo"
+          <input type="text" class="form-control" id="retirar"
             placeholder="Descreva o tipo de resíduo. Ex: Plástico, alumínio">
         </div>
 

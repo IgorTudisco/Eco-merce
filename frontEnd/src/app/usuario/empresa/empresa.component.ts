@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
 import { Voucher } from 'src/app/model/Voucher';
 import { EmpresaService } from 'src/app/service/empresa.service';
+import { UtilsService } from 'src/app/service/utils.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -18,7 +19,7 @@ export class EmpresaComponent implements OnInit {
  empresa: Usuario = new Usuario()
  listaCliente: Usuario[]
  cliente: Usuario = new Usuario()
- id_empresa = environment.id
+ id_empresa: number
  novaEmpresa: Usuario = new Usuario()
  nomeConfirm = environment.nome
  idConfirm = environment.id
@@ -33,10 +34,14 @@ export class EmpresaComponent implements OnInit {
   constructor(
     private empresaService: EmpresaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private utilsService: UtilsService
   ) { }
 
-  ngOnInit() {    
+  ngOnInit() {
+    
+    this.id_empresa = this.utilsService.getLocalStorage('id_empresa')
+    
     //let id = this.route.snapshot.params[environment.id]
 
     // Verificando o token
