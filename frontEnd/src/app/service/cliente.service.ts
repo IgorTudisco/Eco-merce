@@ -20,46 +20,46 @@ export class ClienteService {
 
   getAllVoucher(): Observable<Voucher[]> { // ok
     return this.http.get<Voucher[]>(`
-https://backgrupoigor.herokuapp.com/voucher`, this.token)
+https://ecomerceappbr.herokuapp.com/voucher`, this.token)
   }
 
   getByIdVoucher(id: number): Observable<Voucher> { // ok
     return this.http.get<Voucher>(`
-https://backgrupoigor.herokuapp.com/voucher/id/${id}`, this.token)
+https://ecomerceappbr.herokuapp.com/voucher/id/${id}`, this.token)
   }
 
   getByDescricaoVoucher(descricao: string): Observable<Voucher[]> { // ok
     return this.http.get<Voucher[]>(`
-    https://backgrupoigor.herokuapp.com/voucher/descricao/${descricao}`, this.token)
+    https://ecomerceappbr.herokuapp.com/voucher/descricao/${descricao}`, this.token)
   }
 
   getEmpresaParceiraVoucher(empresa: string): Observable<Voucher> { // ok
     return this.http.get<Voucher>(`
-    https://backgrupoigor.herokuapp.com/voucher/empresaParceira/${empresa}`, this.token)
+    https://ecomerceappbr.herokuapp.com/voucher/empresaParceira/${empresa}`, this.token)
   }
 
   getByidEmpresa(id: number): Observable<Usuario> { // ok
     return this.http.get<Usuario>(`
-    https://backgrupoigor.herokuapp.com/usuario/id/${id}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/id/${id}`, this.token)
   }
 
   putPegarVoucher(id_cliente: number, id_voucher: number): Observable<Voucher> { // ok
     return this.http.put<Voucher>(`
-    https://backgrupoigor.herokuapp.com/voucher/cliente/${id_cliente}/voucher/${id_voucher}`, null)
+    https://ecomerceappbr.herokuapp.com/voucher/cliente/${id_cliente}/voucher/${id_voucher}`, null)
   }
 
   putCliente(cliente: Usuario): Observable<Usuario> { 
-    return this.http.put<Usuario>("https://backgrupoigor.herokuapp.com/usuario/mudar",cliente,this.token)
+    return this.http.put<Usuario>("https://ecomerceappbr.herokuapp.com/usuario/mudar",cliente,this.token)
   }
 
   deleteById(id: number) { // ok
     return this.http.delete(`
-    https://backgrupoigor.herokuapp.com/usuario/id_delete/${id}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/id_delete/${id}`, this.token)
   }
 
   removerVoucher(id: number) { // ok
     return this.http.delete(`
-    https://backgrupoigor.herokuapp.com/usuario/delete/voucher/${id}`, this.token)
+    https://ecomerceappbr.herokuapp.com/usuario/delete/voucher/${id}`, this.token)
   }
 
 }

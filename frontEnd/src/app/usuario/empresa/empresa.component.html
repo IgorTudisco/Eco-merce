@@ -163,22 +163,25 @@
             </tr>
           </thead>
           <tbody class="my-5">
-            <ng-container *ngFor='let item of voucher.usuariosComVoucher'>
+            <ng-container *ngFor='let voucher of cliente.vouchersEmpresa'>
               <tr>
                 <!--*ngIf="item.voucher.empresaParceira == empresa.nome"-->
                 <!-- <div *ngIf="item.meusVouchersCliente != null"> -->
-                <th scope="row" class="text-lg-center">{{item.nome}}</th>
-                <td class="text-lg-center">{{item.email}}</td>
-                <td class="d-flex justify-content-center">
-                </td>
+                <!--<th scope="row" class="text-lg-center">{{item.nome}}</th>
+                  <td class="text-lg-center">{{item.email}}</td>
+                  <td class="d-flex justify-content-center">
+                  </td>-->
                 <!-- </div> -->
-
-                <!--
-                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
-                 a nossa rota e pegar o id no item que está nessa linha.
-              -->
-
+                <td>{{voucher.empresaParceira}}</td>
               </tr>
+              <tr *ngFor='let usuario of voucher.usuariosComVoucher'>
+                <td>{{usuario.nome}}</td>
+              </tr>
+              <!--
+                  Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
+                  a nossa rota e pegar o id no item que está nessa linha.
+                -->
+
             </ng-container>
           </tbody>
         </table>

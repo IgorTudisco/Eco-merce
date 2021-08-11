@@ -26,10 +26,11 @@ export class EmpresaComponent implements OnInit {
  enderecoConfirm = environment.id
  cpgConfirm = environment.cpf
  tipoConfirm = environment.tipo
- idVoucher = environment.id
+ idVoucher = 25
  nomeEmpresa =  environment.nome 
  descricao: string
  email: string
+ //listaAllVoucher: Usuario[]
 
   constructor(
     private empresaService: EmpresaService,
@@ -57,6 +58,7 @@ export class EmpresaComponent implements OnInit {
     this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
+    this.findByIdCliente(environment.id)
 
     this.voucher.usuariosComVoucher
   }
@@ -99,6 +101,10 @@ export class EmpresaComponent implements OnInit {
   findAllVoucher(){ // ok
     this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
+      /*this.listaVoucher.forEach((x) => {
+        return x.usuariosComVoucher
+      })
+      console.log(this.listaVoucher)*/
    //  console.log(JSON.stringify(this.listaVoucher))
     })
   }
@@ -132,6 +138,7 @@ export class EmpresaComponent implements OnInit {
     this.empresaService.getByIdCliente(idCliente).subscribe((resp: Usuario) => {
 
       this.cliente = resp
+      console.log(this.cliente)
 
     //  console.log(JSON.stringify(this.voucher.empresaParceira == this.empresa.nome))
 
