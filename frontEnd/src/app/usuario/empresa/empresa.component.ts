@@ -26,7 +26,7 @@ export class EmpresaComponent implements OnInit {
  enderecoConfirm = environment.id
  cpgConfirm = environment.cpf
  tipoConfirm = environment.tipo
- idVoucher = 25
+ idVoucher: number ;
  nomeEmpresa =  environment.nome 
  descricao: string
  email: string
@@ -55,7 +55,7 @@ export class EmpresaComponent implements OnInit {
  
      }
 
-    this.findByIdVoucher()
+    // this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
     this.findByIdCliente(environment.id)
@@ -81,6 +81,8 @@ export class EmpresaComponent implements OnInit {
       alert('Voucher criado!')
 
       this.voucher = new Voucher()
+
+      this.findAllVoucher()
 
     })
 
@@ -108,14 +110,14 @@ export class EmpresaComponent implements OnInit {
    //  console.log(JSON.stringify(this.listaVoucher))
     })
   }
-  
+  /*
   findByIdVoucher(){
     this.empresaService.getByIdVoucher(this.idVoucher).subscribe((resp: Voucher) => {
 
       this.voucher = resp
 
     })
-  }
+  }*/
 
   findDescricao(descricao: string){
     this.empresaService.getByDescricao(descricao).subscribe((resp: Voucher[]) => {

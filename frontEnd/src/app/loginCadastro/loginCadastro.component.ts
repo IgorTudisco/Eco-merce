@@ -45,6 +45,7 @@ export class LoginCadastroComponent implements OnInit {
       environment.nome = this.usuarioLoginDTO.nome
       environment.id = this.usuarioLoginDTO.id
       this.utilsService.setLocalStorage('id', this.usuarioLoginDTO.id)
+      this.utilsService.setLocalStorage('nome', this.usuarioLoginDTO.nome)
       environment.token = this.usuarioLoginDTO.token
       environment.endereco = this.usuarioLoginDTO.endereco
       environment.tipo = this.usuarioLoginDTO.tipo
