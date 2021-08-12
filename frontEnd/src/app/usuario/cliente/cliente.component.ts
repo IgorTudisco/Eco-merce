@@ -43,6 +43,7 @@ export class ClienteComponent implements OnInit {
     this.findAllVoucher()   
     // this.findByIdVoucher(1)
     this.idUsuario = environment.id
+    this.idCliente = this.idUsuario
 
   }
 
