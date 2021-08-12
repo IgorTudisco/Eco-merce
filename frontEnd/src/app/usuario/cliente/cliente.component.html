@@ -1,322 +1,343 @@
-<!-- Nav Bar -->
-
-<div class="container d-flex p-5 justify-content-between">
-  <div class="col-12">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top NavPadding" style="background-color: #9556BF">
-      <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png" style="width: 40px"
-          alt="Logo Eco-merce" /></a>
-      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
-      </button>
-
-      <div class="collapse navbar-collapse  d-flex justify-content-between" id="navbarSupportedContent">
-        <form class="form-inline d-flex align-items-center">
-          <div class="buttonDivE">
-            <button class="buttonIcon d-flex align-items-center justify-content-center" type="submit"
-              data-bs-toggle="modal" data-bs-target="#config"><img class="icone" src="https://i.imgur.com/CnpkYJn.png"
-                alt="Icone Configuracao">Configuração</button>
+<!--NavBar-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #9556BF;">
+  <div class="container-fluid">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png"
+                style="height: 40px" alt="Logo Eco-merce" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
           </div>
-
-          <div class="buttonDivC">
-            <button [routerLink]="['/home']" class="buttonIcon d-flex align-items-center justify-content-center"
-              type="submit"><img class="icone" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair">
-              Sair
-            </button>
+          <div class="col-md-6">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+              <form class="d-flex justify-content-right containerSeg">
+                <img class="icone" src="https://i.imgur.com/CnpkYJn.png" alt="Icone Configuracao" />
+                <button class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
+                  data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
+                <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair" />
+                <button [routerLink]="['/home']"
+                  class="buttonIcon d-flex align-items-center justify-content-center exemplo5" type="submit">
+                  Sair </button>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>
+<!--/NavBar-->
 
-
-
-<div class="row d-flex justify-content-center mt-5 mb-5">
-  <div class="col-md-4">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Digite a descrição do voucher" [(ngModel)]='descricao'
-        (keyup)='findBydescricaoVoucher(descricao)'>
+<!--Menu incial-->
+<div class="container-fluid fundo">
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="containerSeg" style="margin-top: 70px;">
+              <div class="d-flex align-content-between">
+                <img class="fotoEmpresa me-2 fotoPerfil" src="https://avatars.githubusercontent.com/u/85254821?v=4"
+                  alt="foto da Michele Diones">
+              </div>
+              <div>
+                <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Michele Diones</h1>
+                <div class="containerSeg d-flex justify-content-start" style="margin-top: 22px;">
+                  <img class="fotoEcoVoucher mx-2" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
+                  <p class="textoBranco" style="margin-bottom: 0px; margin-left: 5px;">Eco-voucher utilizados</p>
+                </div>
+                <div>
+                  <button class="efeito efeito-1" data-bs-toggle="modal" data-bs-target="#criarVoucher">Solicitar
+                    coleta</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="containerTer">
+              <img style="width: 320px; margin-top: 50px;" src="https://i.imgur.com/BgtCAB7.png" alt="caminhao"
+                id="slider">
+              <p class="textoBranco" style="margin-top: 70px;">Graças a sua contribuição já são 10T a menos de lixo no
+                mundo! ;D</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<div class="card-columns">
-  <div class="card text-center" *ngFor='let voucher of listaVoucher'>
-    <div class="card-body">
-      <h5 class="card-title m-0">{{voucher.empresaParceira}}</h5>
-      <small class="text-muted"> Pontos necessarios: {{voucher.pontosNecessario}}</small>
-      <small class="text-muted"> Descrição: {{voucher.descricaoVoucher}}</small>
-    </div>
-  </div>
-</div>
+<!--/Menu incial-->
 
-<!--Cliente-->
+<!--Título de seus vouchers -->
+<br>
+<h2 class="d-flex justify-content-center" style="color: #7b8c56;">Seus vouchers</h2>
+<div class="linha"></div>
+<br>
+<!--/Título de seus vouchers -->
 
+<br>
+
+<!-- Os seus CARDS-->
 <div class="container-fluid">
+  <div class="row d-flex justify-content-start">
 
-  <div class="row bg-secondary">
+    <!--For seus Voucher-->
 
-    <div class="cow-12 fontText">
+    <ng-container *ngFor='let item of listaMeusVoucher'>
 
-      <h1 class="fs-54 text-center"> Cliente </h1>
-      <h3 class="fs-18 text-center">Seus pontos: </h3>
-      <h4 class="fs-18 text-center">{{cliente.meusPontos}}</h4>
-      <h5 class="fs-18 text-center">Veja seus vouchers:</h5>
+      <div class="col-md-2 m-3">
+        <div class="single-box">
+          <div class="card bpi d-flex align-items-center justify-content-center">
+            <img style=" height: 150px;" src="https://i.imgur.com/ZyU8efU.png" alt="Bm">
+            <div class="descricaoVoucher">
+              <h3>{{produto}}</h3>
 
-      <div class="row d-flex justify-content-lg-center mt-4 mb-5">
-        <div class="col-md-3">
-          <!--
-            Para manter mais organizado, vamos usar o form-group, e assim ainda
-            ajudar o bootstrap a encontrar ele de forma melhor
-          -->
-          <div class="form-group">
-            <input type="text" class="form-control mb-2" id="descricao" placeholder="Pesquise por vouchers">
-
-            <div class="d-flex justify-content-lg-center ">
-              <button class="btn btn-light botaoCadastrar" (click)='findAllVoucher()'>Pesquisar</button>
+              <div class="d-flex justify-content-end" style="cursor: pointer;">
+                <u data-bs-toggle="modal" data-bs-target="#verVoucher">Saiba mais</u>
+              </div>
             </div>
-
-            <div class="d-flex justify-content-lg-center ">
-              <button class="btn btn-light botaoCadastrar" data-bs-toggle="modal" data-bs-target="#coleta">Agendar
-                coleta</button>
-            </div>
-
           </div>
         </div>
       </div>
 
-    </div>
+      <!--Modal para verVoucher-->
+
+      <div class="modal fade " id="verVoucher" tabindex="-1" aria-labelledby="tituloModalCentralizado"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content ">
+            <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898; padding-bottom: 0px;">
+              <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png"
+                alt="Burger King">
+              <div>
+                <h6 style="margin-left: 5px;" class="textoBranco">n° {{id_voucher}}</h6>
+                <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
+                  id="exampleModalLabel">
+                  {{empresaParceira}}</h3>
+              </div>
 
 
-  </div>
+              <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-</div>
+            <!--Corpo do modal-->
+            <div class="modal-body" style="background-color: #B0B898; padding-top: 0px;">
 
-
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-12 d-flex justify-content-center">
-      <h2>Todos os vouchers</h2>
-    </div>
-  </div>
-
-  <div class="row mt-3 mb-5 d-flex justify-content-center">
-
-    <div class="col-md-6">
-
-      <!--Table-->
-      <table class="table table-striped table-hover my-5">
-        <thead>
-          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
-          <tr>
-            <th scope="col" class="text-lg-center">Nº do Voucher</th>
-            <th scope="col" class="text-lg-center">Pontos necessários</th>
-            <th scope="col" class="text-lg-center">Descrições</th>
-            <th scope="col" class="text-lg-center">Empresa</th>
-          </tr>
-        </thead>
-        <tbody class="my-5">
-          <tr *ngFor="let voucher of listaVoucher">
-            <td scope="row" class="text-lg-center">{{voucher.id_voucher}}</td>
-            <td scope="row" class="text-lg-center">{{voucher.pontosNecessario}}</td>
-            <td class="text-lg-center">{{voucher.descricaoVoucher}}</td>
-            <td class="text-lg-center">{{voucher.empresaCriadora.nome}}</td>
-            <td class="d-flex justify-content-center">
-              <!--
-                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
-                 a nossa rota e pegar o id no item que está nessa linha.
-              -->
-              <button class="btn btn-info mr-3" [routerLink]="['/voucher-details', 
-              voucher.id_voucher]">ver voucher</button>
-              <button class="btn btn-info mx-2" data-bs-toggle="modal" data-bs-target="#resgatar"> Resgatar </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <!--/Table-->
-
-    </div>
-
-  </div>
-
-</div>
-<!-- modal -->
-<div class="modal fade " id="resgatar" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true"
-  name="modelAddPonto">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content ">
-      <div class="modal-header">
-
-        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <!--Corpo do modal-->
-
-      <div class="modal-body">
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <div>
-            <label class="mb-1" for="titulo" name="titulo">Digite o Nº do
-              Voucher</label>
-            <input (input)="idNumeroVoucher($event)" type="text" class="form-control" id="voucher" name="titulo">
+              <div class="form-group my-2 textoBranco">
+                <div class="containerSeg">
+                  <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
+                  <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
+                    {{produto}}
+                    <img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
+                    <div class="fontePointsH">
+                      {{pontosNecessario}} Eco-Points
+                    </div>
+                  </div>
+                </div>
+                <p style="text-align:justify; margin-top: 20px;">{{descricaoVoucher}}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-      <!--/Corpo do modal-->
 
-      <!-- (keyup)='addPonto(IdCliente, pontosCliente)'-->
+      <!--/Modal para verVoucher-->
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success my-2" name="modelAddPonto" data-bs-dismiss="modal"
-          (click)="adquirirVoucher()">Atribuir</button>
-      </div>
-    </div>
+    </ng-container>
+
+    <!--For seus Voucher-->
+
   </div>
 </div>
-<!--/Modal Config -->
-<!-- Nav Bar -->
+<!--/Os seus CARDS-->
 
-<!--Modal Config-->
-<div class="modal fade " id="config" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+<!--Título de veja os vouchers disponiveis -->
+<br>
+<h2 class="d-flex justify-content-center" style="color: #7b8c56;">Veja os vouchers disponíveis</h2>
+<div class="linha"></div>
+<br>
+<!--/Título de veja os vouchers disponiveis -->
+
+
+<!--Todos os CARDS-->
+<div class="container-fluid">
+  <div class="row d-flex justify-content-start">
+
+    <!--For todos os Voucher-->
+
+    <ng-container *ngFor='let item of listaMeusVoucher'>
+
+      <div class="col-md-2 m-3">
+        <div class="single-box">
+          <div class="card bpi d-flex align-items-center justify-content-center">
+            <img style=" height: 150px;" src="https://i.imgur.com/ZyU8efU.png" alt="Bm">
+            <div class="descricaoVoucher">
+              <h3>{{voucher.produto}}</h3>
+              <div class="d-flex justify-content-end" style="cursor: pointer;">
+                <u data-bs-toggle="modal" data-bs-target="#verVoucherAresgatar">Saiba mais</u>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Modal para verVoucherAresgatar-->
+      <div class="modal fade " id="verVoucherAresgatar" tabindex="-1" aria-labelledby="tituloModalCentralizado"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content ">
+            <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898; padding-bottom: 0px;">
+              <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png"
+                alt="Burger King">
+
+              <div>
+                <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucher.id_voucher}}</h6>
+                <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
+                  id="exampleModalLabel">
+                  {{voucher.empresaParceira}}</h3>
+
+              </div>
+
+              <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!--Corpo do modal-->
+            <div class="modal-body" style="background-color: #B0B898; padding-top: 0px;">
+
+              <div class="form-group mt-2 textoBranco">
+                <div class="containerSeg">
+                  <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
+                  <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
+                    {{voucher.produto}}
+                    <img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
+                    <div class="fontePointsH">
+                      {{voucher.pontosNecessario}} Eco-Points
+                    </div>
+                  </div>
+                </div>
+                <p style="text-align:justify; margin-top: 20px;">{{voucher.descricaoVoucher}}
+                </p>
+              </div>
+
+              <div class="containerSeg d-flex justify-content-end">
+
+                <div class="form-group mx-3">
+                  <label class="mb-1" for="idNumeroVoucher"></label>
+                  <input (input)="idNumeroVoucher($event)" style="width: 100px;" type="text" class="form-control"
+                    id="idNumeroVoucher" placeholder="ID voucher">
+                </div>
+
+                <div class="d-flex justify-content-end">
+                  <button (click)="adquirirVoucher()" class="efeito efeito-2 mt-4" style="margin: 0px;"
+                    data-bs-dismiss="modal">Resgatar voucher</button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/Modal para verVoucherAresgatar-->
+
+    </ng-container>
+
+    <!--/For todo os Voucher-->
+
+  </div>
+</div>
+<!--/Todos os CARDS-->
+
+<!--Modal para Solicitar Coleta-->
+<div class="modal fade " id="criarVoucher" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content ">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
+      <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+        <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;"
+          src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+        <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">Michele
+          Diones</h3>
         <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
       <!--Corpo do modal-->
+      <div class="modal-body" style="background-color: #B0B898;">
 
-      <div class="modal-body">
+        <div class="form-group my-2">
+          <label class="mb-1" for="titulo">Endereço</label>
+          <input type="text" class="form-control" id="digiEndereco" placeholder="Digite o produto aqui">
+        </div>
 
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
+        <div class="form-group my-2">
+          <label class="mb-1" for="texto">O que será retirado?</label>
+          <input type="text" class="form-control" id="retirada" placeholder="Digite a quantidade aqui">
+        </div>
+
+        <div class="form-group my-2">
+          <label class="mb-1" for="texto">Descrição</label>
+          <textarea class="form-control" name="texto" id="digiDescricao" rows="3" placeholder="Digite aqui"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Modal para Solicitar Coleta-->
+
+<!--Modal para Configuração-->
+<div class="modal fade " id="configuracao" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content ">
+      <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+        <img class="fotoEmpresa me-2 fotoPerfil" style="width: 100px;"
+          src="https://avatars.githubusercontent.com/u/85254821?v=4" alt="foto da Michele Diones">
+        <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">Michele
+          Diones</h3>
+        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!--Corpo do modal-->
+      <div class="modal-body" style="background-color: #B0B898;">
+
+        <div class="form-group my-2">
           <label class="mb-1" for="titulo">Nome</label>
-          <input type="text" class="form-control" id="nome" placeholder="Nome" [(ngModel)]='cliente.nome'>
+          <input type="text" class="form-control" id="nome" placeholder="Digite o produto aqui">
         </div>
 
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo">E-mail</label>
-          <input type="text" class="form-control" id="email" placeholder="E-mail" [(ngModel)]='cliente.email'>
+        <div class="form-group my-2">
+          <label class="mb-1" for="texto">E-mail</label>
+          <input type="text" class="form-control" id="email" placeholder="Digite a quantidade aqui">
         </div>
 
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo">Senha atual</label>
-          <input type="text" class="form-control" id="senha" placeholder="Senha atual">
+        <div class="form-group my-2">
+          <label class="mb-1" for="texto">Senha atual</label>
+          <input type="text" class="form-control" id="senhaAtual" placeholder="Digite a quantidade aqui">
         </div>
 
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo">Nova senha</label>
-          <input type="text" class="form-control" id="novaSenha" placeholder="Nova senha">
+        <div class="form-group my-2">
+          <label class="mb-1" for="texto">Alterar senha</label>
+          <input type="text" class="form-control" id="altSenha" placeholder="Digite a quantidade aqui">
         </div>
 
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo">Endereço</label>
-          <input type="text" class="form-control" id="endereco" placeholder="Endereço">
+        <div class="form-group my-2">
+          <label class="mb-1" for="texto">Endereço</label>
+          <input type="text" class="form-control" id="endereco" placeholder="Digite a quantidade aqui">
         </div>
 
-      </div>
-      <!--/Corpo do modal-->
+        <div class="containerSeg d-flex justify-content-end">
+          <div class="d-flex justify-content-end me-3">
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar conta</button>
+          </div>
 
-      <div class="modal-footer">
-        <button [routerLink]="['/deleteCliente', cliente.id_usuario]" type="button" class="btn btn-danger my-2"
-          data-bs-dismiss="modal">Deletar</button>
-        <button (click)="alterarCliente()" type="button" class="btn btn-success my-2">Salvar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/Modal Config-->
-
-<!--Modal Agendamento-->
-<div class="modal fade " id="coleta" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content ">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{cliente.nome}}</h5>
-        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <!--Corpo do modal-->
-
-      <div class="modal-body">
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo">Endereço</label>
-          <input type="text" class="form-control" id="logradouro"
-            placeholder="Logradouro, nº - Bairro - Cep - Complemento">
+          <div class="d-flex justify-content-end">
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Atualizar</button>
+          </div>
         </div>
-
-        <div class="form-group my-2 d-flex align-content-center justify-content-center mx-2">
-          <label class="mb-1" for="titulo">O que será retirado?</label>
-          <input type="text" class="form-control" id="retirar"
-            placeholder="Descreva o tipo de resíduo. Ex: Plástico, alumínio">
-        </div>
-
-        <div class="form-group">
-          <label for="texto">Descreva</label>
-          <textarea class="form-control" name="texto" id="texto" rows="3"
-            placeholder="Descreva a embalagem que se encontra os resíduos e a quantidade aproximadamente."></textarea>
-        </div>
-
-      </div>
-      <!--/Corpo do modal-->
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success my-2">Agendar</button>
       </div>
     </div>
   </div>
 </div>
-<!--/Modal Config-->
-
-
-<!-- Meus Vouchers -->
-
-
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-12 d-flex justify-content-center">
-      <h2>Meus Vouchers</h2>
-    </div>
-  </div>
-
-  <div class="row mt-3 mb-5 d-flex justify-content-center">
-
-    <div class="col-md-6">
-
-      <!--Table-->
-      <table class="table table-striped table-hover my-5">
-        <thead>
-          <!--Se eu apago um th e tenho que apagar um td para manter a proporção-->
-          <tr>
-            <th scope="col" class="text-lg-center">Nº do Voucher</th>
-            <th scope="col" class="text-lg-center">Pontos necessários</th>
-            <th scope="col" class="text-lg-center">Descrições</th>
-            <th scope="col" class="text-lg-center">Empresa</th>
-          </tr>
-        </thead>
-        <tbody class="my-5" *ngFor='let item of listaMeusVoucher'>
-
-          <tr>
-            <!--*ngFor="let voucher of voucher.meusVouchers"-->
-
-            <td scope="row" class="text-lg-center">{{id_voucher}}</td>
-            <td scope="row" class="text-lg-center">{{pontosNecessario}}</td>
-            <td class="text-lg-center">{{descricaoVoucher}}</td>
-            <td class="text-lg-center">{{empresaParceira}}</td>
-            <td class="d-flex justify-content-center"></td>
-
-            <!--
-                Passamos o [routerLink]="['/tema-edit', item.id]" para direcionar para
-                 a nossa rota e pegar o id no item que está nessa linha.
-              -->
-          </tr>
-
-        </tbody>
-      </table>
-      <!--/Table-->
-
-    </div>
-
-  </div>
+<!--/Modal para Configuração-->

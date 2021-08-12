@@ -44,8 +44,6 @@
   /* border-style: hidden hidden solid hidden;
   border-color: green;
   border-width: 5px; */
-  
-  
 }
 
 .imgBody {
@@ -57,13 +55,10 @@
 
 .linha {
   border-bottom: 4px solid green;
-
 }
 
-.textVoucher{
+.textVoucher {
   text-align: center;
   font-size: 20px;
   font-weight: bolder;
-
 }
-

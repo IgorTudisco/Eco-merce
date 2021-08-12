@@ -58,7 +58,7 @@ export class EmpresaComponent implements OnInit {
     // this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
-    this.findByIdCliente(environment.id)
+   // this.findByIdCliente(environment.id)
 
     this.voucher.usuariosComVoucher
   }

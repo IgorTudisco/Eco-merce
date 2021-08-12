@@ -24,6 +24,10 @@ export class LoginCadastroComponent implements OnInit {
 
   tipoUsuarioEscolha: string
 
+  giro: boolean
+
+  cpf: string = "12345678910"
+
   constructor(
     private authService: AuthService,
     private router: Router, 
@@ -90,6 +94,7 @@ export class LoginCadastroComponent implements OnInit {
   cadastrar() {
 
     this.usuarioCadastrarDTO.tipo = this.tipoUsuarioEscolha
+    this.usuarioCadastrarDTO.cpf = this.cpf
 
     if (this.usuarioCadastrarDTO.senha != this.confirmeSenha) {
 
@@ -109,4 +114,9 @@ export class LoginCadastroComponent implements OnInit {
     }
 
   }
+
+  girar(){
+    this.giro = !this.giro
+  }
+
 }
