@@ -91,7 +91,7 @@ As ferramentas utilizadas na construção do projeto foram:
 
 Você pode conferir todo o projeto nos seguintes links:
 
-<img align="center" alt="logo-Heroku" height="30" width="90px" src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"> --> https://ecomercegenbr.herokuapp.com/swagger-ui<br>
+<img align="center" alt="logo-Heroku" height="30" width="90px" src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"> --> https://ecomerceappbr.herokuapp.com/<br>
 
 <img align="center" alt="logo-Trello" height="30" width="90px" src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white"> --> https://trello.com/b/ETIyfBTC/projeto-integrador<br>
 
