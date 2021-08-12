@@ -367,8 +367,8 @@ form.formCadastro {
   }
 
   .container:before {
-    width: 1500px;
-    height: 1500px;
+    width: 2000px;
+    height: 2000px;
     transform: translateX(-50%);
     left: 30%;
     bottom: 68%;
