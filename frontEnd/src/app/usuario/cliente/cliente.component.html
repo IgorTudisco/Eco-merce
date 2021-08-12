@@ -86,6 +86,26 @@
 
     <!--For seus Voucher-->
 
+    <div class="" *ngFor="let voucher of listaVoucher">
+<div *ngIf="voucher.empresaCriadora.id_usuario == idUsuario">
+
+  <div class="single-box  flex-wrap">
+    <div class="card bpi d-flex align-items-center justify-content-center">
+      <img style=" height: 150px;" src="https://i.imgur.com/ZyU8efU.png" alt="Bm">
+      <div class="descricaoVoucher">
+        <h3></h3>
+        <div class="d-flex justify-content-end" style="cursor: pointer;">
+          <!-- <u data-bs-toggle="modal" data-bs-target="#verVoucherAresgatar" (click)="pegaId(voucher.id_voucher)">Saiba mais</u> -->
+        </div>
+      </div>
+    </div>
+ 
+
+</div>
+     
+     
+    </div>
+
     <ng-container *ngFor='let item of listaMeusVoucher'>
 
       <div class="col-md-2 m-3">
@@ -167,84 +187,28 @@
 <div class="container-fluid">
   <div class="row d-flex justify-content-start">
 
+    
+
     <!--For todos os Voucher-->
 
-    <ng-container *ngFor='let item of listaMeusVoucher'>
+    <div class="" *ngFor="let voucher of listaVoucher">
 
-      <div class="col-md-2 m-3">
-        <div class="single-box">
+     
+        <div class="single-box  flex-wrap">
           <div class="card bpi d-flex align-items-center justify-content-center">
             <img style=" height: 150px;" src="https://i.imgur.com/ZyU8efU.png" alt="Bm">
             <div class="descricaoVoucher">
-              <h3>{{voucher.produto}}</h3>
+              <h3></h3>
               <div class="d-flex justify-content-end" style="cursor: pointer;">
-                <u data-bs-toggle="modal" data-bs-target="#verVoucherAresgatar">Saiba mais</u>
+                <u data-bs-toggle="modal" data-bs-target="#verVoucherAresgatar" (click)="pegaId(voucher.id_voucher)">Saiba mais</u>
               </div>
             </div>
           </div>
-        </div>
+       
       </div>
 
-      <!--Modal para verVoucherAresgatar-->
-      <div class="modal fade " id="verVoucherAresgatar" tabindex="-1" aria-labelledby="tituloModalCentralizado"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content ">
-            <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898; padding-bottom: 0px;">
-              <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png"
-                alt="Burger King">
-
-              <div>
-                <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucher.id_voucher}}</h6>
-                <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
-                  id="exampleModalLabel">
-                  {{voucher.empresaParceira}}</h3>
-
-              </div>
-
-              <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <!--Corpo do modal-->
-            <div class="modal-body" style="background-color: #B0B898; padding-top: 0px;">
-
-              <div class="form-group mt-2 textoBranco">
-                <div class="containerSeg">
-                  <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
-                  <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
-                    {{voucher.produto}}
-                    <img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
-                    <div class="fontePointsH">
-                      {{voucher.pontosNecessario}} Eco-Points
-                    </div>
-                  </div>
-                </div>
-                <p style="text-align:justify; margin-top: 20px;">{{voucher.descricaoVoucher}}
-                </p>
-              </div>
-
-              <div class="containerSeg d-flex justify-content-end">
-
-                <div class="form-group mx-3">
-                  <label class="mb-1" for="idNumeroVoucher"></label>
-                  <input (input)="idNumeroVoucher($event)" style="width: 100px;" type="text" class="form-control"
-                    id="idNumeroVoucher" placeholder="ID voucher">
-                </div>
-
-                <div class="d-flex justify-content-end">
-                  <button (click)="adquirirVoucher()" class="efeito efeito-2 mt-4" style="margin: 0px;"
-                    data-bs-dismiss="modal">Resgatar voucher</button>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--/Modal para verVoucherAresgatar-->
-
-    </ng-container>
+     
+    </div>
 
     <!--/For todo os Voucher-->
 
@@ -341,3 +305,62 @@
   </div>
 </div>
 <!--/Modal para Configuração-->
+
+ <!--Modal para verVoucherAresgatar-->
+ <div class="modal fade " id="verVoucherAresgatar" tabindex="-1" aria-labelledby="tituloModalCentralizado"
+ aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+   <div class="modal-content ">
+     <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898; padding-bottom: 0px;">
+       <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png"
+         alt="Burger King">
+
+       <div>
+         <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucher.id_voucher}}</h6>
+         <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
+           id="exampleModalLabel">
+         </h3>
+
+       </div>
+
+       <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+
+     <!--Corpo do modal-->
+     <div class="modal-body" style="background-color: #B0B898; padding-top: 0px;">
+
+       <div class="form-group mt-2 textoBranco">
+         <div class="containerSeg">
+           <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
+           <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
+
+             <img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
+             <div class="fontePointsH">
+
+             </div>
+           </div>
+         </div>
+         <p style="text-align:justify; margin-top: 20px;">
+         </p>
+       </div>
+
+       <div class="containerSeg d-flex justify-content-end">
+
+         <div class="form-group mx-3">
+           <label class="mb-1" for="idNumeroVoucher"></label>
+           <input (input)="idNumeroVoucher($event)" style="width: 100px;" type="text" class="form-control"
+             id="idNumeroVoucher" placeholder="ID voucher">
+         </div>
+
+         <div class="d-flex justify-content-end">
+           <button (click)="adquirirVoucher()" class="efeito efeito-2 mt-4" style="margin: 0px;"
+             data-bs-dismiss="modal">Resgatar voucher</button>
+         </div>
+
+       </div>
+
+     </div>
+   </div>
+ </div>
+</div>
+<!--/Modal para verVoucherAresgatar-->

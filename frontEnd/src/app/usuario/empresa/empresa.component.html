@@ -91,7 +91,7 @@
 
       <!--If voucher da Empresa-->
 
-      <ng-container *ngIf="item.empresaCriadora.nome == nomeEmpresa">
+      <ng-container *ngIf="item.empresaCriadora.id_usuario == idUsuario">
 
         <div class="col-md-2 m-3">
           <div class="single-box">
@@ -103,6 +103,7 @@
                     src="https://i.imgur.com/YAmuuG3.png" alt="Icone Editar">
                 </div>
                 <h3>{{item.empresaCriadora.nome}}</h3>
+                <h3>{{item.empresaCriadora.id_usuario}}</h3>
 
                 <div class="d-flex justify-content-end" style="cursor: pointer;">
                   <u data-bs-toggle="modal" data-bs-target="#verVoucher">Saiba mais</u>

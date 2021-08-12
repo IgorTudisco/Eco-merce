@@ -19,7 +19,8 @@ export class ClienteComponent implements OnInit {
   delOk: boolean = false
   empresaComVoucher: Voucher
   descricao: string
-  idCliente: number  
+  idCliente: number
+  idUsuario: number  
   idVoucher: number
   listaMeusVoucher: Usuario[]
   empresaParceira: string
@@ -37,9 +38,11 @@ export class ClienteComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-
+  
     this.utilsService.getLocalStorage('id')
     this.findAllVoucher()   
+    // this.findByIdVoucher(1)
+    this.idUsuario = environment.id
 
   }
 
@@ -57,6 +60,12 @@ export class ClienteComponent implements OnInit {
       this.voucher = resp
      //  console.log(JSON.stringify(this.listaVoucher))
     })
+  }
+
+  pegaId(id: number){
+    this.idVoucher = id;
+    
+    this.findByIdVoucher(this.idVoucher)
   }
 
   findBydescricaoVoucher(descricao: string){
