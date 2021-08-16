@@ -24,7 +24,6 @@ export class EmpresaComponent implements OnInit {
  nomeConfirm = environment.nome
  idConfirm = environment.id
  enderecoConfirm = environment.id
- cpgConfirm = environment.cpf
  tipoConfirm = environment.tipo
  idVoucher: number ;
  nomeEmpresa =  environment.nome 

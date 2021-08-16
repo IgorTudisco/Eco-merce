@@ -22,10 +22,6 @@ public class UsuarioCadastroDTO {
 	@NotBlank
 	private String endereco;
 	
-	@NotBlank
-	private String cpf;
-
-
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
 
@@ -59,14 +55,6 @@ public class UsuarioCadastroDTO {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	public TipoUsuario getTipo() {

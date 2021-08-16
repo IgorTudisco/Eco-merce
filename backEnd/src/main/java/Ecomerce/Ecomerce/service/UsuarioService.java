@@ -135,7 +135,6 @@ public class UsuarioService {
 				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 				String senhaCriptografada = encoder.encode(mudarUsuario.getSenha());
 
-				usuarioExistente.setCpf(mudarUsuario.getCpf());
 				usuarioExistente.setEmail(mudarUsuario.getEmail());
 				usuarioExistente.setNome(mudarUsuario.getNome());
 				usuarioExistente.setEndereco(mudarUsuario.getEndereco());
