@@ -21,7 +21,6 @@ export class CooperativaComponent implements OnInit {
   pontosCliente: number
   coopSenha: string // o usuário coop digita a senha.
   idCooperativa: number
-  cpfCooperativa = environment.cpf
   tipoCooperativa = environment.tipo
 
 
@@ -91,7 +90,6 @@ export class CooperativaComponent implements OnInit {
     } else {
 
       this.cooperativa.id_usuario = this.idCooperativa
-      this.cooperativa.cpf = this.cpfCooperativa
       this.cooperativa.tipo = this.tipoCooperativa
 
       this.cooperativaService.putMudarCooperativa(this.cooperativa).subscribe((resp: Usuario) =>{

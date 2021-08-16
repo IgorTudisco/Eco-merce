@@ -49,13 +49,13 @@ public class Voucher {
 	private String produto;
 
 	@ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({ "senha", "vouchersEmpresa", "meusVouchers", "cpf", "meusPontos", "tipo",
+	@JsonIgnoreProperties({ "senha", "vouchersEmpresa", "meusVouchers", "meusPontos", "tipo",
 			"data" })
 	private Usuario empresaCriadora;
 
 	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinTable(name = "juncaoVU", joinColumns = @JoinColumn(name = "fk_voucher"), inverseJoinColumns = @JoinColumn(name = "fk_usuario"))
-	@JsonIgnoreProperties({ "meusVouchers", "vouchersEmpresa", "id_usuario", "senha", "cpf", "tipo" })
+	@JsonIgnoreProperties({ "meusVouchers", "vouchersEmpresa", "id_usuario", "senha", "tipo" })
 	private List<Usuario> usuariosComVoucher = new ArrayList<>();
 
 	@Temporal(TemporalType.TIMESTAMP)

@@ -51,21 +51,17 @@ public class Usuario {
 	@Size(min = 10, max = 255)
 	private String endereco;
 
-	@NotEmpty(message = "CPF/CNPJ não pode ser nulo e nem vazio (11)")
-	@Size(min = 11, max = 14)
-	private String cpf;
-
 	private Long meusPontos;
 
 	@NotNull(message = "Necessario COOPERATIVA, CLIENTE ou EMPRESA")
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipo;
 
-	@OneToMany(mappedBy = "empresaCriadora", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "empresaCriadora")
 	@JsonIgnoreProperties({ "id_voucher", "empresaCriadora" })
 	private List<Voucher> vouchersEmpresa = new ArrayList<>();
 
-	@ManyToMany(mappedBy = "usuariosComVoucher", cascade = CascadeType.REMOVE)
+	@ManyToMany(mappedBy = "usuariosComVoucher")
 	@JsonIgnoreProperties({ "usuariosComVoucher" })
 	private List<Voucher> meusVouchers = new ArrayList<>();
 
@@ -82,7 +78,6 @@ public class Usuario {
 		this.email = novoUsuario.getEmail();
 		this.senha = novoUsuario.getSenha();
 		this.endereco = novoUsuario.getEndereco();
-		this.cpf = novoUsuario.getCpf();
 		this.tipo = novoUsuario.getTipo();
 	}
 
@@ -124,14 +119,6 @@ public class Usuario {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	public Long getMeusPontos() {
