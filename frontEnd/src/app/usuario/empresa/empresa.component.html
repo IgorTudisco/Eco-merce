@@ -20,8 +20,8 @@
                 <button class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
                   data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
                 <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair" />
-                <button [routerLink]="['/home']"
-                  class="buttonIcon d-flex align-items-center justify-content-center exemplo5" type="submit">
+                <button (click)="sair()" class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
+                  type="submit">
                   Sair </button>
               </form>
             </div>
@@ -89,11 +89,11 @@
 
     <!--/For Voucher da Empresa-->
 
-    <ng-container *ngFor='let item of listaVoucher'>
+    <ng-container *ngFor='let voucher of listaVoucher'>
 
       <!--If voucher da Empresa-->
 
-      <ng-container *ngIf="item.empresaCriadora.id_usuario == idUsuario">
+      <ng-container *ngIf="voucher.empresaCriadora.id_usuario == idUsuario">
 
         <div class="col-md-2 m-3">
           <div class="single-box">
@@ -104,7 +104,7 @@
                   <img data-bs-toggle="modal" data-bs-target="#editarVoucher" style=" height: 20px; cursor: pointer;"
                     src="https://i.imgur.com/YAmuuG3.png" alt="Icone Editar">
                 </div>
-                <h3>{{item.produto}}</h3>
+                <h3>{{voucher.produto}}</h3>
 
                 <div class="d-flex justify-content-end" style="cursor: pointer;">
                   <u data-bs-toggle="modal" data-bs-target="#verVoucher">Saiba mais</u>
@@ -124,10 +124,10 @@
                 <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png"
                   alt="Burger King">
                 <div>
-                  <h6 style="margin-left: 5px;" class="textoBranco">n° {{item.id_voucher}}</h6>
+                  <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucher.id_voucher}}</h6>
                   <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
                     id="exampleModalLabel">
-                    {{item.produto}}</h3>
+                    {{voucher.produto}}</h3>
                 </div>
                 <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
@@ -139,14 +139,14 @@
                   <div class="containerSeg">
                     <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
                     <div class="containerSeg d-flex justify-content-center align-items-start"
-                      style="margin-left: 30px;">{{item.produto}}<img class="mx-2" style="width: 40px;"
+                      style="margin-left: 30px;">{{voucher.produto}}<img class="mx-2" style="width: 40px;"
                         src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
                       <div class="fontePointsH">
-                        {{item.pontosNecessario}} Eco-Points
+                        {{voucher.pontosNecessario}} Eco-Points
                       </div>
                     </div>
                   </div>
-                  <p style="text-align:justify">{{item.descricaoVoucher}}</p>
+                  <p style="text-align:justify">{{voucher.descricaoVoucher}}</p>
                 </div>
               </div>
             </div>

@@ -22,7 +22,7 @@
                                     data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
                                 <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png"
                                     alt="Icone Sair" />
-                                <button [routerLink]="['/home']"
+                                <button (click)="sair()"
                                     class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
                                     type="submit">
                                     Sair </button>

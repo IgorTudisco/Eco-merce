@@ -15,16 +15,16 @@ export class CooperativaComponent implements OnInit {
   cliente: Usuario
   cooperativa: Usuario = new Usuario()
   endereco: string
-  listaCliente: Usuario[] 
+  listaCliente: Usuario[]
   idCoop: number = environment.id
-  idCliente: number 
+  idCliente: number
   pontosCliente: number
   coopSenha: string // o usuário coop digita a senha.
   idCooperativa: number
   tipoCooperativa = environment.tipo
 
 
-//  clienteJoel: Usuario = new Usuario()
+  //  clienteJoel: Usuario = new Usuario()
 
   constructor(
     private router: Router,
@@ -37,7 +37,7 @@ export class CooperativaComponent implements OnInit {
     this.idCooperativa = this.utilsService.getLocalStorage('idCooperativa')
   }
 
-  findByIdCliente(idCliente: number){
+  findByIdCliente(idCliente: number) {
     this.cooperativaService.getByIdCliente(idCliente).subscribe((resp: Usuario) => {
 
       this.cliente = resp
@@ -45,46 +45,46 @@ export class CooperativaComponent implements OnInit {
     })
   }
 
-  findByEnderecoCliente(endereco: string){
+  findByEnderecoCliente(endereco: string) {
     this.cooperativaService.getByEnderecoCliente(endereco).subscribe((resp: Usuario[]) => {
 
       this.listaCliente = resp
-   //   console.log(JSON.stringify(this.listaCliente))
+      //   console.log(JSON.stringify(this.listaCliente))
     })
   }
 
   addPonto() {
-   // console.log(JSON.stringify(this.idCliente))
-  //  console.log(JSON.stringify(this.idCoop))
+    // console.log(JSON.stringify(this.idCliente))
+    //  console.log(JSON.stringify(this.idCoop))
     //console.log(JSON.stringify(this.pontosCliente))
-   // this.clienteJoel.id_usuario = this.idCliente
-     this.cooperativaService.putAddPontuacao(this.idCliente, this.idCoop, this.pontosCliente).subscribe(() => {
-     
+    // this.clienteJoel.id_usuario = this.idCliente
+    this.cooperativaService.putAddPontuacao(this.idCliente, this.idCoop, this.pontosCliente).subscribe(() => {
+
       alert('Pontos adicionados com sucesso!')
 
     })
 
   }
 
-  idClienteJoel(event: any){
+  idClienteJoel(event: any) {
 
     this.idCliente = event.target.value
 
   }
 
-  idPontosGui(event: any){
+  idPontosGui(event: any) {
 
     this.pontosCliente = event.target.value
 
   }
 
-  
-  atualizarCooperativa(){
+
+  atualizarCooperativa() {
 
     console.log(this.coopSenha)
 
-    if(this.coopSenha != this.cooperativa.senha){
-        
+    if (this.coopSenha != this.cooperativa.senha) {
+
       alert('A senhas estão incorretas.')
 
     } else {
@@ -92,26 +92,33 @@ export class CooperativaComponent implements OnInit {
       this.cooperativa.id_usuario = this.idCooperativa
       this.cooperativa.tipo = this.tipoCooperativa
 
-      this.cooperativaService.putMudarCooperativa(this.cooperativa).subscribe((resp: Usuario) =>{
-  
-        this.cooperativa=resp
+      this.cooperativaService.putMudarCooperativa(this.cooperativa).subscribe((resp: Usuario) => {
+
+        this.cooperativa = resp
 
         alert('Usuário atualizado com sucesso, faça o login novamente.')
-         
+
         // environment.token = ''
         // environment.nome = ''
         // environment.id = 0
 
         this.router.navigate(['/home'])
-  
+
       })
     }
 
   }
 
-  AtualizaCoopSenha(event: any){
+  AtualizaCoopSenha(event: any) {
 
     this.coopSenha = event.target.value
+
+  }
+
+  sair() {
+
+    this.router.navigate(['/home'])
+    localStorage.clear()
 
   }
 
