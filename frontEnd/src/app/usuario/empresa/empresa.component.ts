@@ -14,23 +14,23 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class EmpresaComponent implements OnInit {
 
- voucher: Voucher = new Voucher()
- listaVoucher: Voucher[]
- empresa: Usuario = new Usuario()
- listaCliente: Usuario[]
- cliente: Usuario = new Usuario()
- id_empresa: number
- novaEmpresa: Usuario = new Usuario()
- nomeConfirm = environment.nome
- idConfirm = environment.id
- enderecoConfirm = environment.id
- tipoConfirm = environment.tipo
- idVoucher: number ;
- nomeEmpresa =  environment.nome 
- descricao: string
- email: string
- idUsuario : number;
- //listaAllVoucher: Usuario[]
+  voucher: Voucher = new Voucher()
+  listaVoucher: Voucher[]
+  empresa: Usuario = new Usuario()
+  listaCliente: Usuario[]
+  cliente: Usuario = new Usuario()
+  id_empresa: number
+  novaEmpresa: Usuario = new Usuario()
+  nomeConfirm = environment.nome
+  idConfirm = environment.id
+  enderecoConfirm = environment.id
+  tipoConfirm = environment.tipo
+  idVoucher: number;
+  nomeEmpresa = environment.nome
+  descricao: string
+  email: string
+  idUsuario: number;
+  //listaAllVoucher: Usuario[]
 
   constructor(
     private empresaService: EmpresaService,
@@ -40,25 +40,25 @@ export class EmpresaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
     this.idUsuario = environment.id
     alert(this.nomeEmpresa)
     //let id = this.route.snapshot.params[environment.id]
 
     // Verificando o token
-    
-    if(environment.token == ''){
+
+    if (environment.token == '') {
 
       alert('Sua seção expirou, faça o login novamente.')
- 
-       this.router.navigate(['/home'])
- 
-     }
+
+      this.router.navigate(['/home'])
+
+    }
 
     // this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
-   // this.findByIdCliente(environment.id)
+    // this.findByIdCliente(environment.id)
 
     this.voucher.usuariosComVoucher
   }
@@ -69,15 +69,15 @@ export class EmpresaComponent implements OnInit {
     }
   }*/
 
-  criarVoucher(){ // ok
-  
+  criarVoucher() { // ok
+
     this.voucher.empresaParceira = this.nomeEmpresa
-  //  console.log(this.id_empresa)
-   // console.log(JSON.stringify(this.voucher))
-    this.empresaService.postVoucher(3,this.voucher).subscribe((resp: Voucher) =>{
-      
+    //  console.log(this.id_empresa)
+    // console.log(JSON.stringify(this.voucher))
+    this.empresaService.postVoucher(3, this.voucher).subscribe((resp: Voucher) => {
+
       this.voucher = resp
-   //   console.log(JSON.stringify(this.voucher))
+      //   console.log(JSON.stringify(this.voucher))
       alert('Voucher criado!')
 
       this.voucher = new Voucher()
@@ -88,11 +88,11 @@ export class EmpresaComponent implements OnInit {
 
   }
 
-  atualizarEmpresa(empresa: Usuario){
-      
-    this.empresaService.putMudarEmpresa(empresa).subscribe((resp: Usuario) =>{
+  atualizarEmpresa(empresa: Usuario) {
 
-      this.empresa=resp
+    this.empresaService.putMudarEmpresa(empresa).subscribe((resp: Usuario) => {
+
+      this.empresa = resp
       alert('Dados atualizados com sucesso!')
 
       this.router.navigate(['/empresa'])
@@ -100,14 +100,14 @@ export class EmpresaComponent implements OnInit {
     })
   }
 
-  findAllVoucher(){ // ok
+  findAllVoucher() { // ok
     this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
       /*this.listaVoucher.forEach((x) => {
         return x.usuariosComVoucher
       })
       console.log(this.listaVoucher)*/
-   //  console.log(JSON.stringify(this.listaVoucher))
+      //  console.log(JSON.stringify(this.listaVoucher))
     })
   }
   /*
@@ -119,7 +119,7 @@ export class EmpresaComponent implements OnInit {
     })
   }*/
 
-  findDescricao(descricao: string){
+  findDescricao(descricao: string) {
     this.empresaService.getByDescricao(descricao).subscribe((resp: Voucher[]) => {
 
       this.listaVoucher = resp
@@ -127,32 +127,39 @@ export class EmpresaComponent implements OnInit {
     })
   }
 
-  findAllCliente(){
+  findAllCliente() {
     this.empresaService.getAllCliente().subscribe((resp: Usuario[]) => {
 
       this.listaCliente = resp
-    //  console.log(JSON.stringify(this.listaCliente))
+      //  console.log(JSON.stringify(this.listaCliente))
 
     })
   }
 
-  findByIdCliente(idCliente: number){
+  findByIdCliente(idCliente: number) {
     this.empresaService.getByIdCliente(idCliente).subscribe((resp: Usuario) => {
 
       this.cliente = resp
       console.log(this.cliente)
 
-    //  console.log(JSON.stringify(this.voucher.empresaParceira == this.empresa.nome))
+      //  console.log(JSON.stringify(this.voucher.empresaParceira == this.empresa.nome))
 
     })
   }
 
-  findByEmailCliente(emailCliente: string){
+  findByEmailCliente(emailCliente: string) {
     this.empresaService.getByEmail(emailCliente).subscribe((resp: Usuario) => {
 
       this.cliente = resp
 
     })
+  }
+
+  sair() {
+
+    this.router.navigate(['/home'])
+    localStorage.clear()
+
   }
 
 }

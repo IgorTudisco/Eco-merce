@@ -20,8 +20,8 @@
                 <button class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
                   data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
                 <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair" />
-                <button [routerLink]="['/home']"
-                  class="buttonIcon d-flex align-items-center justify-content-center exemplo5" type="submit">
+                <button (click)="sair()" class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
+                  type="submit">
                   Sair </button>
               </form>
             </div>
@@ -46,10 +46,10 @@
                   alt="foto da Michele Diones">
               </div>
               <div>
-                <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">Michele Diones</h1>
+                <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">{{nome}}</h1>
                 <div class="containerSeg d-flex justify-content-start" style="margin-top: 22px;">
                   <img class="fotoEcoVoucher mx-2" src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
-                  <p class="textoBranco" style="margin-bottom: 0px; margin-left: 5px;">Eco-voucher utilizados</p>
+                  <p class="textoBranco" style="margin-bottom: 0px; margin-left: 5px;">{{ecoPoint}} Eco-Points</p>
                 </div>
                 <div>
                   <button class="efeito efeito-1" data-bs-toggle="modal" data-bs-target="#criarVoucher">Solicitar

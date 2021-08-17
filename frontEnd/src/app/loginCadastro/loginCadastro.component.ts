@@ -28,51 +28,51 @@ export class LoginCadastroComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router, 
+    private router: Router,
     private route: ActivatedRoute,
     private utilsService: UtilsService
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
-   // let id = this.route.snapshot.params[environment.id]
+    window.scroll(0, 0)
+    // let id = this.route.snapshot.params[environment.id]
   }
 
-  entrar(){
-   // console.log("login "+JSON.stringify(this.usuarioLoginDTO))
-    this.authService.entrar(this.usuarioLoginDTO).subscribe((resp:UsuarioLoginDTO) =>{
+  entrar() {
+    // console.log("login "+JSON.stringify(this.usuarioLoginDTO))
+    this.authService.entrar(this.usuarioLoginDTO).subscribe((resp: UsuarioLoginDTO) => {
       this.usuarioLoginDTO = resp
 
-      environment.email = this.usuarioLoginDTO.email
-      environment.nome = this.usuarioLoginDTO.nome
       environment.id = this.usuarioLoginDTO.id
       this.utilsService.setLocalStorage('id', this.usuarioLoginDTO.id)
+      environment.nome = this.usuarioLoginDTO.nome
       this.utilsService.setLocalStorage('nome', this.usuarioLoginDTO.nome)
       environment.token = this.usuarioLoginDTO.token
       environment.endereco = this.usuarioLoginDTO.endereco
       environment.tipo = this.usuarioLoginDTO.tipo
+      environment.email = this.usuarioLoginDTO.email
 
-     // console.log(environment.email)
-     // console.log(environment.nome)
-     // console.log(environment.id)
-     // console.log(environment.token)
-     // console.log(environment.endereco)
-     // console.log(environment.tipo)
+      // console.log(environment.email)
+      console.log(environment.nome)
+      // console.log(environment.id)
+      // console.log(environment.token)
+      // console.log(environment.endereco)
+      // console.log(environment.tipo)
 
       if (environment.tipo == "CLIENTE") {
         this.router.navigate(['/cliente'])
       } else if (environment.tipo == "EMPRESA") {
         this.router.navigate(['/empresa'])
-       // console.log(JSON.stringify(this.usuario.vouchersEmpresa))
+        // console.log(JSON.stringify(this.usuario.vouchersEmpresa))
       } else if (environment.tipo == "COOPERATIVA") {
         this.router.navigate(['/cooperativa'])
       }
 
-     // this.router.navigate(['/inicio'])
+      // this.router.navigate(['/inicio'])
 
-    },error => {
+    }, error => {
 
-      if(error.status == 500) {
+      if (error.status == 500) {
 
         alert("Usuário e senha estão incorretos.")
 
@@ -81,11 +81,11 @@ export class LoginCadastroComponent implements OnInit {
     })
   }
 
-  confirmarSenha(event:any){
+  confirmarSenha(event: any) {
     this.confirmeSenha = event.target.value
   }
 
-  tipoUsuario(event:any){
+  tipoUsuario(event: any) {
     this.tipoUsuarioEscolha = event.target.value
   }
 
@@ -102,7 +102,7 @@ export class LoginCadastroComponent implements OnInit {
       this.authService.cadastrar(this.usuarioCadastrarDTO).subscribe((resp: UsuarioCadastroDTO) => {
         this.usuarioCadastrarDTO = resp
 
-       /* this.router.navigate(['/entrar'])*/
+        /* this.router.navigate(['/entrar'])*/
 
 
         alert("Usuário cadastrado com sucesso.")
@@ -112,7 +112,7 @@ export class LoginCadastroComponent implements OnInit {
 
   }
 
-  girar(){
+  girar() {
     this.giro = !this.giro
   }
 
