@@ -22,14 +22,15 @@ export class ClienteComponent implements OnInit {
   idCliente: number
   idUsuario: number
   idVoucher: number
-  listaMeusVoucher: Usuario[]
+  listaMeusVoucher: Voucher[]
   empresaParceira: string
   id_voucher: number
   descricaoVoucher: string
   produto: string
   pontosNecessario: number
-  nome: string
+  nome: any
   ecoPoint: number
+  idClienteMeus: any
 
 
   constructor(
@@ -41,13 +42,14 @@ export class ClienteComponent implements OnInit {
 
   ngOnInit() {
 
-    this.utilsService.getLocalStorage('id')
+    this.idClienteMeus = this.utilsService.getLocalStorage('id', 'number')
+    this.nome = this.utilsService.getLocalStorage('nome', 'string')
     this.findAllVoucher()
+    this.findByIdCliente(this.idClienteMeus)
+    // this.findByEmail()
     // this.findByIdVoucher(environment.id)
     this.idUsuario = environment.id
     this.idCliente = this.idUsuario
-    this.nome = environment.nome
-    this.ecoPoint = environment.meusPontos
 
   }
 
@@ -84,7 +86,9 @@ export class ClienteComponent implements OnInit {
   findByIdCliente(id: number) {
     this.clienteService.getByidEmpresa(id).subscribe((resp: Usuario) => {
       this.cliente = resp
+      this.listaMeusVoucher = resp.meusVouchers
       this.ecoPoint = this.cliente.meusPontos
+      console.log(this.listaMeusVoucher)
     }, err => {
       console.log(`Erro cod: ${err.status}`)
     })
@@ -96,6 +100,7 @@ export class ClienteComponent implements OnInit {
       //  console.log(JSON.stringify(this.idVoucher))
       alert('Voucher adquirido!')
       this.findAllVoucher()
+      this.findByIdCliente(this.idClienteMeus)
     })
   }
 
@@ -127,7 +132,6 @@ export class ClienteComponent implements OnInit {
     localStorage.clear()
 
   }
-
 
 
 }

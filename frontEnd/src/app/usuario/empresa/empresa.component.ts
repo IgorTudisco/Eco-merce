@@ -29,7 +29,10 @@ export class EmpresaComponent implements OnInit {
   nomeEmpresa = environment.nome
   descricao: string
   email: string
-  idUsuario: number;
+  idUsuario: number | any;
+  emailEmpresa: string = environment.email
+  voucherItem: Voucher
+
   //listaAllVoucher: Usuario[]
 
   constructor(
@@ -41,7 +44,8 @@ export class EmpresaComponent implements OnInit {
 
   ngOnInit() {
 
-    this.idUsuario = environment.id
+    this.idUsuario = this.utilsService.getLocalStorage('id', 'number')
+    console.log(this.idUsuario)
     alert(this.nomeEmpresa)
     //let id = this.route.snapshot.params[environment.id]
 
@@ -58,6 +62,7 @@ export class EmpresaComponent implements OnInit {
     // this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
+    this.findByEmailEmpresa()
     // this.findByIdCliente(environment.id)
 
     this.voucher.usuariosComVoucher
@@ -74,7 +79,7 @@ export class EmpresaComponent implements OnInit {
     this.voucher.empresaParceira = this.nomeEmpresa
     //  console.log(this.id_empresa)
     // console.log(JSON.stringify(this.voucher))
-    this.empresaService.postVoucher(3, this.voucher).subscribe((resp: Voucher) => {
+    this.empresaService.postVoucher(this.id_empresa, this.voucher).subscribe((resp: Voucher) => {
 
       this.voucher = resp
       //   console.log(JSON.stringify(this.voucher))
@@ -103,11 +108,9 @@ export class EmpresaComponent implements OnInit {
   findAllVoucher() { // ok
     this.empresaService.getAllVoucher().subscribe((resp: Voucher[]) => {
       this.listaVoucher = resp
-      /*this.listaVoucher.forEach((x) => {
-        return x.usuariosComVoucher
-      })
-      console.log(this.listaVoucher)*/
-      //  console.log(JSON.stringify(this.listaVoucher))
+
+      console.log(this.listaVoucher)
+
     })
   }
   /*
@@ -146,11 +149,15 @@ export class EmpresaComponent implements OnInit {
 
     })
   }
+  //////////////////////////////////////////////////
+  findByEmailEmpresa() {
 
-  findByEmailCliente(emailCliente: string) {
-    this.empresaService.getByEmail(emailCliente).subscribe((resp: Usuario) => {
+    this.empresaService.getByEmail(this.emailEmpresa).subscribe((resp: Usuario) => {
 
-      this.cliente = resp
+      this.empresa = resp
+
+      this.id_empresa = this.empresa.id_usuario
+
 
     })
   }
@@ -161,5 +168,12 @@ export class EmpresaComponent implements OnInit {
     localStorage.clear()
 
   }
+
+  setVoucherItem(voucher: Voucher) {
+
+    this.voucherItem = voucher
+
+  }
+
 
 }

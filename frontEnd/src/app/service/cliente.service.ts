@@ -60,4 +60,11 @@ export class ClienteService {
     // ok
     return this.http.delete(`https://ecomerceappbr.herokuapp.com/usuario/delete/voucher/${id}`);
   }
+
+  getByEmail(email: string): Observable<Usuario> { // ok
+    return this.http.get<Usuario>(`https://ecomerceappbr.herokuapp.com/usuario/email/${email}`)
+  }
+
+
+
 }
