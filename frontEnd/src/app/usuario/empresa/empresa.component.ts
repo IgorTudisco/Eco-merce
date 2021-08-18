@@ -26,12 +26,13 @@ export class EmpresaComponent implements OnInit {
   enderecoConfirm = environment.id
   tipoConfirm = environment.tipo
   idVoucher: number;
-  nomeEmpresa = environment.nome
+  nomeEmpresa: any
   descricao: string
   email: string
   idUsuario: number | any;
   emailEmpresa: string = environment.email
   voucherItem: Voucher
+
 
   //listaAllVoucher: Usuario[]
 
@@ -45,8 +46,8 @@ export class EmpresaComponent implements OnInit {
   ngOnInit() {
 
     this.idUsuario = this.utilsService.getLocalStorage('id', 'number')
+    this.nomeEmpresa = this.utilsService.getLocalStorage('nome', 'string')
     console.log(this.idUsuario)
-    alert(this.nomeEmpresa)
     //let id = this.route.snapshot.params[environment.id]
 
     // Verificando o token
@@ -79,7 +80,7 @@ export class EmpresaComponent implements OnInit {
     this.voucher.empresaParceira = this.nomeEmpresa
     //  console.log(this.id_empresa)
     // console.log(JSON.stringify(this.voucher))
-    this.empresaService.postVoucher(this.id_empresa, this.voucher).subscribe((resp: Voucher) => {
+    this.empresaService.postVoucher(this.idUsuario, this.voucher).subscribe((resp: Voucher) => {
 
       this.voucher = resp
       //   console.log(JSON.stringify(this.voucher))

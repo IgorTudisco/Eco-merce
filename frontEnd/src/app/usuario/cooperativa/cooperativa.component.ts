@@ -22,7 +22,7 @@ export class CooperativaComponent implements OnInit {
   coopSenha: string // o usuário coop digita a senha.
   idCooperativa: number | any
   tipoCooperativa = environment.tipo
-
+  nomeCooperativa: any
 
   //  clienteJoel: Usuario = new Usuario()
 
@@ -35,6 +35,7 @@ export class CooperativaComponent implements OnInit {
 
   ngOnInit() {
     this.idCooperativa = this.utilsService.getLocalStorage('idCooperativa', 'number')
+    this.nomeCooperativa = this.utilsService.getLocalStorage('nome', 'string')
   }
 
   findByIdCliente(idCliente: number) {
@@ -85,7 +86,7 @@ export class CooperativaComponent implements OnInit {
 
     if (this.coopSenha != this.cooperativa.senha) {
 
-      alert('A senhas estão incorretas.')
+      alert('As senhas estão incorretas.')
 
     } else {
 
