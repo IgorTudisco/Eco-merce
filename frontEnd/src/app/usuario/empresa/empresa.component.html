@@ -107,52 +107,13 @@
                 <h3>{{voucher.produto}}</h3>
 
                 <div class="d-flex justify-content-end" style="cursor: pointer;">
-                  <u data-bs-toggle="modal" data-bs-target="#verVoucher">Saiba mais</u>
+                  <u data-bs-toggle="modal" (click)="setVoucherItem(voucher)" data-bs-target="#verVoucher">Saiba
+                    mais</u>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-        <!--Modal para verVoucher-->
-        <div class="modal fade " id="verVoucher" tabindex="-1" aria-labelledby="tituloModalCentralizado"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content ">
-              <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-                <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png"
-                  alt="Burger King">
-                <div>
-                  <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucher.id_voucher}}</h6>
-                  <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;"
-                    id="exampleModalLabel">
-                    {{voucher.produto}}</h3>
-                </div>
-                <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-
-              <!--Corpo do modal-->
-              <div class="modal-body" style="background-color: #B0B898;">
-
-                <div class="form-group my-2 textoBranco">
-                  <div class="containerSeg">
-                    <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
-                    <div class="containerSeg d-flex justify-content-center align-items-start"
-                      style="margin-left: 30px;">{{voucher.produto}}<img class="mx-2" style="width: 40px;"
-                        src="https://i.imgur.com/FoLgTfY.png" alt="ecoCoins">
-                      <div class="fontePointsH">
-                        {{voucher.pontosNecessario}} Eco-Points
-                      </div>
-                    </div>
-                  </div>
-                  <p style="text-align:justify">{{voucher.descricaoVoucher}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--/Modal para verVoucher-->
 
       </ng-container>
       <!--/If voucher da Empresa-->
@@ -203,14 +164,14 @@
       <div class="modal-body" style="background-color: #B0B898;">
 
         <div class="form-group my-2">
-          <label class="mb-1" for="titulo">Qual produto irá dar desconto?</label>
-          <input [(ngModel)]='voucher.produto' type="text" class="form-control" id="produto"
+          <label class="mb-1" for="desconto">Qual produto irá dar desconto?</label>
+          <input [(ngModel)]='voucher.produto' type="desconto" class="form-control" id="produto"
             placeholder="Digite o produto aqui">
         </div>
 
         <div class="form-group my-2">
-          <label class="mb-1" for="texto">Quantos Eco-Points de desconto?</label>
-          <input [(ngModel)]='voucher.pontosNecessario' type="text" class="form-control" id="ecoPoints"
+          <label class="mb-1" for="ecoPointsDesconto">Quantos Eco-Points de desconto?</label>
+          <input [(ngModel)]='voucher.pontosNecessario' type="text" class="form-control" id="ecoPointsDesconto"
             placeholder="Digite o número de Eco-Points">
         </div>
 
@@ -245,28 +206,28 @@
       <div class="modal-body" style="background-color: #B0B898;">
 
         <div class="form-group my-2">
-          <label class="mb-1" for="titulo">Nome</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o nome da empresa">
+          <label class="mb-1" for="nome">Nome</label>
+          <input type="text" class="form-control" id="nome" placeholder="Digite o nome da empresa">
         </div>
 
         <div class="form-group my-2">
-          <label class="mb-1" for="texto">E-mail</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o e-mail">
+          <label class="mb-1" for="email">E-mail</label>
+          <input type="text" class="form-control" id="email" placeholder="Digite o e-mail">
         </div>
 
         <div class="form-group my-2">
-          <label class="mb-1" for="texto">Senha atual</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite a sua senha aqui">
+          <label class="mb-1" for="senhaAtual">Senha atual</label>
+          <input type="text" class="form-control" id="senhaAtual" placeholder="Digite a sua senha aqui">
         </div>
 
         <div class="form-group my-2">
-          <label class="mb-1" for="texto">Alterar senha</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite a nova senha que deseja">
+          <label class="mb-1" for="atualSenha">Alterar senha</label>
+          <input type="text" class="form-control" id="atualSenha" placeholder="Digite a nova senha que deseja">
         </div>
 
         <div class="form-group my-2">
-          <label class="mb-1" for="texto">Endereço</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o endereço">
+          <label class="mb-1" for="endereco">Endereço</label>
+          <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço">
         </div>
 
         <div class="containerSeg d-flex justify-content-end">
@@ -309,18 +270,18 @@
       <div class="modal-body" style="background-color: #B0B898;">
 
         <div class="form-group my-2">
-          <label class="mb-1" for="titulo">Digite o ID do voucher</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite ID do voucher">
+          <label class="mb-1" for="voucherId">Digite o ID do voucher</label>
+          <input type="text" class="form-control" id="voucherId" placeholder="Digite ID do voucher">
         </div>
 
         <div class="form-group my-2">
-          <label class="mb-1" for="titulo">Qual produto irá dar desconto?</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o produto aqui">
+          <label class="mb-1" for="desconto">Qual produto irá dar desconto?</label>
+          <input type="text" class="form-control" id="desconto" placeholder="Digite o produto aqui">
         </div>
 
         <div class="form-group my-2">
-          <label class="mb-1" for="texto">Quantos ecoPoints de desconto?</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o número de Eco-Points">
+          <label class="mb-1" for="ecoPoints">Quantos ecoPoints de desconto?</label>
+          <input type="text" class="form-control" id="ecoPoints" placeholder="Digite o número de Eco-Points">
         </div>
 
         <div class="form-group my-2">
@@ -342,3 +303,39 @@
   </div>
 </div>
 <!--/Modal para EditarVoucher-->
+
+<!--Modal para verVoucher-->
+<div class="modal fade " id="verVoucher" tabindex="-1" aria-labelledby="tituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content ">
+      <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
+        <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png" alt="Burger King">
+        <div>
+          <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucherItem?.id_voucher}}</h6>
+          <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
+            {{voucherItem?.produto}}</h3>
+        </div>
+        <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!--Corpo do modal-->
+      <div class="modal-body" style="background-color: #B0B898;">
+
+        <div class="form-group my-2 textoBranco">
+          <div class="containerSeg">
+            <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
+            <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
+              {{voucherItem?.produto}}<img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png"
+                alt="ecoCoins">
+              <div class="fontePointsH">
+                {{voucherItem?.pontosNecessario}} Eco-Points
+              </div>
+            </div>
+          </div>
+          <p style="text-align:justify">{{voucherItem?.descricaoVoucher}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Modal para verVoucher-->

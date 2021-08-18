@@ -7,8 +7,16 @@ export class UtilsService {
 
   constructor() { }
 
-  getLocalStorage(item: string) {
-    return parseInt(localStorage.getItem(item) || '1')
+  getLocalStorage(item: string, tipo: string) {
+
+    if (tipo == 'number') {
+      return parseInt(localStorage.getItem(item) || '1')
+    } else if (tipo == 'string') {
+      return localStorage.getItem(item)
+    } else {
+      return null
+    }
+
   }
 
   setLocalStorage(item: string, value: any) {

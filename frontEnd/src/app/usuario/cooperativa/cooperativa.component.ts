@@ -20,7 +20,7 @@ export class CooperativaComponent implements OnInit {
   idCliente: number
   pontosCliente: number
   coopSenha: string // o usuário coop digita a senha.
-  idCooperativa: number
+  idCooperativa: number | any
   tipoCooperativa = environment.tipo
 
 
@@ -34,7 +34,7 @@ export class CooperativaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.idCooperativa = this.utilsService.getLocalStorage('idCooperativa')
+    this.idCooperativa = this.utilsService.getLocalStorage('idCooperativa', 'number')
   }
 
   findByIdCliente(idCliente: number) {
