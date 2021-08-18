@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 import { UsuarioCadastroDTO } from '../model/UsuarioCadastroDTO';
 import { UsuarioLoginDTO } from '../model/UsuarioLoginDTO';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { UtilsService } from '../service/utils.service';
 
@@ -30,7 +31,8 @@ export class LoginCadastroComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private utilsService: UtilsService
+    private utilsService: UtilsService,
+    private alerta: AlertasService
   ) { }
 
   ngOnInit() {
@@ -72,9 +74,9 @@ export class LoginCadastroComponent implements OnInit {
 
     }, error => {
 
-      if (error.status == 500) {
+      if (error.status == 401) {
 
-        alert("Usuário e senha estão incorretos.")
+        this.alerta.showAlertDanger("Usuário ou senha incorretos")
 
       }
 
@@ -95,7 +97,7 @@ export class LoginCadastroComponent implements OnInit {
 
     if (this.usuarioCadastrarDTO.senha != this.confirmeSenha) {
 
-      alert("As senhas estão diferentes.")
+      this.alerta.showAlertDanger("As senhas estão incorretas!")
 
     } else {
 
@@ -103,9 +105,16 @@ export class LoginCadastroComponent implements OnInit {
         this.usuarioCadastrarDTO = resp
 
         /* this.router.navigate(['/entrar'])*/
-
-
-        alert("Usuário cadastrado com sucesso.")
+        this.alerta.showAlertSuccess("Usuário cadastrado com sucesso.")
+        
+      }, erro => {
+        if (erro.status == 400) {
+          this.alerta.showAlertInfo("Email ou usuário existentes")
+        } else {
+          if (erro.status == 500) {
+            this.alerta.showAlertInfo("Por favor, preencha todos os campos")
+          }
+        }
       })
 
     }
