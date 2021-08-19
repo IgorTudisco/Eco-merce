@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <a class="navbar-brand" href="/view/index.html"><img src="https://i.imgur.com/HZCMvsB.png"
+            <a class="navbar-brand" href="/view/index.html"><img class="img-fluid" src="https://i.imgur.com/HZCMvsB.png"
                 style="height: 40px" alt="Logo Eco-merce" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -16,10 +16,11 @@
           <div class="col-md-6">
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
               <form class="d-flex justify-content-right containerSeg">
-                <img class="icone" src="https://i.imgur.com/CnpkYJn.png" alt="Icone Configuracao" />
+                <img class="icone img-fluid" src="https://i.imgur.com/CnpkYJn.png" alt="Icone Configuracao" />
                 <button class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
                   data-bs-toggle="modal" data-bs-target="#configuracao">Configuração</button>
-                <img class="icone" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png" alt="Icone Sair" />
+                <img class="icone img-fluid" style="margin-left: 10px;" src="https://i.imgur.com/oQy43dE.png"
+                  alt="Icone Sair" />
                 <button (click)="sair()" class="buttonIcon d-flex align-items-center justify-content-center exemplo5"
                   type="submit">
                   Sair </button>
@@ -42,13 +43,13 @@
           <div class="col-md-6">
             <div class="containerSeg" style="margin-top: 70px;">
               <div class="d-flex align-content-between">
-                <img class="fotoEmpresa me-2" src="https://i.imgur.com/ZyU8efU.png" alt="nomeEmpresa">
+                <img class="fotoEmpresa me-2 img-fluid" src="https://i.imgur.com/VKpcuuG.png" alt="nomeEmpresa">
               </div>
               <div>
 
                 <h1 class="textoBranco" style="margin-left: 5px; margin-bottom: 0px;">{{nomeEmpresa}}</h1>
                 <div class="containerSeg" style="margin-top: 22px;">
-                  <img class="fotoEcoVoucher" src="https://i.imgur.com/z8hz834.png" alt="TicketVoucher">
+                  <img class="fotoEcoVoucher img-fluid" src="https://i.imgur.com/z8hz834.png" alt="TicketVoucher">
                   <p class="textoBranco" style="margin-bottom: 0px; margin-left: 5px;">Eco-voucher utilizados</p>
                 </div>
                 <!--Botão criar Vouchers-->
@@ -61,8 +62,8 @@
           </div>
           <div class="col-md-6">
             <div class="containerTer">
-              <img style="width: 320px; margin-top: 50px;" src="https://i.imgur.com/BgtCAB7.png" alt="caminhao"
-                id="slider">
+              <img style="width: 320px; margin-top: 50px;" class="img-fluid" src="https://i.imgur.com/zevgW6r.png"
+                alt="caminhao" id="slider">
               <p class="textoBranco" style="margin-top: 70px;">Graças a sua contribuição já são 10T a menos de lixo no
                 mundo! ;D</p>
             </div>
@@ -98,11 +99,11 @@
         <div class="col-md-2 m-3">
           <div class="single-box">
             <div class="card bpi d-flex align-items-center justify-content-center">
-              <img style=" height: 150px;" src="https://i.imgur.com/ZyU8efU.png" alt="Bm">
+              <img style=" height: 150px;" class="img-fluid" src="https://i.imgur.com/VKpcuuG.png" alt="Bm">
               <div class="descricaoVoucher">
                 <div class="d-flex justify-content-end">
-                  <img data-bs-toggle="modal" data-bs-target="#editarVoucher" style=" height: 20px; cursor: pointer;"
-                    src="https://i.imgur.com/YAmuuG3.png" alt="Icone Editar">
+                  <img class="img-fluid" data-bs-toggle="modal" data-bs-target="#editarVoucher"
+                    style=" height: 20px; cursor: pointer;" src="https://i.imgur.com/YAmuuG3.png" alt="Icone Editar">
                 </div>
                 <h3>{{voucher.produto}}</h3>
 
@@ -132,7 +133,7 @@
                 <div class="card-body imgBody  d-flex align-items-center justify-content-center">
                   <div class=" imgCard">
                     <img data-bs-toggle="modal" data-bs-target="#criarVoucher" style="cursor: pointer;"
-                      src="https://i.imgur.com/L3LIXdS.png" class="card-img-top" alt="adicionar">
+                      src="https://i.imgur.com/L3LIXdS.png" class="card-img-top img-fluid" alt="adicionar">
                   </div>
                 </div>
               </div>
@@ -154,7 +155,8 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content ">
       <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-        <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png" alt="nomeEmpresa">
+        <img class="fotoEmpresa me-2 img-fluid" style="width: 100px;" src="https://i.imgur.com/VKpcuuG.png"
+          alt="nomeEmpresa">
         <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
           {{nomeEmpresa}}</h3>
         <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -196,7 +198,8 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content ">
       <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-        <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png" alt="nomeEmpresa">
+        <img class="fotoEmpresa me-2 img-fluid" style="width: 100px;" src="https://i.imgur.com/VKpcuuG.png"
+          alt="nomeEmpresa">
         <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
           {{nomeEmpresa}}</h3>
         <button type="button" class="btn-close my-2" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -232,11 +235,11 @@
 
         <div class="containerSeg d-flex justify-content-end">
           <div class="d-flex justify-content-end me-3">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;" aria-label="Close">Deletar conta</button>
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;" data-bs-dismiss="modal">Deletar conta</button>
           </div>
 
           <div class="d-flex justify-content-end">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;" aria-label="Close">Atualizar</button>
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;" data-bs-dismiss="modal">Atualizar</button>
           </div>
         </div>
       </div>
@@ -254,7 +257,8 @@
     <div class="modal-content ">
       <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
 
-        <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png" alt="nomeEmpresa">
+        <img class="fotoEmpresa me-2 img-fluid" style="width: 100px;" src="https://i.imgur.com/VKpcuuG.png"
+          alt="nomeEmpresa">
 
         <div>
           <h6 style="margin-left: 5px;" class="textoBranco">n° {{idUsuario}}</h6>
@@ -295,12 +299,13 @@
 
         <div class="containerSeg d-flex justify-content-end">
           <div class="d-flex justify-content-end me-3">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar
+            <button class="efeito efeito-2 mt-4" data-bs-dismiss="modal" style="margin: 0px;">Deletar
               Voucher</button>
           </div>
 
           <div class="d-flex justify-content-end">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;" (click)="atualizarVoucher()">Atualizar</button>
+            <button class="efeito efeito-2 mt-4" data-bs-dismiss="modal" style="margin: 0px;"
+              (click)="atualizarVoucher()">Atualizar</button>
           </div>
         </div>
       </div>
@@ -314,7 +319,8 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content ">
       <div class="modal-header" style="background-color: #B0B898; border-color: #B0B898;">
-        <img class="fotoEmpresa me-2" style="width: 100px;" src="https://i.imgur.com/ZyU8efU.png" alt="nomeEmpresa">
+        <img class="fotoEmpresa me-2 img-fluid" style="width: 100px;" src="https://i.imgur.com/VKpcuuG.png"
+          alt="nomeEmpresa">
         <div>
           <h6 style="margin-left: 5px;" class="textoBranco">n° {{voucherItem?.id_voucher}}</h6>
           <h3 class="modal-title textoBranco" style="margin-left: 5px; margin-bottom: 0px;" id="exampleModalLabel">
@@ -328,7 +334,7 @@
 
         <div class="form-group my-2 textoBranco">
           <div class="containerSeg">
-            <img style="width: 150px;" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
+            <img style="width: 150px;" class="img-fluid" src="https://i.imgur.com/eG7TM96.png" alt="Lanche Whopper">
             <div class="containerSeg d-flex justify-content-center align-items-start" style="margin-left: 30px;">
               {{voucherItem?.produto}}<img class="mx-2" style="width: 40px;" src="https://i.imgur.com/FoLgTfY.png"
                 alt="ecoCoins">

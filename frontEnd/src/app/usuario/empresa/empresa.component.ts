@@ -195,6 +195,7 @@ export class EmpresaComponent implements OnInit {
   atualizarVoucher() {
 
     console.log(this.voucher)
+    console.log(this.idUsuario + " id_cliente")
 
     this.empresaService.putVoucher(
       {
@@ -211,7 +212,7 @@ export class EmpresaComponent implements OnInit {
 
       this.voucherItem = resp
 
-      console.log('Voucher atualizado com sucesso!')
+      alert('Voucher atualizado com sucesso!')
       this.findAllVoucher()
 
     })

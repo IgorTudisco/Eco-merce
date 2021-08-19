@@ -91,9 +91,51 @@ export class LoginCadastroComponent implements OnInit {
     this.tipoUsuarioEscolha = event.target.value
   }
 
+  verificarDados() {
+
+    if (this.usuarioCadastrarDTO.email.indexOf('@') == -1 || this.usuarioCadastrarDTO.email.indexOf('.com') == -1) {
+
+      this.alerta.showAlertDanger("E-mail incorreto!")
+
+    } else {
+
+      if (this.usuarioCadastrarDTO.nome == null || this.usuarioCadastrarDTO.nome.length <= 2) {
+
+        this.alerta.showAlertDanger("Preencha o campo nome!")
+
+      } else {
+
+        if (this.usuarioCadastrarDTO.endereco == null || this.usuarioCadastrarDTO.endereco.length <= 5) {
+
+          this.alerta.showAlertDanger("Campo endereço inválido!")
+
+        } else {
+
+          if (this.usuarioCadastrarDTO.senha.length < 8) {
+
+            this.alerta.showAlertDanger("A senha deve possuir 8 caracteres!")
+
+          } else {
+
+            this.cadastrar()
+
+          }
+
+        }
+      }
+
+    }
+  }
+
+
+
+
+
   cadastrar() {
 
     this.usuarioCadastrarDTO.tipo = this.tipoUsuarioEscolha
+
+
 
     if (this.usuarioCadastrarDTO.senha != this.confirmeSenha) {
 
@@ -106,7 +148,7 @@ export class LoginCadastroComponent implements OnInit {
 
         /* this.router.navigate(['/entrar'])*/
         this.alerta.showAlertSuccess("Usuário cadastrado com sucesso.")
-        
+
       }, erro => {
         if (erro.status == 400) {
           this.alerta.showAlertInfo("Email ou usuário existentes")
