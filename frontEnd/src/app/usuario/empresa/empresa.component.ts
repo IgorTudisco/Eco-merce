@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { hostViewClassName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
@@ -25,13 +26,17 @@ export class EmpresaComponent implements OnInit {
   idConfirm = environment.id
   enderecoConfirm = environment.id
   tipoConfirm = environment.tipo
-  idVoucher: number;
   nomeEmpresa: any
   descricao: string
   email: string
   idUsuario: number | any;
   emailEmpresa: string = environment.email
   voucherItem: Voucher
+  delVoucherById: number
+
+  // atualizar voucher
+
+  voucherAtualizado: Voucher
 
 
   //listaAllVoucher: Usuario[]
@@ -52,18 +57,18 @@ export class EmpresaComponent implements OnInit {
 
     // Verificando o token
 
-    if (environment.token == '') {
+    // if (environment.token == '') {
 
-      alert('Sua seção expirou, faça o login novamente.')
+    //   alert('Sua seção expirou, faça o login novamente.')
 
-      this.router.navigate(['/home'])
+    //   this.router.navigate(['/home'])
 
-    }
+    // }
 
     // this.findByIdVoucher()
     this.findAllVoucher()
     this.findAllCliente()
-    this.findByEmailEmpresa()
+    // this.findByEmailEmpresa()
     // this.findByIdCliente(environment.id)
 
     this.voucher.usuariosComVoucher
@@ -173,8 +178,43 @@ export class EmpresaComponent implements OnInit {
   setVoucherItem(voucher: Voucher) {
 
     this.voucherItem = voucher
+    this.voucher = voucher
 
   }
 
+  // deletarVoucher(id: any) {
+
+  //   this.empresaService.deleteByIdVoucher(id).subscribe(() => {
+
+  //     alert('Voucher deletado com sucesso!')
+
+  //   })
+
+  // }
+
+  atualizarVoucher() {
+
+    console.log(this.voucher)
+
+    this.empresaService.putVoucher(
+      {
+        "id_voucher": this.voucher.id_voucher,
+        "empresaParceira": this.voucher.empresaParceira,
+        "pontosNecessario": this.voucher.pontosNecessario,
+        "descricaoVoucher": this.voucher.descricaoVoucher,
+        "produto": this.voucher.produto,
+        "empresaCriadora": {
+          "id_usuario": this.idUsuario
+        }
+      }
+    ).subscribe((resp: Voucher) => {
+
+      this.voucherItem = resp
+
+      console.log('Voucher atualizado com sucesso!')
+      this.findAllVoucher()
+
+    })
+  }
 
 }

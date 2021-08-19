@@ -182,7 +182,7 @@
         </div>
 
         <div class="d-flex justify-content-end">
-          <button (click)='criarVoucher()' class="efeito efeito-2 mt-4" style="margin: 0px;"
+          <button (click)="criarVoucher()" class="efeito efeito-2 mt-4" style="margin: 0px;"
             data-bs-dismiss="modal">Gerar Voucher</button>
         </div>
       </div>
@@ -232,11 +232,11 @@
 
         <div class="containerSeg d-flex justify-content-end">
           <div class="d-flex justify-content-end me-3">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar conta</button>
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;" aria-label="Close">Deletar conta</button>
           </div>
 
           <div class="d-flex justify-content-end">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Atualizar</button>
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;" aria-label="Close">Atualizar</button>
           </div>
         </div>
       </div>
@@ -269,33 +269,38 @@
       <!--Corpo do modal-->
       <div class="modal-body" style="background-color: #B0B898;">
 
-        <div class="form-group my-2">
+        <!--  <div class="form-group my-2">
           <label class="mb-1" for="voucherId">Digite o ID do voucher</label>
-          <input type="text" class="form-control" id="voucherId" placeholder="Digite ID do voucher">
-        </div>
+          <input [(ngModel)]='voucher.id_voucher' type="text" class="form-control" id="voucherId"
+            placeholder="Digite ID do voucher" name="IdvoucherNovo">
+        </div> -->
 
         <div class="form-group my-2">
           <label class="mb-1" for="desconto">Qual produto irá dar desconto?</label>
-          <input type="text" class="form-control" id="desconto" placeholder="Digite o produto aqui">
+          <input [(ngModel)]='voucher.produto' type="text" class="form-control" id="desconto"
+            placeholder="Digite o produto aqui" name="descontoNovo">
         </div>
 
         <div class="form-group my-2">
           <label class="mb-1" for="ecoPoints">Quantos ecoPoints de desconto?</label>
-          <input type="text" class="form-control" id="ecoPoints" placeholder="Digite o número de Eco-Points">
+          <input [(ngModel)]='voucher.pontosNecessario' type="text" class="form-control" id="ecoPoints"
+            placeholder="Digite o número de Eco-Points" name="ecoPointNovo">
         </div>
 
         <div class="form-group my-2">
           <label class="mb-1" for="texto">Descreva as regras de desconto </label>
-          <textarea class="form-control" name="texto" id="texto" rows="3" placeholder="Digite a descrição"></textarea>
+          <textarea [(ngModel)]='voucher.descricaoVoucher' class="form-control" name="texto" id="texto" rows="3"
+            placeholder="Digite a descrição" name="regrasNovo"></textarea>
         </div>
 
         <div class="containerSeg d-flex justify-content-end">
           <div class="d-flex justify-content-end me-3">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar voucher</button>
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Deletar
+              Voucher</button>
           </div>
 
           <div class="d-flex justify-content-end">
-            <button class="efeito efeito-2 mt-4" style="margin: 0px;">Atualizar</button>
+            <button class="efeito efeito-2 mt-4" style="margin: 0px;" (click)="atualizarVoucher()">Atualizar</button>
           </div>
         </div>
       </div>

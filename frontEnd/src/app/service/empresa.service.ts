@@ -32,8 +32,8 @@ export class EmpresaService {
     return this.http.delete<Voucher>(`https://ecomerceappbr.herokuapp.com/voucher/id_delete/${idVoucher}`)
   }
 
-  putVoucher(voucher: Voucher): Observable<Voucher> { // ok
-    return this.http.put<Voucher>(`https://ecomerceappbr.herokuapp.com/voucher/`, voucher)
+  putVoucher(voucher: any): Observable<Voucher> { // ok
+    return this.http.put<Voucher>(`https://ecomerceappbr.herokuapp.com/voucher`, voucher)
   }
 
   putMudarEmpresa(usuario: Usuario): Observable<Usuario> { // ok 
