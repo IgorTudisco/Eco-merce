@@ -36,20 +36,20 @@
 			<optional>true</optional>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 	<groupId>mysql</groupId>
 	<artifactId>mysql-connector-java</artifactId>
 	<scope>runtime</scope>
-</dependency>
+</dependency> -->
 
 		<!-- Quando for testar localmente usar o MySQL e quando for para o Heroku 
 			usar o PostgreSQL -->
 
-<!-- 	<dependency>
+	<dependency>
 		<groupId>org.postgresql</groupId>
 		<artifactId>postgresql</artifactId>
 		<version>42.2.12</version>
-	</dependency>  -->
+	</dependency> 
 
 
 		<dependency>

@@ -48,7 +48,7 @@ export class ClienteComponent implements OnInit {
     this.findByIdCliente(this.idClienteMeus)
     // this.findByEmail()
     // this.findByIdVoucher(environment.id)
-    this.idUsuario = environment.id
+    this.idUsuario = this.idClienteMeus
     this.idCliente = this.idUsuario
 
   }
