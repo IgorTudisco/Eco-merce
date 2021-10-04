@@ -95,8 +95,9 @@ Você pode conferir todo o projeto nos seguintes links:
 
 <img align="center" alt="logo-Trello" height="30" width="90px" src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white"> --> https://trello.com/b/ETIyfBTC/projeto-integrador<br>
 
-<img align="center" alt="logo-Netlify" height="30" width="90px" src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"> --> <br>
-
+<img align="center" alt="logo-Netlify" height="30" width="90px" src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"> --> 
+https://eco-merce.netlify.app/#/home
+<br>
 ##
 
 ## DESENVOLVEDORES
