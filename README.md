@@ -1,84 +1,116 @@
-# Eco-merce 
+# Eco-merce
 
-<body>
-  </br>
-     <a href = "https://ecomercegenbr.herokuapp.com/swagger-ui"/><img src="https://cdn.discordapp.com/attachments/854827881426190337/864917381112922182/LogoPng.png" target="_blank" width="100" ></a>
-     </br>
+<div>
+<img width="760 px" alt="Capa Eco-merce" src="https://i.imgur.com/tdclXNP.png">
+</div>
 
-</body>
- 
-- Projeto integrador </br>
-https://ecomercegenbr.herokuapp.com/swagger-ui
+## SOBRE O PROJETO
+
+<a href = "https://ecomercegenbr.herokuapp.com/swagger-ui"/><img src="https://i.imgur.com/Bq8zwOT.png" target="_blank" width="25"></a> Eco-merce surge como uma alternativa para atender a ODS12, estimulando a reciclagem através da contribuição de clientes em troca de descontos sobre produtos / serviços de empresas parceiras.
+
+A ideia é de que cada usuário tenha consciência sobre o impacto positivo que a reciclagem de materias nos traz, proporcionando uma forma eficaz de reduzir a quantidade de resíduos e promovendo um meio de produção sustentável.
+
+## FUNCIONALIDADES
+
+- Cadastrar novos usuários através dos seguintes dados:
+  - nome do usuário; email; senha; endereço, tipo de usuário
+- Efetuar login com chave de segurança;
+- Os seguintes métodos para cada usuário:
+
+<table>
+    <tr>
+    <td align="center">
+    Cooperativa
+    </td>
+    <td align="center">
+    Cliente
+    </td>
+    <td align="center">
+    Empresa
+    </td>
+    </tr>
+    <tr>
+      <td>
+      - Atribuir pontos aos clientes <br>
+      - Obter todos os clientes <br>
+      - Obter clientes pelo Id <br>
+      - Obter clientes pelo endereço <br>
+      - Atualizar dados da cooperativa <br>
+      - Deletar cooperativa <br>
+      </td>
+      <td>
+      - Obter todos os vouchers <br>
+      - Obter vouchers pelo Id <br>
+      - Obter vouchers pela descrição <br>
+      - Obter empresas <br>
+      - Adquirir vouchers <br>
+      - Atualizar dados do cliente <br>
+      - Deletar cliente <br>
+      </td>
+      <td>
+      - Criar vouchers <br>
+      - Atualizar vouchers <br>
+      - Deletar vouchers <br>
+      - Obter todos os vouchers <br>
+      - Obter vouchers pelo Id <br>
+      - Obter vouchers pela descrição <br>
+      - Obter todos os clientes <br>
+      - Obter os clientes pelo Id <br>
+      - Obter os clientes pelo e-mail <br>
+      - Atualizar dados da empresa <br>
+      - Deletar empresa <br>
+      </td>
+    </tr>
+  </table>
+
+## LAYOUT
+
+O layout da aplicação está disponível no Figma:<br>
+<a href="https://www.figma.com/file/EJB3Vun0wCnIR6EXMvWmap/Eco-merce?node-id=0%3A1">
+<img alt="Made by eco-merce" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
+</a>
+
+<img width="250px" alt="Made by eco-merce" src="https://i.imgur.com/YboFPhO.jpg">
+
+## TECNOLOGIAS
+
+As ferramentas utilizadas na construção do projeto foram:
+
+<div style="display: inline_block"><br>
+  <img align="center" alt="logo-Java" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-plain.svg">&nbsp
+  <img align="center" alt="logo-Mysql" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-plain.svg">&nbsp
+  <img align="center" alt="logo-Spring" height="30" width="30" src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg">&nbsp
+   <img align="center" alt="logo-Heroku" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-plain.svg">&nbsp
+  <img align="center" alt="logo-Git" height="30" width="30" src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg">&nbsp
+  <img align="center" alt="logo-HTML" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">&nbsp
+  <img align="center" alt="logo-CSS" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">&nbsp
+  <img align="center" alt="logo-Bootstrap" height="30" width="30" src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg">&nbsp
+  <img align="center" alt="logo-Angular" height="35" width="35" src="https://angular.io/assets/images/logos/angular/angular.svg">&nbsp
+  <img align="center" alt="logo-Ts" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg">
+</div><br>
+
+Você pode conferir todo o projeto nos seguintes links:
+
+<img align="center" alt="logo-Heroku" height="30" width="90px" src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"> --> https://ecomerceappbr.herokuapp.com/<br>
+
+<img align="center" alt="logo-Trello" height="30" width="90px" src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white"> --> https://trello.com/b/ETIyfBTC/projeto-integrador<br>
+
+<img align="center" alt="logo-Netlify" height="30" width="90px" src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white"> --> <br>
 
 ##
 
-- 1	O Problema Social
+## DESENVOLVEDORES
 
-ODS da turma 12 - Assegurar padrões de produção e de consumo sustentáveis.
-  <br>
-    <br>
-    
- ##
+Um grande agradecimento a este grupo incrível! =D
 
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/beatrizfreitasrodrigues/"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/50182763?v=4" width="100px;" alt=""/><br /><sub><b>Beatriz Rodrigues</b></sub></a><br /><a href="https://www.linkedin.com/in/beatrizfreitasrodrigues/" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/linkedin_black_logo_icon_147114.png" height="20" target="_blank"></a>&nbsp<a href="https://github.com/BeatrizRodrigues" target="_blank"><img src="https://image.flaticon.com/icons/png/512/25/25231.png" height="20" target="_blank"></a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/denisemignoli/"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/84384663?v=4" width="100px;" alt=""/><br /><sub><b>Denise Mignoli</b></sub></a><br /><a href="https://www.linkedin.com/in/denisemignoli/" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/linkedin_black_logo_icon_147114.png" height="20" target="_blank"></a>&nbsp<a href="https://github.com/denisemignoli" target="_blank"><img src="https://image.flaticon.com/icons/png/512/25/25231.png" height="20" target="_blank"></a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/igortudisco/"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/64790509?v=4" width="100px;" alt=""/><br /><sub><b>Igor Tudisco</b></sub></a><br /><a href="https://www.linkedin.com/in/igortudisco/" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/linkedin_black_logo_icon_147114.png" height="20" target="_blank"></a>&nbsp<a href="https://github.com/IgorTudisco" target="_blank"><img src="https://image.flaticon.com/icons/png/512/25/25231.png" height="20" target="_blank"></a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/michele-diones/"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/85254821?v=4" width="100px;" alt=""/><br /><sub><b>Michele Diones</b></sub></a><br /><a href="https://www.linkedin.com/in/michele-diones/" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/linkedin_black_logo_icon_147114.png" height="20" target="_blank"></a>&nbsp<a href="https://github.com/dionesmichele" target="_blank"><img src="https://image.flaticon.com/icons/png/512/25/25231.png" height="20" target="_blank"></a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/vinicius-g/"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/85180670?v=4" width="100px;" alt=""/><br /><sub><b>Vinicius Guimarães</b></sub></a><br /><a href="https://www.linkedin.com/in/vinicius-g/" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2428/PNG/512/linkedin_black_logo_icon_147114.png" height="20" target="_blank"></a>&nbsp<a href="https://github.com/Gesus-hub" target="_blank"><img src="https://image.flaticon.com/icons/png/512/25/25231.png" height="20" target="_blank"></a></td>   
+  </tr>
+</table>
 
-  <!--
-  O impacto e as consequências 
-Explique sobre o impacto deste problema na sociedade e as suas consequências.
-Ter uma gestão ruim de resíduos tem efeitos prejudiciais à saúde pública, pois a poluição ambiental propícia à proliferação de doenças. Além disso, a degradação ambiental gera impactos no paisagismo. Hoje em dia tem estudos que comprovam que um ambiente limpo pode reduzir a violência generalizada.
-A pavimentação dos grandes centros urbanos impede que a água entre no solo, proporcionando um escoamento que é apenas superficial, somando o descarte de lixo que acontece de forma incorreta. Os meios de escoamento são bloqueados dificultando a manutenção das bocas de lobos, bueiros e poços de visitas, assim contribuem de forma direta e indireta para ter mais enchentes e alagamentos.
-Com isso as zonas periféricas da cidade são extremamente afetadas,  famílias têm suas casas tomadas pela água e até mesmo deslizamentos que podem causar perdas inestimáveis. 
-  <br>
-    <br>
-    
- ##  -->
--	O Motivo
-
-
-Nossa ideia gerará um impacto positivo em todos os participantes, a solução é que os e-commerces disponibilizem a opção que as embalagens do produto e da caixa de entrega sejam coletadas por cooperativas de reciclagem. Com essa autorização será gerado uma rota com endereços próximos um do outro para a retirada desses resíduos recicláveis.
-Por que participar dessa iniciativa? Os e-commerces participando desta iniciativa poderão divulgar aos seus clientes que se importam com o meio ambiente.
-O incentivo para que os clientes participem é que a cada autorização de coleta gera um acúmulo de pontos que poderá ser usado como desconto em compras futuras.
-E para as cooperativas de reciclagem que se cadastrarem em nosso sistema, terá uma rota certa em sua região onde poderá coletar resíduos recicláveis e terá uma garantia diária de encontrar materiais recicláveis, pois hoje muitos deles perdem tempo com a sorte de achar um local com esse tipo de material.
-O nosso aplicativo além de tudo otimiza o tempo dos coletores proporcionando uma coleta assertiva.
-  <br>
-    <br>
-    
- ##
-    
--	Descrição do software
-
-Tivemos algumas referências na hora de escolher o tipo de negócio e vimos que tem um mundo dentro do lixo.
-Achamos uma oportunidade de aumentar a coleta das cooperativas de lixo e ainda incentivar a população a continuar a reciclar, doar e reutilizar itens cada vez mais.
-Através de cashback e de descontos em produtos das lojas parceiras.
-Vamos cadastrar os nossos clientes e parceiros no nosso banco de dados, com essas informações teremos como indicar os locais de coletas para as cooperativas aumentando assim a eficiência na coleta desses materiais.
-Ao fazer a colaboração com a nossa causa os clientes acumulam pontos que podem ser trocados por dinheiro e ou descontos em qualquer tipo de produto. 
-  <br>
-    <br>
-    
- ##
-    
-DESENVOLVEDORES
-    
-- IGOR DE ANDRADE TUDISCO
-<!--
-
-<body>
-<a><img src="https://avatars.githubusercontent.com/u/64790509?v=4" target="_blank"></a> 
-  <div>
-    <br>
-    <a href = "mailto:igorandradetudisco@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a> &ensp;
-    <a href = "mailto:igortudisco@hotmail.com"><img src="https://i.pinimg.com/originals/6e/50/1f/6e501f5add4aeff56d78208e7f0d9354.png" target="_blank" width="28" ></a> &ensp;
-    <a href="https://www.linkedin.com/in/igor-tudisco-82935770/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" sizes="0.1" target="_blank"></a>
-  </div>
-</body> -->
-
-- DENISE APARECIDA MIGNOLI
-- MICHELE DIONES PEREIRA
-- BEATRIZ RODRIGUES
-- VINICIUS GUIMARÃES
-  <br>
-    <br>
-    
- ##
-    
-- Tecnologias utilizadas
-
+##
