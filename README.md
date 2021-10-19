@@ -8,7 +8,7 @@
 
 <a href = "https://ecomercegenbr.herokuapp.com/swagger-ui"/><img src="https://i.imgur.com/Bq8zwOT.png" target="_blank" width="25"></a> Eco-merce surge como uma alternativa para atender a ODS12, estimulando a reciclagem através da contribuição de clientes em troca de descontos sobre produtos / serviços de empresas parceiras.
 
-A ideia é de que cada usuário tenha consciência sobre o impacto positivo que a reciclagem de materias nos traz, proporcionando uma forma eficaz de reduzir a quantidade de resíduos e promovendo um meio de produção sustentável.
+A ideia é de que cada usuário tenha consciência sobre o impacto positivo que a reciclagem de materiais nos traz, proporcionando uma forma eficaz de reduzir a quantidade de resíduos e promovendo um meio de produção sustentável.
 
 ## FUNCIONALIDADES
 
